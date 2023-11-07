@@ -10,6 +10,7 @@
         }
     </style>
     <body>
+        <a href="<?=url.'?controlador=producto'?>">Volver</a>
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -28,7 +29,7 @@
                     <td><?= $producto['nombre'] ?></td>
                     <td><?= $producto['descripcion'] ?></td>
                     <td><?= $producto['precio'] ?>€</td>
-                    <td><?= $producto['categoria'] ?></td>
+                    <td><?= $producto['categoria']?></td>
                     <td>
                         <form action="<?= url.'?controlador=producto&accion=modificarProducto&id=' . $producto['idProducto'] ?>" method="POST">
                             <input type="submit" value="Modificar">

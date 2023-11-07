@@ -9,8 +9,8 @@
     <meta name="author" content="Autor">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 <body>
@@ -38,7 +38,7 @@
       <!--Seccion Elementos Seleccionables-->
       <div class="row col-12 section-elements text-center d-flex align-items-center justify-content-evenly">
         <!--Elemento Carta-->
-        <a href="" class="col-6 element d-flex align-items-center">
+        <a href="<?php $url?>?controlador=producto&accion=carta" class="col-6 element d-flex align-items-center">
           <div class="col-3 element-image carta"></div>
           <div class="col-3 element-text d-flex justify-content-between">
             <div>
@@ -54,7 +54,7 @@
           </div>
         </a>
         <!--Elemento Calendario-->
-        <a href="" class="col-6 element d-flex align-items-center ">
+        <a class="col-6 element d-flex align-items-center ">
           <div class="col-3 element-image calendario"></div>
           <div class="col-3 element-text d-flex justify-content-between">
             <div>
@@ -108,6 +108,6 @@
 <footer>
 
 </footer>
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </html>

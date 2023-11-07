@@ -1,5 +1,4 @@
 <?php
-
 include_once 'modelo/obtenerProducto.php';
 class productoControlador {
     
@@ -8,14 +7,21 @@ class productoControlador {
         // Header
 
         // Main
-        include_once 'vista/carta.php';
+        include_once 'vista/home.php';
         // Footer
 
     }
     
+    public function carta() {
+        // Header
+        $productos = obtenerProducto::mostrarTodos();
+        // Main
+        include_once 'vista/carta.php';
+        // Footer
+    }
     public function mostrarProductos() {
 
-        $productos = ObtenerProducto::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
+        $productos = obtenerProducto::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
 
         include_once 'vista/mostrarProductos.php';
     }
@@ -54,7 +60,7 @@ class productoControlador {
         $imagen = $_POST['imagen'];
 
         obtenerProducto::editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen);
-        header("Location:".url.'?controlador=producto');
+        header("Location:".url.'?controlador=producto&accion=mostrarProductos');
     }
 
     public function nuevoProducto() {
@@ -71,7 +77,7 @@ class productoControlador {
         $imagen = $_POST['imagen'];
 
         obtenerProducto::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen);
-        header("Location:".url.'?controlador=producto');
+        header("Location:".url.'?controlador=producto&accion=nuevoProducto');
     }
 }
 

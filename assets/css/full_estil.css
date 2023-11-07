@@ -220,6 +220,14 @@ a {
     max-width: 1440px;
     margin: auto;
   }
+
+  .container-products {
+    display: flex;
+    justify-content: center;
+    background-color:#F3F3F3;
+    max-width: 1440px;
+    margin: auto;
+  }
   .no-margin-row {
     --bs-gutter-x: 0em;
     --bs-gutter-y: 0em;
@@ -231,14 +239,20 @@ a {
   .red-button {
     color: var(--bg-color1);
     font-weight: bold;
+    font-size: 10pt;
+    margin-bottom: 0;
   }
 
   .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: 254px;
   }
 
+  .precio {
+    margin-bottom: 0;
+  }
   .card {
     border-radius: 0px;
     border: 0px;
@@ -254,6 +268,7 @@ a {
   .card-img-top {
     border-radius: 0px;
     object-fit: cover;
+    height: 286px;
   }
 
   .category img {
@@ -261,20 +276,26 @@ a {
   }
 
   .card-title {
-    font-size:40px;
+    font-size:25pt;
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: -2;
+    margin-bottom: 0;
   }
 
   .card-text {
     color: var(--bg-color3);
-    font-size: 21.33px;
+    font-size: 12pt;
+    font-weight: 600;
+    margin-bottom: 0;
   }
 
   .category-header {
     background-color: var(--bg-color-fondo1);
     padding-left: 140px;
     padding-right: 140px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .category-line {
