@@ -8,7 +8,7 @@ class productoControlador {
         // Header
 
         // Main
-
+        include_once 'vista/carta.php';
         // Footer
 
     }

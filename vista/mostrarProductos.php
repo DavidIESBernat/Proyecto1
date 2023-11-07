@@ -24,7 +24,7 @@
             <?php foreach ($productos as $producto) { ?>
                 <tr>
                     <td><?= $producto['idProducto'] ?></td>
-                    <td><img src="imagenes/<?= $producto['imagen'] ?>"></td>
+                    <td><img src="assets/images/<?= $producto['imagen'] ?>"></td>
                     <td><?= $producto['nombre'] ?></td>
                     <td><?= $producto['descripcion'] ?></td>
                     <td><?= $producto['precio'] ?>€</td>

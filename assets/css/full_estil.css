@@ -1,0 +1,295 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: "BlantickScript";
+    src: url(../fonts/BlantickScript.ttf);
+}
+/*Variables CSS*/
+:root {
+    /* --main-bg-color: brown; */
+    --bg-color0: #ffffff;
+    --bg-color1: #e61414;
+    --bg-color2: #444444;
+    --bg-color3: #666666;
+    --bg-color4: #888888;
+    --bg-color5: #000000;
+    --bg-color-fondo1: #F3F3F3;
+    --bg-color-fondo2: #000;
+}
+
+* {
+    font-family: Source Sans Pro,sans-serif;
+}
+
+body {
+    background-color: var(--bg-color-fondo2);
+    max-width: 1440px;
+    margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+.banner-text {
+    color: var(--bg-color0);
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-size: 5.625rem;
+    line-height: .84444em;
+}
+
+.title {
+    
+    font-weight: 400;
+    letter-spacing: -2.1px;
+    text-shadow: 0 8px 0 #000;
+    color: var(--bg-color0);
+    text-transform: uppercase;
+}
+.section-banner {
+    height: 500px;
+    max-height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/twentynines.jpg');
+    background-size: cover;
+    background-position-y: 87%;
+    background-repeat: no-repeat;
+  }
+
+  .section-header {
+    height: 185px;
+    max-height: 185px;
+  }
+  .text-red {
+    color: var(--bg-color1);
+    font-weight: bolder;
+  }
+  
+  .title-section {
+    font-size: 3rem;
+    letter-spacing: -.5px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  .text-section {
+    font-size: 1.125rem;
+    line-height: 1.44444em;
+    letter-spacing: 0;
+    margin-bottom: 0;
+    color: var(--bg-color2);
+  }
+
+  .section-elements {
+    max-width: 1440px;
+    height: 540px;
+    margin: auto;
+    background-color: var(--bg-color-fondo1);
+  }
+
+  .element {
+    width: 620px;
+    height: 420px;
+    background-color: var(--bg-color0);
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carta {
+    background-image: url('../images/smash-burger.jpg');
+    background-position-x: 36%;
+  }
+
+  .calendario {
+    background-image: url('../images/calendario-laboral-2023_98.webp');
+    background-position-x: 80%;
+  }
+  .element-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 420px;
+    width: 310px;
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .element:hover {
+    cursor: pointer;
+  }
+  .element:hover .element-text {
+    background-color: var(--bg-color5);
+    color: var(--bg-color0);
+  }
+
+  .element:hover .element-title {
+    color: var(--bg-color0);
+  }
+
+  .element:hover .element-image {
+    transform: scale(1.1);
+  }
+
+  .element-text {
+    background-color: var(--bg-color0);
+    height: 420px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content:top;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease-out;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .element-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: var(--bg-color5);
+  }
+
+  .element-description {
+    padding-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bg-color3);
+  }
+
+  .button-discover {
+    color: var(--bg-color1);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding-bottom: 50px;
+  }
+  .button:hover {
+    color: var(--bg-color1);
+  }
+
+  .section-info {
+    height: 360px;
+    max-width: 1440px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .text-box{
+    width: 1000px;
+    margin-right: 50px;
+  }
+  .title-info {
+    color: var(--bg-color1);
+    font-size: 2rem;
+    line-height: 1.25em;
+    font-weight: 700;
+    letter-spacing: -.5px;
+  }
+  
+  .subtitle-info {
+    letter-spacing: 0;
+    margin-top: 30px;
+    font-weight: 600;
+    color: var(--bg-color5);
+    font-size: 1.125rem;
+    line-height: 1.4444em;
+    text-align: left;
+  }
+
+  .description-info {
+    color: var(--bg-color2);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: .875rem;
+    line-height: 1.42857em;
+    margin-bottom: 20px;
+  }
+
+  /* CSS PROPIO DE CARTA.HTML*/
+
+  .container-categories {
+    display: flex;
+    background-color:#F3F3F3;
+    max-width: 1440px;
+    margin: auto;
+  }
+  .no-margin-row {
+    --bs-gutter-x: 0em;
+    --bs-gutter-y: 0em;
+  }
+  .category {
+    width: 360px;
+    height: 540px;
+  }
+  .red-button {
+    color: var(--bg-color1);
+    font-weight: bold;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card {
+    border-radius: 0px;
+    border: 0px;
+    min-width: 360;
+    margin: 20px;
+  }
+
+  .card:hover {
+    background-color: var(--bg-color5);
+    color: var(--bg-color0);
+    transition: background-color 0.3s ease-in-out;
+  }
+  .card-img-top {
+    border-radius: 0px;
+    object-fit: cover;
+  }
+
+  .category img {
+    height: 286px;
+  }
+
+  .card-title {
+    font-size:40px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .card-text {
+    color: var(--bg-color3);
+    font-size: 21.33px;
+  }
+
+  .category-header {
+    background-color: var(--bg-color-fondo1);
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+
+  .category-line {
+    height: 2px;
+    width: auto;
+    background-color: var(--bg-color5);
+  }
+
+  .category-title {
+    margin-left: 20px;
+  }
+
+/*Media query*/
+@media only screen and (max-width: 600px) {
+    /* body {
+      background-color: lightblue;
+    } */
+}
