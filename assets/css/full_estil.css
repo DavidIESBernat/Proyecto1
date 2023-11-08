@@ -143,9 +143,9 @@ a {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 50px;
-    transition: background-color 0.3s ease, color 0.3s ease-out;
     overflow: hidden;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease-out;
   }
 
   .element-title {
@@ -332,10 +332,11 @@ a {
     background-repeat: no-repeat;
     height: 286px;
     width: 360px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    
   }
   .card:hover .product-image {
-    transform: scale(1.1,1.1);
+    transform: scale(1.1);
     object-fit: cover;
   }
 
