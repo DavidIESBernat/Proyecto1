@@ -32,8 +32,8 @@
                 <div class="category-line"></div>
             </div>
             <!--Categoria Hamburguesa-->
-            <a href="#hamburguesas" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/smash-burger.jpg" class="card-img-top" alt="Hamburguesa">
+            <a href="#hamburguesas" class="col-4 card category">
+                <div class="product-image" style="background-image:url(assets/images/smash-burger.jpg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">HAMBURGUESAS</h5>
@@ -41,12 +41,13 @@
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
             <!--Categoria Pizza-->
-            <a href="#pizzas" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/PIZZA.jpeg" class="card-img-top" alt="Pizza">
+            <a href="#pizzas" class="col-4 card category">
+                <div class="product-image" style="background-image:url(assets/images/pizza.jpeg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">PIZZAS</h5>
@@ -54,12 +55,13 @@
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
             <!--Categoria Pasta-->
-            <a href="#pasta" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/pasta.jpg" class="card-img-top" alt="Pasta">
+            <a href="#pasta" class="col-4 card category">
+                <div class="product-image" style="background-image:url(assets/images/pasta.jpg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">PASTA</h5>
@@ -67,12 +69,13 @@
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
             <!--Categoria Ensaladas-->
-            <a href="#ensaladas" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/ENSALADA 2.jpg" class="card-img-top" alt="Ensalada">
+            <a href="#ensaladas" class="col-4 card category">
+            <div class="product-image" style="background-image:url(assets/images/ensalada_2.jpg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">ENSALADAS</h5>
@@ -80,12 +83,13 @@
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
             <!--Categoria Bebidas-->
-            <a href="#bebidas" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/bebida.jpg" class="card-img-top" alt="Bebida">
+            <a href="#bebidas" class="col-4 card category">
+                <div class="product-image" style="background-image:url(assets/images/bebida.jpg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">BEBIDAS</h5>
@@ -93,19 +97,21 @@
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
             <!--Categoria Postres-->
-            <a href="#postres" class="col-4 card category" style="width: 360px">
-                <img src="assets/images/FLAN.jpg" class="card-img-top" alt="Postre">
+            <a href="#postres" class="col-4 card category">
+                <div class="product-image" style="background-image:url(assets/images/flan.jpg)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">POSTRES</h5>
                         <p class="card-text">Descubre nuestra amplia variedad de postres dulces y salados</p>
                     </div>
                     <div class="card-body-bottom">
-                        <p class="red-button">VER MÁS</p>
+                        <p class="red-button">VER MÁS </p>
+                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
             </a>
@@ -117,22 +123,23 @@
                 <h1 class="category-title">Hamburguesas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="hamburguesas" class="d-flex justify-content-center">
+            <div id="hamburguesas" class="row no-margin-row d-flex justify-content-center">
             <?php foreach ($productos as $producto) { 
                 if($producto['categoria'] == "Hamburguesa") {?>
-                    <div class="col-4 card category" style="width: 360px">
-                            <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                            <div class="card-body">
-                                <div class="card-body-top">
-                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
-                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                </div>
-                                <div class="card-body-bottom align-items-bottom">
-                                    <p class="red-button">AÑADIR AL CARRITO</p>
-                                </div>
-                            </div>
+                <div class="col-4 card category">
+                    <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                    <div class="card-body section-text">
+                        <div class="card-body-top">
+                            <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                            <p class="precio"><?= $producto['precio'] ?>€</p>
+                            <p class="card-text"><?= $producto['descripcion'] ?></p>
                         </div>
+                        <div class="card-body-bottom align-items-bottom">
+                            <p class="red-button">AÑADIR AL CARRITO</p>
+                            <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
+                        </div>
+                    </div>
+                </div>
                 <?php }
             } ?>
             </div>
@@ -141,22 +148,23 @@
                 <h1 class="category-title">Pizzas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="pizzas" class="d-flex justify-content-center">
+            <div id="pizzas" class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Pizza") {?>
-                        <div class="col-4 card category" style="width: 360px">
-                                <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                                <div class="card-body">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= $producto['precio'] ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                    </div>
-                                    <div class="card-body-bottom">
-                                        <p class="red-button">AÑADIR AL CARRITO</p>
-                                    </div>
+                        <div class="col-4 card category">
+                            <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                </div>
+                                <div class="card-body-bottom">
+                                    <p class="red-button">AÑADIR AL CARRITO</p>
+                                    <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                                 </div>
                             </div>
+                        </div>
                     <?php }
                 } ?>
             </div>
@@ -165,22 +173,23 @@
                 <h1 class="category-title">Pasta</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="pasta" class="d-flex justify-content-center">
+            <div id="pasta" class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Pasta") {?>
-                        <div class="col-4 card category" style="width: 360px">
-                                <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                                <div class="card-body">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= $producto['precio'] ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                    </div>
-                                    <div class="card-body-bottom">
-                                        <p class="red-button">AÑADIR AL CARRITO</p>
-                                    </div>
+                        <div class="col-4 card category">
+                            <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                </div>
+                                <div class="card-body-bottom">
+                                    <p class="red-button">AÑADIR AL CARRITO</p>
+                                    <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                                 </div>
                             </div>
+                        </div>
                     <?php }
                 } ?>
             </div>
@@ -189,22 +198,23 @@
                 <h1 class="category-title">Ensaladas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="ensaladas" class="d-flex justify-content-center">
+            <div id="ensaladas" class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Ensalada") {?>
-                        <div class="col-4 card category" style="width: 360px">
-                                <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                                <div class="card-body">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= $producto['precio'] ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                    </div>
-                                    <div class="card-body-bottom">
-                                        <p class="red-button">AÑADIR AL CARRITO</p>
-                                    </div>
+                        <div class="col-4 card category">
+                            <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                </div>
+                                <div class="card-body-bottom">
+                                    <p class="red-button">AÑADIR AL CARRITO</p>
+                                    <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                                 </div>
                             </div>
+                        </div>
                     <?php }
                 } ?>
             </div>
@@ -213,22 +223,23 @@
                 <h1 class="category-title">Bebidas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="bebidas" class="d-flex justify-content-center">
+            <div id="bebidas" class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Bebida") {?>
-                        <div class="col-4 card category" style="width: 360px">
-                                <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                                <div class="card-body">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= $producto['precio'] ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                    </div>
-                                    <div class="card-body-bottom">
-                                        <p class="red-button">AÑADIR AL CARRITO</p>
-                                    </div>
+                        <div class="col-4 card category">
+                            <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                </div>
+                                <div class="card-body-bottom">
+                                    <p class="red-button">AÑADIR AL CARRITO</p>
+                                    <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                                 </div>
                             </div>
+                        </div>
                     <?php }
                 } ?>
             </div>
@@ -237,22 +248,23 @@
                 <h1 class="category-title">Postres</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="postres" class="d-flex justify-content-center">
+            <div id="postres" class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Postre") {?>
-                        <div class="col-4 card category" style="width: 360px">
-                                <img src="assets/images/<?= $producto['imagen'] ?>" class="card-img-top" alt="<?= $producto['imagen'] ?>">
-                                <div class="card-body">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= $producto['precio'] ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
-                                    </div>
-                                    <div class="card-body-bottom">
-                                        <p class="red-button">AÑADIR AL CARRITO</p>
-                                    </div>
+                        <div class="col-4 card category">
+                            <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                            <div class="card-body">
+                                <div class="card-body-top">
+                                    <h5 class="card-title"><?= $producto['nombre'] ?></h5>
+                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                </div>
+                                <div class="card-body-bottom">
+                                    <p class="red-button">AÑADIR AL CARRITO</p>
+                                    <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                                 </div>
                             </div>
+                        </div>
                     <?php }
                 } ?>
             </div>
