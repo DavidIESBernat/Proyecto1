@@ -11,6 +11,9 @@
     </style>
     <body>
         <a href="<?=url.'?controlador=producto'?>">Volver</a>
+        <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
+            <input type="submit" value="Añadir Producto">
+        </form>
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -43,8 +46,5 @@
                 </tr>
             <?php } ?>
         </table>
-        <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
-            <input type="submit" value="Añadir Producto">
-        </form>
     </body>
 </html>
