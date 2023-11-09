@@ -262,10 +262,16 @@ a {
   }
 
   .card-body {
+    background-color: var(--bg-color0);
+    height: 254px;
+    width: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: 254px;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease-out;
   }
 
   .card-body-bottom {
@@ -282,6 +288,7 @@ a {
   }
 
   .card-title {
+    color: var(--bg-color5);
     font-size:25pt;
     text-transform: uppercase;
     font-weight: bold;
@@ -319,26 +326,31 @@ a {
     margin-left: 8px;
   }
 
-  .card:hover {
-    background-color: var(--bg-color5);
-    color: var(--bg-color0);
-    transition: background-color 0.5s ease-in-out;
-    cursor: pointer;
-    
-  }
-
   .product-image {
     background-size: cover;
     background-repeat: no-repeat;
     height: 286px;
     width: 360px;
     transition: transform 0.5s ease-in-out;
-    
+  }
+  .card:hover .card-body {
+    background-color: var(--bg-color5);
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .card:hover .card-title {
+    color: var(--bg-color0);
+  }
+
+  .card:hover .precio {
+    color: var(--bg-color0);
   }
   .card:hover .product-image {
     transform: scale(1.1);
     object-fit: cover;
   }
+
 
 /*Media query*/
 @media only screen and (max-width: 600px) {

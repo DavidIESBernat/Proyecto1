@@ -28,7 +28,7 @@
                     <td><img src="assets/images/<?= $producto['imagen'] ?>"></td>
                     <td><?= $producto['nombre'] ?></td>
                     <td><?= $producto['descripcion'] ?></td>
-                    <td><?= $producto['precio'] ?>€</td>
+                    <td><?= number_format($producto['precio'], 2) ?>€</td>
                     <td><?= $producto['categoria']?></td>
                     <td>
                         <form action="<?= url.'?controlador=producto&accion=modificarProducto&id=' . $producto['idProducto'] ?>" method="POST">

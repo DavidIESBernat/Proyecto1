@@ -33,7 +33,7 @@
             </div>
             <!--Categoria Hamburguesa-->
             <a href="#hamburguesas" class="col-4 card category">
-                <div class="product-image" style="background-image:url(assets/images/smash-burger.jpg)"></div>
+                <div class="product-image" style="background-image:url(assets/images/smash-burger.webp)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
                         <h5 class="card-title">HAMBURGUESAS</h5>
@@ -119,11 +119,11 @@
         <!--CONTAINER PRODUCTOS-->
         <div class="row no-margin-row container-products d-flex justify-content-center">
             <!--Seccion Hamburguesas-->
-            <div class="col-12 category-header">
+            <div id="hamburguesas" class="col-12 category-header">
                 <h1 class="category-title">Hamburguesas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="hamburguesas" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
             <?php foreach ($productos as $producto) { 
                 if($producto['categoria'] == "Hamburguesa") {?>
                 <div class="col-4 card category">
@@ -131,7 +131,7 @@
                     <div class="card-body section-text">
                         <div class="card-body-top">
                             <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                            <p class="precio"><?= $producto['precio'] ?>€</p>
+                            <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                             <p class="card-text"><?= $producto['descripcion'] ?></p>
                         </div>
                         <div class="card-body-bottom align-items-bottom">
@@ -144,11 +144,11 @@
             } ?>
             </div>
             <!--Seccion Pizza-->
-            <div class="col-12 category-header">
+            <div id="pizzas" class="col-12 category-header">
                 <h1 class="category-title">Pizzas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="pizzas" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Pizza") {?>
                         <div class="col-4 card category">
@@ -156,7 +156,7 @@
                             <div class="card-body">
                                 <div class="card-body-top">
                                     <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                                     <p class="card-text"><?= $producto['descripcion'] ?></p>
                                 </div>
                                 <div class="card-body-bottom">
@@ -169,11 +169,11 @@
                 } ?>
             </div>
             <!--Seccion Pasta-->
-            <div class="col-12 category-header">
+            <div id="pasta" class="col-12 category-header">
                 <h1 class="category-title">Pasta</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="pasta" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Pasta") {?>
                         <div class="col-4 card category">
@@ -181,7 +181,7 @@
                             <div class="card-body">
                                 <div class="card-body-top">
                                     <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                                     <p class="card-text"><?= $producto['descripcion'] ?></p>
                                 </div>
                                 <div class="card-body-bottom">
@@ -194,11 +194,11 @@
                 } ?>
             </div>
             <!--Seccion Ensalada-->
-            <div class="col-12 category-header">
+            <div id="ensaladas" class="col-12 category-header">
                 <h1 class="category-title">Ensaladas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="ensaladas" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Ensalada") {?>
                         <div class="col-4 card category">
@@ -206,7 +206,7 @@
                             <div class="card-body">
                                 <div class="card-body-top">
                                     <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                                     <p class="card-text"><?= $producto['descripcion'] ?></p>
                                 </div>
                                 <div class="card-body-bottom">
@@ -219,11 +219,11 @@
                 } ?>
             </div>
             <!--Seccion Bebida-->
-            <div class="col-12 category-header">
+            <div id="bebidas" class="col-12 category-header">
                 <h1 class="category-title">Bebidas</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="bebidas" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Bebida") {?>
                         <div class="col-4 card category">
@@ -231,7 +231,7 @@
                             <div class="card-body">
                                 <div class="card-body-top">
                                     <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                                     <p class="card-text"><?= $producto['descripcion'] ?></p>
                                 </div>
                                 <div class="card-body-bottom">
@@ -244,11 +244,11 @@
                 } ?>
             </div>
             <!--Seccion Postre-->
-            <div class="col-12 category-header">
+            <div id="postres" class="col-12 category-header">
                 <h1 class="category-title">Postres</h1>
                 <div class="category-line"></div>
             </div>
-            <div id="postres" class="row no-margin-row d-flex justify-content-center">
+            <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto['categoria'] == "Postre") {?>
                         <div class="col-4 card category">
@@ -256,7 +256,7 @@
                             <div class="card-body">
                                 <div class="card-body-top">
                                     <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                    <p class="precio"><?= $producto['precio'] ?>€</p>
+                                    <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
                                     <p class="card-text"><?= $producto['descripcion'] ?></p>
                                 </div>
                                 <div class="card-body-bottom">
