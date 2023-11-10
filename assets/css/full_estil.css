@@ -32,6 +32,7 @@ body {
 a {
   text-decoration: none;
 }
+
 .banner-text {
     color: var(--bg-color0);
     display: flex;
@@ -179,6 +180,12 @@ a {
     max-width: 1440px;
     padding-left: 150px;
     padding-right: 150px;
+    flex-direction: column;
+  }
+
+  .section-text {
+    display: flex;
+    flex-direction: column;
   }
 
   .text-box{
@@ -205,11 +212,13 @@ a {
 
   .description-info {
     color: var(--bg-color2);
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
-    font-size: .875rem;
+    font-size: 14;
     line-height: 1.42857em;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   /* CSS PROPIO DE CARTA.HTML*/
@@ -238,7 +247,6 @@ a {
     width: 360px;
     height: 540px;
   }
-
   .red-button {
     color: var(--bg-color1);
     font-weight: 900;

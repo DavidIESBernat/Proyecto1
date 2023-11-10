@@ -4,6 +4,18 @@ class productoControlador {
     
 
     public function index() {
+        // Inicializamos sesion
+        session_start();
+
+        if(!isset($_SESSION['selecciones'])) {
+            $_SESSION['selecciones'] = array(); 
+        } else {
+            if(isset($_POST['id'])){
+                $pedido = new Pedido(obtenerProducto::obtenerProductoPorID($POST['id']));
+                array_push($_SESSION['selecciones'], $pedido);
+            }
+        }
+
         // Header
 
         // Main
@@ -13,22 +25,31 @@ class productoControlador {
     }
     
     public function carta() {
+        session_start();
         // Header
-        $productos = obtenerProducto::mostrarTodos();
+        
         // Main
+        $productos = obtenerProducto::mostrarTodos();
         include_once 'vista/carta.php';
         // Footer
+
     }
+
+    public function carrito() {
+        session_start();
+        // Header
+        
+        // Main
+        include_once 'vista/carrito.php';
+        // Footer
+
+    }
+
     public function mostrarProductos() {
 
         $productos = obtenerProducto::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
 
         include_once 'vista/mostrarProductos.php';
-    }
-
-    public function compra() {
-
-        echo 'Pagina de compra';
     }
 
     public function eliminarProducto() {

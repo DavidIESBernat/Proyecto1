@@ -135,8 +135,12 @@
                             <p class="card-text"><?= $producto['descripcion'] ?></p>
                         </div>
                         <div class="card-body-bottom align-items-bottom">
-                            <p class="red-button">AÑADIR AL CARRITO</p>
+                            <p type="submit" class="red-button">AÑADIR AL CARRITO </p>
                             <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
+                            <form action="<?=url.'?controller=producto&action=sel'?>" method="POST">
+                                <input type="hidden" name="id" value="<?=$producto->getId()?>">
+                                <button type="submit">Boton</button>
+                            </form>
                         </div>
                     </div>
                 </div>
