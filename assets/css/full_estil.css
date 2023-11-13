@@ -24,7 +24,6 @@
 }
 
 body {
-    background-color: var(--bg-color-fondo2);
     max-width: 1440px;
     margin: auto;
 }
@@ -223,6 +222,11 @@ a {
 
   /* CSS PROPIO DE CARTA.HTML*/
 
+ .btn-no-margin {
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+    --bs-btn-border-width: 0;
+  }
   .container-categories {
     display: flex;
     background-color:#F3F3F3;

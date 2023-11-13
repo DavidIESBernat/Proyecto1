@@ -8,7 +8,7 @@ class Producto {
     private $categoria;
     private $imagen;
 
-    public function __construct($id,$nombre,$descripcion,$precio,$categoria,$imagen) {
+   /* public function __construct($id,$nombre,$descripcion,$precio,$categoria,$imagen) {
 
         $this->id = $id;
         $this->nombre = $nombre;
@@ -16,7 +16,9 @@ class Producto {
         $this->precio = $precio;
         $this->categoria = $categoria;
         $this->imagen = $imagen;
-    }
+    }*/
+
+    public function __construct(){}
 
     /**
      * Get the value of id
@@ -37,7 +39,6 @@ class Producto {
 
         return $this;
     }
-
     /**
      * Get the value of nombre
      */ 
@@ -137,5 +138,6 @@ class Producto {
 
         return $this;
     }
+
 }
 ?>

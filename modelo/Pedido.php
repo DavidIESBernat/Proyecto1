@@ -4,7 +4,7 @@ class Pedido {
     private $cantidad = 1;
 
     public function __construct($producto) {
-        $this->producto=$producto;
+        $this->producto = $producto;
     }
     
     /**

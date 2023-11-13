@@ -2,8 +2,9 @@
 
 include_once 'config/dataBase.php';
 include_once 'Producto.php';
+include_once 'Pedido.php';
 
-class obtenerProducto {
+class productoDAO {
 
     public static function mostrarTodos() { // Devuelve todos los productos.
         $con = dataBase::connect(); // Conexion con la base de datos
@@ -24,7 +25,7 @@ class obtenerProducto {
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
-        $producto = $resultado->fetch_assoc();
+        $producto = $resultado->fetch_object('Producto');
         $con->close(); // Cierra la conexion
 
         return $producto; // Devuelve el producto obtenido

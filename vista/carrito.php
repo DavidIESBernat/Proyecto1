@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC>
 <html lang="es">
 <head>
-    <title>Carta - Restaurante Pit-Stop</title>
+    <title>Carrito - Restaurante Pit-Stop</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
@@ -14,27 +14,27 @@
 
 </head>
 <body>
-    <header></header>
-    <main>
-        <table id="productos">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-            </tr>
-            <!--Bucle para crear cada producto añadido al carrito en la tabla-->
-            <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
-            <tr>
-                <td><?= $pedido->getProducto()->getId() ?></td>
-                <td><?= $pedido->getProducto()->getNombre() ?></td>
-                <td><?= $pedido->getProducto()->getDescripcion()?></td>
-                <td><?= number_format($pedido->getProducto()->getPrecio(), 2) ?>€</td>
-            </tr>
-            <?php } ?>
-        </table>
-    </main>
-    <footer></footer>
+    <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Limpiar carrito</a>
+    <table id="productos">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+        </tr>
+        <!--Bucle para crear cada producto añadido al carrito en la tabla-->
+        
+        <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
+        <tr>
+            <td><?= $pedido->getProducto()->getId() ?></td>
+            <td><?= $pedido->getProducto()->getNombre() ?></td>
+            <td><?= $pedido->getProducto()->getDescripcion()?></td>
+            <td><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</td>
+            <td><?= $pedido->getCantidad()?></td>
+        </tr>
+        <?php } ?>
+    </table>
 
 </body>
 </html>

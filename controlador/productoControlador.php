@@ -1,5 +1,7 @@
 <?php
-include_once 'modelo/obtenerProducto.php';
+include_once 'modelo/productoDAO.php';
+include_once 'modelo/Producto.php';
+include_once 'modelo/Pedido.php';
 class productoControlador {
     
 
@@ -11,43 +13,52 @@ class productoControlador {
             $_SESSION['selecciones'] = array(); 
         } else {
             if(isset($_POST['id'])){
-                $pedido = new Pedido(obtenerProducto::obtenerProductoPorID($POST['id']));
+                $pedido = new Pedido(productoDAO::obtenerProductoPorID($_POST['id']));
                 array_push($_SESSION['selecciones'], $pedido);
             }
         }
 
         // Header
-
+        include_once 'vista/header.php';
         // Main
         include_once 'vista/home.php';
         // Footer
-
+        include_once 'vista/footer.php';
     }
     
     public function carta() {
         session_start();
         // Header
-        
+        include_once 'vista/header.php';
         // Main
-        $productos = obtenerProducto::mostrarTodos();
+        $productos = productoDAO::mostrarTodos();
         include_once 'vista/carta.php';
         // Footer
-
+        include_once 'vista/footer.php';
     }
 
     public function carrito() {
         session_start();
-        // Header
         
+        if(!isset($_SESSION['selecciones'])) {
+            $_SESSION['selecciones'] = array(); 
+        }
+        // Header
+        include_once 'vista/header.php';
         // Main
         include_once 'vista/carrito.php';
         // Footer
-
+        include_once 'vista/footer.php';
     }
 
+    public function destruir_carrito() {
+        session_start();
+        session_destroy();
+        header("Location:".url.'?controlador=producto&accion=carrito');
+    }
     public function mostrarProductos() {
 
-        $productos = obtenerProducto::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
+        $productos = productoDAO::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
 
         include_once 'vista/mostrarProductos.php';
     }
@@ -55,14 +66,14 @@ class productoControlador {
     public function eliminarProducto() {
 
         $id= $_GET['id'];
-        obtenerProducto::eliminarProductoPorID($id);
+        productoDAO::eliminarProductoPorID($id);
         header("Location:".url.'?controlador=producto');
     }
 
     public function modificarProducto() {
 
             $id = $_GET['id'];
-            $producto = obtenerProducto::obtenerProductoPorID($id); // Devuelve el producto con id coincidente
+            $producto = productoDAO::obtenerProductoPorID($id); // Devuelve el producto con id coincidente
             if($producto != NULL) {
                 include_once 'vista/vistaEditarProducto.php';
             } else {
@@ -80,7 +91,7 @@ class productoControlador {
         $categoria = $_POST['categoria'];
         $imagen = $_POST['imagen'];
 
-        obtenerProducto::editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen);
+        productoDAO::editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen);
         header("Location:".url.'?controlador=producto&accion=mostrarProductos');
     }
 
@@ -97,7 +108,7 @@ class productoControlador {
         $categoria = $_POST['categoria'];
         $imagen = $_POST['imagen'];
 
-        obtenerProducto::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen);
+        productoDAO::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen);
         header("Location:".url.'?controlador=producto&accion=nuevoProducto');
     }
 }
