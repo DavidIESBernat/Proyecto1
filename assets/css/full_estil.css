@@ -17,6 +17,7 @@
     --bg-color5: #000000;
     --bg-color-fondo1: #F3F3F3;
     --bg-color-fondo2: #000;
+    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
 }
 
 * {
@@ -26,8 +27,13 @@
 body {
     max-width: 1440px;
     margin: auto;
+    margin-top: 70px;
+    
 }
 
+.color {
+  background-color: var(--bg-color-fondo3);
+}
 a {
   text-decoration: none;
 }
@@ -365,6 +371,97 @@ a {
     transform: scale(1.1);
     object-fit: cover;
   }
+
+/*Header*/
+
+  .navbar {
+    background-color: var(--bg-color-fondo2);
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0;
+    max-width: 1440px;
+    margin: auto;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    margin-right: 0;
+  }
+
+  .nav-item {
+    background-color: var(--bg-color5);
+  }
+
+  .nav-link {
+    color: var(--bg-color0);
+    text-transform: uppercase;
+    border-right: 1px solid var(--bg-color2);
+    letter-spacing: .8px;
+    font-weight: 900;
+    padding: 15px;
+    font-size: .625rem;
+    cursor: pointer;
+    line-height: 1em;
+  }
+
+  .nav-item:hover {
+    background-color: var(--bg-color1);
+  }
+
+  .nav-link:hover {
+    color: var(--bg-color0);
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .logo {
+    background-color: var(--bg-color1); /*Color fondo seccion*/
+    width: 22%; /* Ancho de la seccion del logo*/
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    height: 70px;
+    min-width: 240px;
+  }
+
+  .logo-img {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .items {
+    display: flex;
+    justify-content:space-between;
+  }
+
+  .no-border-link {
+    border-right: 0px;
+    max-height: 40px;
+    margin: auto;
+  }
+
+  .btn-custom {
+    margin-left: 0.2px;
+    border: 1px solid  var(--bg-color2);
+    background-color: var(--bg-color2);
+    border-radius: 0;
+    color: var(--bg-color0);
+    margin-right: 15px;
+  }
+
+  .btn-custom:hover {
+    background-color: var(--bg-color1);
+  }
+
+  .input-buscar {
+    border-radius: 0px;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url('../images/menu-icon.svg');
+  }
+/*Footer*/
 
 
 /*Media query*/
