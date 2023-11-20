@@ -21,12 +21,9 @@
                                         <td><input name='precio' value="" required></td>
                                         <td>
                                                 <select name="categoria" required>
-                                                        <option value="Hamburguesa">Hamburguesa</option>
-                                                        <option value="Pizza">Pizza</option>
-                                                        <option value="Pasta">Pasta</option>
-                                                        <option value="Ensalada">Ensalada</option>
-                                                        <option value="Bebida">Bebida</option>
-                                                        <option value="Postre">Postre</option>
+                                                        <?php foreach ($categorias as $categoria) {?>
+                                                                <option value="<?=$categoria['id_categoria']?>"><?=$categoria['nombre'] ?></option>
+                                                        <?php } ?>
                                                 </select>
                                         </td>
                                         <td><input name='imagen' value=""></td>

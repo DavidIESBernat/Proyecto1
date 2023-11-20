@@ -97,7 +97,7 @@ class productoControlador {
     }
 
     public function nuevoProducto() {
-
+        $categorias = productoDAO::mostrarCategorias();
         include_once 'vista/nuevoProducto.php';
     }
 

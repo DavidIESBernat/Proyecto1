@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <meta charset="UTF-8">
+    <meta name="description" content="Descripció web">
+    <meta name="keywords" content="Paraules clau">
+    <meta name="author" content="Autor">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body class="color">
 <nav class="navbar navbar-expand-lg fixed-top">
@@ -49,20 +58,20 @@
     </ul>
     
     <ul class="navbar-nav mr-auto">
-    <form class="form-inline my-2 my-lg-0 d-flex flex-direction-row">
-      <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Buscar" aria-label="Buscar">
-      <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
-    </form>
+      <form class="form-inline my-2 my-lg-0 d-flex flex-direction-row">
+        <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Buscar" aria-label="Buscar">
+        <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
+      </form>
       <li class="nav-item">
         <a class="nav-link" href="<?=url.'?controlador=producto&accion=login'?>">Iniciar sesión</a>
       </li>
-      <li class="nav-item ">
+      <li class="nav-item">
         <a class="nav-link no-border-link" href="<?=url.'?controlador=producto&accion=carrito'?>">
-        <div class="d-flex justify-content-center flex-direction-row">
-          <span>Carrito</span>
-          <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito">
-        </div>
-       </a>
+          <div class="d-flex justify-content-center flex-direction-row">
+            <p>Carrito</p>
+            <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito">
+          </div>
+        </a>
       </li>
     </ul>
   </div>
