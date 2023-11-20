@@ -17,6 +17,17 @@ class productoDAO {
         var_dump($productos);
     }
 
+    public static function mostrarCategorias() { // Devuelve todas las categorias.
+        $con = dataBase::connect(); // Conexion con la base de datos
+        $consulta = $con->prepare("SELECT * FROM categoria"); 
+        $consulta->execute();
+        $categorias = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+        $con->close();
+
+        return $categorias; // Devuelve todos los productos
+        var_dump($categorias);
+    }
+
     public static function obtenerProductoPorID($id) { // Devuelve un producto segun su id.
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos

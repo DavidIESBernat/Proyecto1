@@ -31,6 +31,7 @@ class productoControlador {
         // Header
         include_once 'vista/header.php';
         // Main
+        $categorias = productoDAO::mostrarCategorias();
         $productos = productoDAO::mostrarTodos();
         include_once 'vista/carta.php';
         // Footer
