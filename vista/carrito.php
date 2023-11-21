@@ -24,7 +24,6 @@
             <th>Cantidad</th>
         </tr>
         <!--Bucle para crear cada producto añadido al carrito en la tabla-->
-        
         <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
         <tr>
             <td><?= $pedido->getProducto()->getId() ?></td>

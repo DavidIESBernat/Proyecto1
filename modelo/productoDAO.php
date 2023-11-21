@@ -3,10 +3,11 @@
 include_once 'config/dataBase.php';
 include_once 'Producto.php';
 include_once 'Pedido.php';
+include_once 'Categoria.php';
 
 class productoDAO {
 
-    public static function mostrarTodos() { // Devuelve todos los productos.
+    /*public static function obtenerProductos() { // Devuelve todos los productos.
         $con = dataBase::connect(); // Conexion con la base de datos
         $consulta = $con->prepare("SELECT * FROM producto"); 
         $consulta->execute();
@@ -15,24 +16,61 @@ class productoDAO {
 
         return $productos; // Devuelve todos los productos
         var_dump($productos);
+    }*/
+
+    public static function obtenerProductos() { // Devuelve todos los productos.
+        $con = dataBase::connect(); // Conexion con la base de datos
+        $consulta = $con->prepare("SELECT * FROM producto"); 
+        $consulta->execute();
+        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+        foreach($resultados as $resultado) {
+            $producto = new Producto();
+            $producto->setId($resultado['id']);
+            $producto->setNombre($resultado['nombre']);
+            $producto->setDescripcion($resultado['descripcion']);
+            $producto->setPrecio($resultado['precio']);
+            $producto->setCategoria($resultado['categoria']);
+            $producto->setImagen($resultado['imagen']);
+    
+            $productos[] = $producto;
+            }
+        
+            $con->close();
+            return $productos;
     }
 
-    public static function mostrarCategorias() { // Devuelve todas las categorias.
+    public static function obtenerCategorias() { // Devuelve todas las categorias.
         $con = dataBase::connect(); // Conexion con la base de datos
         $consulta = $con->prepare("SELECT * FROM categoria"); 
         $consulta->execute();
-        $categorias = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-        $con->close();
+        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 
-        return $categorias; // Devuelve todos los productos
-        var_dump($categorias);
+        foreach($resultados as $resultado) {
+            $categoria = new Categoria();
+            $categoria->setId($resultado['id']);
+            $categoria->setNombre($resultado['nombre']);
+            $categoria->setDescripcion($resultado['descripcion']);
+            $categoria->setImagen($resultado['imagen']);
+    
+            $categorias[] = $categoria;
+        }
+    
+        $con->close();
+        return $categorias;
+
+        //crear un array vacio
+        //recorrer el resultado
+            //ir creando un objeto de tipo categoria pasandole los datos necesarios a new Categoria
+            //añades al array anterior
+        //retornas el array
+
     }
 
     public static function obtenerProductoPorID($id) { // Devuelve un producto segun su id.
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("SELECT * FROM PRODUCTO WHERE idProducto = ?");
+        $consulta = $con->prepare("SELECT * FROM PRODUCTO WHERE id = ?");
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();

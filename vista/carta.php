@@ -29,12 +29,12 @@
         </div>
         <!--Mostrar todas las Categorias-->
         <?php foreach ($categorias as $categoria) {?>
-            <a href="#<?= $categoria['id_categoria']?>" class="col-4 card category">
-                <div class="product-image" style="background-image:url(assets/images/<?= $categoria['imagen']?>)"></div>
+            <a href="#<?= $categoria->getId()?>" class="col-4 card category">
+            <div class="product-image" style="background-image:url(assets/images/<?= $categoria->getImagen()?>)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
-                        <h5 class="card-title"><?= $categoria['nombre']?></h5>
-                        <p class="card-text"><?= $categoria['descripcion']?></p>
+                        <h5 class="card-title"><?= $categoria->getNombre()?></h5>
+                        <p class="card-text"><?= $categoria->getDescripcion()?></p>
                     </div>
                     <div class="card-body-bottom">
                         <p class="red-button">VER MÁS</p>
@@ -47,25 +47,25 @@
     <!--CONTAINER PRODUCTOS-->
     <div class="row no-margin-row container-products d-flex justify-content-center">
         <!-- Mostrar todos los productos por categoria -->
-        <!-- Crear header categoria-->
+        <!-- Crear titulo de categoria-->
         <?php foreach ($categorias as $categoria) { ?>
-            <div id="<?=$categoria['id_categoria']?>" class="col-12 category-header">
-                <h1 class="category-title"><?=$categoria['nombre']?></h1>
+            <div id="<?=$categoria->getId()?>" class="col-12 category-header">
+                <h1 class="category-title"><?=$categoria->getNombre()?></h1>
                 <div class="category-line"></div>
             </div>
-            <!-- Mostrar producto-->
+            <!-- Mostrar producto de la categoria actual-->
             <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
-                    if($producto['categoria'] == $categoria['id_categoria']) {?>
+                    if($producto->getCategoria() == $categoria->getId()) {?>
                         <form action="<?=url.'?controlador=producto&accion=sel'?>" method="POST" class="col-4 card category">
                             <button class="btn btn-no-margin" type="submit">
-                                <input type="hidden" name="id" value="<?=$producto['idProducto']?>">
-                                <div class="product-image" style="background-image:url(assets/images/<?= $producto['imagen'] ?>)"></div>
+                                <input type="hidden" name="id" value="<?=$producto->getId()?>">
+                                <div class="product-image" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
                                 <div class="card-body section-text">
                                     <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto['nombre'] ?></h5>
-                                        <p class="precio"><?= number_format($producto['precio'], 2,',','.') ?>€</p>
-                                        <p class="card-text"><?= $producto['descripcion'] ?></p>
+                                        <h5 class="card-title"><?= $producto->getNombre() ?></h5>
+                                        <p class="precio"><?= number_format($producto->getPrecio(), 2,',','.') ?>€</p>
+                                        <p class="card-text"><?= $producto->getDescripcion() ?></p>
                                     </div>
                                     <div class="card-body-bottom align-items-bottom">
                                         <p class="btn red-button">AÑADIR AL CARRITO</p>

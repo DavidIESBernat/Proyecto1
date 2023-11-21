@@ -31,8 +31,8 @@ class productoControlador {
         // Header
         include_once 'vista/header.php';
         // Main
-        $categorias = productoDAO::mostrarCategorias();
-        $productos = productoDAO::mostrarTodos();
+        $categorias = productoDAO::obtenerCategorias();
+        $productos = productoDAO::obtenerProductos();
         include_once 'vista/carta.php';
         // Footer
         include_once 'vista/footer.php';
@@ -59,7 +59,7 @@ class productoControlador {
     }
     public function mostrarProductos() {
 
-        $productos = productoDAO::mostrarTodos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
+        $productos = productoDAO::obtenerProductos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
 
         include_once 'vista/mostrarProductos.php';
     }
@@ -74,6 +74,7 @@ class productoControlador {
     public function modificarProducto() {
 
             $id = $_GET['id'];
+            $categorias = productoDAO::obtenerCategorias();
             $producto = productoDAO::obtenerProductoPorID($id); // Devuelve el producto con id coincidente
             if($producto != NULL) {
                 include_once 'vista/vistaEditarProducto.php';
@@ -97,7 +98,7 @@ class productoControlador {
     }
 
     public function nuevoProducto() {
-        $categorias = productoDAO::mostrarCategorias();
+        $categorias = productoDAO::obtenerCategorias();
         include_once 'vista/nuevoProducto.php';
     }
 
