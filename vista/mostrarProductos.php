@@ -10,10 +10,27 @@
         }
     </style>
     <body>
-        <a href="<?=url.'?controlador=producto'?>">Volver</a>
-        <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
-            <input type="submit" value="Añadir Producto">
-        </form>
+        <table>
+            <tr>
+                <td>
+                    <form action="<?= url.'?controlador=producto'?>" method="POST">
+                        <input type="submit" value="Volver">
+                    </form>
+                </td>
+                <h1>Lista de productos</h1>
+                <td>
+                    <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
+                        <input type="submit" value="Añadir Producto">
+                    </form>
+                </td>
+                <td>
+                    <form action="<?= url.'?controlador=producto&accion=nuevaCategoria'?>" method="POST">
+                        <input type="submit" value="Añadir Categoria">
+                    </form>
+                </td>    
+            </tr>
+        </table>
+
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -27,19 +44,25 @@
             </tr>
             <?php foreach ($productos as $producto) { ?>
                 <tr>
-                    <td><?= $producto['idProducto'] ?></td>
-                    <td><img src="assets/images/<?= $producto['imagen'] ?>"></td>
-                    <td><?= $producto['nombre'] ?></td>
-                    <td><?= $producto['descripcion'] ?></td>
-                    <td><?= number_format($producto['precio'], 2) ?>€</td>
-                    <td><?= $producto['categoria']?></td>
+                    <td><?= $producto->getId() ?></td>
+                    <td><img src="assets/images/<?= $producto->getImagen() ?>"></td>
+                    <td><?= $producto->getNombre() ?></td>
+                    <td><?= $producto->getDescripcion() ?></td>
+                    <td><?= number_format($producto->getPrecio(), 2) ?>€</td>
+                    <?php foreach ($categorias as $categoria) { 
+                        if($categoria->getId() == $producto->getCategoria()) { ?>
+                            <td><?= $categoria->getId()?> - <?=$categoria->getNombre()?></td>
+                    <?php } }?>
+                    
                     <td>
-                        <form action="<?= url.'?controlador=producto&accion=modificarProducto&id=' . $producto['idProducto'] ?>" method="POST">
+                        <form action="<?= url.'?controlador=producto&accion=modificarProducto'?>" method="POST">
+                            <input type="hidden" name="id" value="<?=$producto->getId()?>">
                             <input type="submit" value="Modificar">
                         </form>
                     </td>
                     <td>
-                        <form action="<?= url.'?controlador=producto&accion=eliminarProducto&id=' . $producto['idProducto'] ?>" method="POST">
+                        <form action="<?= url.'?controlador=producto&accion=eliminarProducto'?>" method="POST">
+                            <input type="hidden" name="id" value="<?=$producto->getId()?>">
                             <input type="submit" value="Eliminar">
                         </form>
                     </td>

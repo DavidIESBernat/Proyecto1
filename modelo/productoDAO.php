@@ -7,17 +7,6 @@ include_once 'Categoria.php';
 
 class productoDAO {
 
-    /*public static function obtenerProductos() { // Devuelve todos los productos.
-        $con = dataBase::connect(); // Conexion con la base de datos
-        $consulta = $con->prepare("SELECT * FROM producto"); 
-        $consulta->execute();
-        $productos = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-        $con->close();
-
-        return $productos; // Devuelve todos los productos
-        var_dump($productos);
-    }*/
-
     public static function obtenerProductos() { // Devuelve todos los productos.
         $con = dataBase::connect(); // Conexion con la base de datos
         $consulta = $con->prepare("SELECT * FROM producto"); 
@@ -58,12 +47,6 @@ class productoDAO {
         $con->close();
         return $categorias;
 
-        //crear un array vacio
-        //recorrer el resultado
-            //ir creando un objeto de tipo categoria pasandole los datos necesarios a new Categoria
-            //añades al array anterior
-        //retornas el array
-
     }
 
     public static function obtenerProductoPorID($id) { // Devuelve un producto segun su id.
@@ -85,7 +68,7 @@ class productoDAO {
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("DELETE FROM PRODUCTO WHERE idProducto = ?"); // Consulta para eliminar un producto segun su id
+        $consulta = $con->prepare("DELETE FROM PRODUCTO WHERE id= ?"); // Consulta para eliminar un producto segun su id
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -93,7 +76,7 @@ class productoDAO {
     }
     public static function editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen) { // Editar un producto
         $con = dataBase::connect();
-        $consulta = $con->prepare("UPDATE PRODUCTO SET nombre = ?, descripcion = ?, precio = ?, categoria = ?, imagen = ? WHERE idProducto = ?"); // Consulta para actualizar segun id
+        $consulta = $con->prepare("UPDATE PRODUCTO SET nombre = ?, descripcion = ?, precio = ?, categoria = ?, imagen = ? WHERE id = ?"); // Consulta para actualizar segun id
         $consulta->bind_param("ssdssi", $nombre, $descripcion, $precio, $categoria, $imagen, $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -101,8 +84,15 @@ class productoDAO {
 
     public static function nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen) { // Añade un nuevo producto
         $con = dataBase::connect();
-        $consulta = $con->prepare("INSERT INTO PRODUCTO (idProducto, nombre, descripcion, precio, categoria, imagen) VALUES (NULL, ?, ?, ?, ?, ?)"); // Consulta para añadir un nuevo producto
-        $consulta->bind_param("ssdss", $nombre, $descripcion, $precio, $categoria, $imagen);
+        $consulta = $con->prepare("INSERT INTO PRODUCTO (id, nombre, descripcion, precio, categoria, imagen) VALUES (NULL, ?, ?, ?, ?, ?)"); // Consulta para añadir un nuevo producto
+        $consulta->bind_param("ssdis", $nombre, $descripcion, $precio, $categoria, $imagen);
+        $consulta->execute(); // Ejecuta la consulta
+        $con->close(); // Cierra la conexion
+    }
+    public static function nuevaCategoria($nombre,$descripcion,$imagen) { // Añade una nueva categoria
+        $con = dataBase::connect();
+        $consulta = $con->prepare("INSERT INTO CATEGORIA (id, nombre, descripcion, imagen) VALUES (NULL, ?, ?, ?)"); // Consulta para añadir una nueva categoria
+        $consulta->bind_param("sss", $nombre, $descripcion, $imagen);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
     }

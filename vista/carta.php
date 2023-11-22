@@ -57,8 +57,8 @@
             <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto->getCategoria() == $categoria->getId()) {?>
-                        <form action="<?=url.'?controlador=producto&accion=sel'?>" method="POST" class="col-4 card category">
-                            <button class="btn btn-no-margin" type="submit">
+                        <form action="<?=url."?controlador=producto&accion=sel#".$producto->getId() ?>" method="POST" class="col-4 card category">
+                            <button id="0<?=$producto->getId()?>" class="btn btn-no-margin" type="submit">
                                 <input type="hidden" name="id" value="<?=$producto->getId()?>">
                                 <div class="product-image" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
                                 <div class="card-body section-text">

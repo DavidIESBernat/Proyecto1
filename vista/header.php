@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Header</title>
     
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
@@ -22,7 +22,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon navbar-toggler-icon-color"></span>
   </button>
-
   <div class="collapse navbar-collapse items" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -63,7 +62,7 @@
         <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
       </form>
       <li class="nav-item">
-        <a class="nav-link" href="<?=url.'?controlador=producto&accion=login'?>">Iniciar sesión</a>
+        <a class="nav-link" href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Iniciar sesión</a>
       </li>
       <li class="nav-item">
         <a class="nav-link no-border-link" href="<?=url.'?controlador=producto&accion=carrito'?>">

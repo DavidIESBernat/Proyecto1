@@ -26,11 +26,10 @@
                                                 <select name="categoria" required>
                                                 <?php foreach ($categorias as $categoria) { 
                                                         if($categoria->getId() == $producto->getCategoria()) { ?>
-                                                                <option value="<?=$producto->getCategoria()?>" selected>Actual: <?=$producto->getCategoria()?></option>
-                                                                <option disabled>- Asignar nueva -</option>
-                                                        <?php } ?>
+                                                                <option value="<?=$categoria->getId()?>" selected><?=$categoria->getNombre()?> - Actual</option>
+                                                        <?php } else { ?>
                                                                 <option value="<?=$categoria->getId()?>"><?=$categoria->getNombre()?></option>
-                                                <?php }?>
+                                                <?php } }?>
                                                 </select>
                                         </td>
                                         <td><input name='imagen' value="<?=$producto->getImagen()?>"></td>

@@ -59,6 +59,7 @@ class productoControlador {
     }
     public function mostrarProductos() {
 
+        $categorias = productoDAO::obtenerCategorias();
         $productos = productoDAO::obtenerProductos(); // Guardamos en $productos los valores de la funcion mostrarProductos de ObtenerProductos
 
         include_once 'vista/mostrarProductos.php';
@@ -66,14 +67,14 @@ class productoControlador {
 
     public function eliminarProducto() {
 
-        $id= $_GET['id'];
+        $id= $_POST['id'];
         productoDAO::eliminarProductoPorID($id);
-        header("Location:".url.'?controlador=producto');
+        header("Location:".url.'?controlador=producto&accion=mostrarProductos');
     }
 
     public function modificarProducto() {
 
-            $id = $_GET['id'];
+            $id = $_POST['id'];
             $categorias = productoDAO::obtenerCategorias();
             $producto = productoDAO::obtenerProductoPorID($id); // Devuelve el producto con id coincidente
             if($producto != NULL) {
@@ -112,6 +113,20 @@ class productoControlador {
 
         productoDAO::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen);
         header("Location:".url.'?controlador=producto&accion=nuevoProducto');
+    }
+
+    public function nuevaCategoria() {
+        include_once 'vista/nuevaCategoria.php';
+    }
+
+    public function añadirCategoria() {
+
+        $nombre = $_POST['nombre'];
+        $descripcion= $_POST['descripcion'];
+        $imagen = $_POST['imagen'];
+
+        productoDAO::nuevaCategoria($nombre,$descripcion,$imagen);
+        header("Location:".url.'?controlador=producto&accion=nuevaCategoria');
     }
 }
 
