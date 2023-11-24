@@ -65,8 +65,7 @@ a {
   }
 
   .section-header {
-    height: 185px;
-    max-height: 185px;
+    min-height: 185px;
   }
   .text-red {
     color: var(--bg-color1);
@@ -90,9 +89,13 @@ a {
 
   .section-elements {
     max-width: 1440px;
-    height: 540px;
     margin: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
     background-color: var(--bg-color-fondo1);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   .element {
@@ -181,11 +184,13 @@ a {
   }
 
   .section-info {
-    height: 360px;
+    min-height: 360px;
     max-width: 1440px;
     padding-left: 150px;
     padding-right: 150px;
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .section-info-bottom {
@@ -378,7 +383,9 @@ a {
     object-fit: cover;
   }
 
-/*Header*/
+  /*-------------
+      Header
+  -------------*/
 
   .navbar {
     background-color: var(--bg-color-fondo2);
@@ -409,10 +416,12 @@ a {
     line-height: 1em;
   }
 
-  .nav-item:hover {
+  .login {
+    min-width: 112px;
+  }
+  .nav-item-hover:hover {
     background-color: var(--bg-color1);
   }
-
   .nav-link:hover {
     color: var(--bg-color0);
   }
@@ -467,7 +476,12 @@ a {
   .navbar-toggler-icon {
     background-image: url('../images/menu-icon.svg');
   }
-/*Footer*/
+
+  
+  /*-------------
+      Footer
+  -------------*/
+
   .footer {
     background-color: var(--bg-color0);
     height: 140px;
@@ -519,9 +533,182 @@ a {
     margin: auto;
   }
 
+  /*-------------
+      Carrito
+  -------------*/
+
+  .secciones-carrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    
+  }
+
+  .carrito {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .carrito .producto {
+    height: 150px;
+    background-color: var(--bg-color0);
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    width: 750px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .producto-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    width: 600px;
+    padding-left: 30px;
+    padding-right: 70px;
+  }
+  .producto-text {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .producto-nombre {
+    font-size: 15pt;
+    font-weight: 900;
+    letter-spacing: 8%;
+  }
+  
+  .producto-precio {
+    font-size: 15pt;
+    font-weight: bold;
+    letter-spacing: 4.45%;
+  }
+  .producto-cantidad {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .producto-imagen {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px;
+    height: 150px;
+  }
+
+  .producto-ingredientes {
+    margin-right: 30px;
+  }
+
+  .producto-seccion-derecha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .resumen-carrito {
+    min-height: 320px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 390px;
+    background-color: var(--bg-color0);
+  }
+
+  .quantity-value {
+    width: 38px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    background-color: var(--bg-color4);
+    color: var(--bg-color0);
+    border: none;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+
+  .quantity-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-color5);
+    border: none;
+    color: var(--bg-color0);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .quantity-button:hover {
+    background-color: var(--bg-color1);
+  }
 /*Media query*/
+@media only screen and (max-width: 1000px) {
+
+  .section-banner {
+    max-height: 300px;
+  }
+
+  .banner-text {
+    font-size: 4.625rem;
+}
+
+   
+.title-section {
+  font-size: 2.25rem;
+}
+
+.text-section {
+  font-size: 1.0rem;
+}
+
+    .items {
+      display: block;
+      justify-content:left;
+    }
+
+    .section-info {
+      min-height: 360px;
+      max-width: 1440px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  
+}
 @media only screen and (max-width: 600px) {
-    /* body {
-      background-color: lightblue;
-    } */
+    .section-info {
+      min-height: 360px;
+      max-width: 1440px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .section-banner {
+      max-height: 200px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  
+    .title-section {
+      font-size: 1.75rem;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    .text-section {
+      font-size: 0.8rem;
+    }
+    .banner-text {
+      font-size: 3.625rem;
+  }
 }

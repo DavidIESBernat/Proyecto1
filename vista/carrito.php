@@ -13,8 +13,61 @@
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
-<body>
-    <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Limpiar carrito</a>
+<body class="bg-black">
+    <div class="titulo-carrito">
+        <h1 class="">Carrito</h1>
+    </div>
+    <div class="secciones-carrito">
+        <div class="carrito">
+            <?php if($_SESSION['selecciones']){
+                foreach ($_SESSION['selecciones'] as $pedido) { ?>
+                    <div class="producto">
+                        <div class="producto-imagen" style="background-image:url(assets/images/<?= $pedido->getProducto()->getImagen()?>)"></div>
+                        <div class="producto-info">
+                            <div class="producto-text">
+                                <div class="producto-nombre"><?= $pedido->getProducto()->getNombre() ?></div>
+                                <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
+                            </div>
+                            <div class="producto-seccion-derecha">
+                                
+                                <div class="producto-ingredientes">
+                                    <!-- Boton Ingredientes -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ingredientes
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Ingredientes</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                    </li>
+                                </div>
+                                <form class="producto-cantidad" action="" method="POST">
+                                    <button type="submit" name="menos" class="quantity-button restar"> - </button>
+                                    <input type="hidden" name="cantidad" value="<?=$pedido->getCantidad()?>">
+                                    <div class="quantity-value"><?=$pedido->getCantidad()?></div>
+                                    <button type="submit" name="mas" class="quantity-button"> + </button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                <?php }  } else {?>
+                    <h1>El carrito esta vacio</h1>
+                    <?php }?>
+            </div>
+            <div class="resumen-carrito">
+
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Vaciar carrito</a>
     <table id="productos">
         <tr>
             <th>ID</th>
@@ -34,6 +87,6 @@
         </tr>
         <?php } ?>
     </table>
-
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

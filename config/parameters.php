@@ -1,5 +1,5 @@
 <?php
 
-define("url","http://localhost/Proyecto1/");
+define("url","http://pitstop.com");
 define("action_default", "index");
 ?>

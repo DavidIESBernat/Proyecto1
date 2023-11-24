@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
     <meta name="keywords" content="Paraules clau">
-    <meta name="author" content="Autor">
+    <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <!--Seccion Elementos Seleccionables-->
-    <div class="row col-12 section-elements text-center d-flex align-items-center justify-content-evenly">
+    <div class="row col-12 section-elements">
       <!--Elemento Carta-->
       <a href="<?php $url?>?controlador=producto&accion=carta" class="col-6 element d-flex align-items-center">
         <div class="col-3 element-image carta"></div>
@@ -68,7 +68,7 @@
       </a>
     </div>
     <!--Seccion Cabecera-->
-    <div class="section-info bg-white d-flex align-items-center justify-content-center">
+    <div class="section-info bg-white">
       <div class="row">
         <div class="col-4">
           <h2 class="col-12 title-info">¿Qué hacer y ver en el restaurante Pit-Stop?</h2>

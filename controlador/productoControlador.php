@@ -26,6 +26,9 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
     
+    public function header() {
+        include_once 'vista/header.php';
+    }
     public function carta() {
         session_start();
         // Header

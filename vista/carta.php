@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
     <meta name="keywords" content="Paraules clau">
-    <meta name="author" content="Autor">
+    <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -46,14 +46,14 @@
 
     <!--CONTAINER PRODUCTOS-->
     <div class="row no-margin-row container-products d-flex justify-content-center">
-        <!-- Mostrar todos los productos por categoria -->
-        <!-- Crear titulo de categoria-->
+        <!-- Mostrar todos los productos por su categoria -->
+        <!-- Bucle para crear el titulo de la categoria actual-->
         <?php foreach ($categorias as $categoria) { ?>
             <div id="<?=$categoria->getId()?>" class="col-12 category-header">
                 <h1 class="category-title"><?=$categoria->getNombre()?></h1>
                 <div class="category-line"></div>
             </div>
-            <!-- Mostrar producto de la categoria actual-->
+            <!-- Mostrar productos para la categoria actual-->
             <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto->getCategoria() == $categoria->getId()) {?>
@@ -80,4 +80,5 @@
         <?php } ?>  
         </div>
     </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
