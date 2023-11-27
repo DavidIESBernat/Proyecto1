@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>Restaurante Pit-Stop</title>
     
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
@@ -37,7 +37,7 @@
         <div class="divisor"></div>
       </li>
       <li class="nav-item nav-item-hover">
-        <a class="nav-link">Contacto</a>
+        <a class="nav-link" href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Contacto</a>
         <div class="divisor"></div>
       </li>
       <!--<li class="nav-item dropdown">
@@ -64,7 +64,7 @@
         </form>
       </li>
       <li class="nav-item nav-item-hover login">
-        <a class="nav-link" href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Iniciar sesión</a>
+        <a class="nav-link" href="<?=url.'?controlador=producto&accion=login'?>">Iniciar sesión</a>
       </li>
       <li class="nav-item nav-item-hover">
         <a class="nav-link no-border-link" href="<?=url.'?controlador=producto&accion=carrito'?>">

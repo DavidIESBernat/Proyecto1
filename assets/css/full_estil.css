@@ -38,6 +38,8 @@ a {
   text-decoration: none;
 }
 
+
+
 .banner-text {
     color: var(--bg-color0);
     display: flex;
@@ -564,7 +566,6 @@ a {
     margin-bottom: 10px;
     
   }
-
   .producto-info {
     display: flex;
     flex-direction: row;
@@ -613,14 +614,6 @@ a {
     flex-direction: row;
     align-items: center;
   }
-  .resumen-carrito {
-    min-height: 320px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    width: 390px;
-    background-color: var(--bg-color0);
-  }
 
   .quantity-value {
     width: 38px;
@@ -652,6 +645,51 @@ a {
   .quantity-button:hover {
     background-color: var(--bg-color1);
   }
+
+  .resumen-carrito {
+    min-height: 320px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    max-width: 390px;
+    background-color: var(--bg-color0);
+
+  }
+  .tabla-carrito {
+    width: 330px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .tabla-carrito td{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+  }
+  .product-line {
+    width: auto;
+    height: 1px;
+    background-color: var(--bg-color-fondo2);
+  }
+
+  .title-resumen-carrito {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .carrito .producto .boton-eliminar-producto {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-bottom: auto;
+  }
+  
 /*Media query*/
 @media only screen and (max-width: 1000px) {
 
