@@ -14,79 +14,85 @@
 
 </head>
 <body class="bg-black">
-    <div class="titulo-carrito">
-        <h1 class="">Carrito</h1>
-        <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Vaciar carrito</a>
-    </div>
-    <div class="secciones-carrito">
+    <div class="row secciones-carrito">
         <?php if($_SESSION['selecciones']){ ?>
-            <div class="carrito">
-                <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
-                    <div class="producto">
-                        <div class="producto-imagen" style="background-image:url(assets/images/<?= $pedido->getProducto()->getImagen()?>)"></div>
-                        <div class="producto-info">
-                            <div class="producto-text">
-                                <div class="producto-nombre"><?= $pedido->getProducto()->getNombre() ?></div>
-                                <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
-                            </div>
-                            <div class="producto-seccion-derecha">
-                                
-                                <!--<div class="producto-ingredientes">
-                                    Boton Ingredientes *funcion eliminada*
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Ingredientes
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Ingredientes</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+            <div class="col-12 col-md-12 col-lg-10 carrito">
+                <div class="fondo-carrito">
+                    <div class="titulo-carrito">
+                        <h1 class="">Carrito</h1>
+                        <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Vaciar carrito</a>
+                    </div>
+                </div>
+                <div class="row no-margin-row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
+                            <div class="producto d-flex flex-direction-row">
+                                <div class="producto-imagen" style="background-image:url(assets/images/<?= $pedido->getProducto()->getImagen()?>)"></div>
+                                <div class="producto-info">
+                                    <div class="producto-text">
+                                        <div class="producto-nombre"><?= $pedido->getProducto()->getNombre() ?></div>
+                                        <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
                                     </div>
-                                    </li>
-                                </div>-->
-
-                                <form class="producto-cantidad" action="" method="POST">
-                                    <button type="submit" name="menos" class="quantity-button restar"> - </button>
-                                    <input type="hidden" name="cantidad" value="<?=$pedido->getCantidad()?>">
-                                    <div class="quantity-value"><?=$pedido->getCantidad()?></div>
-                                    <button type="submit" name="mas" class="quantity-button"> + </button>
+                                    <div class="producto-seccion-derecha">
+                                        <form class="producto-cantidad" action="" method="POST">
+                                            <button type="submit" name="menos" class="quantity-button restar"> - </button>
+                                            <input type="hidden" name="cantidad" value="<?=$pedido->getCantidad()?>">
+                                            <div class="quantity-value"><?=$pedido->getCantidad()?></div>
+                                            <button type="submit" name="mas" class="quantity-button"> + </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="boton-eliminar-producto">
+                                    <form action="" method="POST">
+                                    <input type="hidden" name="cantidad" value="0">
+                                        <button type="submit" name="eliminar" class="quantity-button eliminar-button"> x </button>
+                                    </form>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-4 resumen-carrito">
+                        <div>
+                            <p class="title-resumen-carrito">TU SELECCIÓN</p>
+                            <div class="product-line"></div>
+                            <table class="tabla-carrito">
+                                <!--Bucle para crear cada producto añadido al carrito en la tabla-->
+                                <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
+                                    <tr>
+                                        <div>
+                                            <td class="capitalize"><?= $pedido->getProducto()->getNombre() ?></td>
+                                        </div>
+                                        <div>
+                                            <td class="d-flex justify-content-end"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€ * </td>
+                                            <td><?= $pedido->getCantidad()?>u</td>
+                                        </div>
+                                    </tr>
+                                    <tr><td colspan="3"><div class="product-line"></div></td></tr>
+                                <?php } ?>
+                            </table>
+                        </div>
+                        <div>
+                            <div class="div-precio-total">
+                                <div class="texto-precio-total">Total Selección:</div>
+                                <div class="precio-total">0,00€ <span class="iva-precio-total">IVA incluido</span></div>
+                            </div>
+                            <div class="boton-comprar">
+                                <form action="" method="POST">
+                                    <button>REALIZAR PEDIDO</button>
                                 </form>
                             </div>
                         </div>
-                        <div class="boton-eliminar-producto">
-                            <form action="" method="POST">
-                            <input type="hidden" name="cantidad" value="0">
-                                <button type="submit" name="eliminar" class="quantity-button eliminar-button"> x </button>
-                            </form>
-                        </div>
                     </div>
-                <?php } ?>
-            </div>
-            <div class="resumen-carrito">
-                <p class="title-resumen-carrito">TU SELECCIÓN</p>
-                <div class="product-line"></div>
-                <table class="tabla-carrito">
-                    <!--Bucle para crear cada producto añadido al carrito en la tabla-->
-                    <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
-                        <tr>
-                            <div>
-                                <td class="capitalize"><?= $pedido->getProducto()->getNombre() ?></td>
-                            </div>
-                            <div>
-                                <td class="d-flex justify-content-end"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€ * </td>
-                                <td><?= $pedido->getCantidad()?>u</td>
-                            </div>
-                        </tr>
-                        <tr><td colspan="3" class="product-line"></td></tr>
-                    <?php } ?>
-                </table>
+                </div>
             </div>
             <?php } else {?>
-                <h1>El carrito esta vacio</h1>
+                <div class="col-12 carrito-vacio" >
+                    <h1>El carrito esta vacio</h1>
+                </div>
             <?php }?>
         </div>
     </div>
+    <div class="section-footer-bottom"></div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

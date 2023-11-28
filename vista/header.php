@@ -67,11 +67,8 @@
         <a class="nav-link" href="<?=url.'?controlador=producto&accion=login'?>">Iniciar sesión</a>
       </li>
       <li class="nav-item nav-item-hover">
-        <a class="nav-link no-border-link" href="<?=url.'?controlador=producto&accion=carrito'?>">
-          <div class="d-flex flex-direction-row">
-            <p>Carrito</p>
-            <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito">
-          </div>
+        <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=producto&accion=carrito'?>">
+            <div>Carrito <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito"></div>
         </a>
       </li>
     </ul>
