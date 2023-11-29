@@ -49,7 +49,7 @@
                                     <form action="<?=url?>?controlador=producto&accion=carrito" method="POST">
                                         <input type="hidden" name="id" value="<?= $pedido->getProducto()->getId() ?>">
                                         <input type="hidden" name="cantidad" value="0">
-                                        <button type="submit" name="Remove" class="quantity-button eliminar-button"> x </button>
+                                        <button type="submit" name="Eliminar" value="<?=$pos?>" class="quantity-button eliminar-button"> x </button>
                                     </form>
                                 </div>
                             </div>

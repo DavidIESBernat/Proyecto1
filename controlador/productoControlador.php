@@ -69,8 +69,8 @@ class productoControlador {
             } else {
                 $pedido->setCantidad($pedido->getCantidad()-1);
             }
-        } else if(isset($_POST['Remove'])) { // Eliminar producto del carrito
-            unset($_SESSION['selecciones'][$_POST['Remove']]);
+        } else if(isset($_POST['Eliminar'])) { // Eliminar producto del carrito
+            unset($_SESSION['selecciones'][$_POST['Eliminar']]);
             $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
         } 
         // Header
