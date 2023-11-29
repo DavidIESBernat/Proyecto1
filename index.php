@@ -1,9 +1,10 @@
 <?php
 include_once 'config/parameters.php';
 include_once 'controlador/productoControlador.php';
+include_once 'controlador/pedidoControlador.php';
 
 if(!isset($_GET['controlador'])) {
-    // Si no se pasa nada, se msotrara pagina principal de pedidos.
+    // Si no se pasa nada, se mostrara pagina principal de pedidos.
     header("Location:".url.'?controlador=producto');
 } else {
     $nombre_controlador = $_GET['controlador'].'Controlador';

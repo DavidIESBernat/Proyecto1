@@ -14,18 +14,21 @@
 
 </head>
 <body class="bg-black">
+    <?php var_dump($_SESSION['selecciones']) ?>
     <div class="row secciones-carrito">
         <?php if($_SESSION['selecciones']){ ?>
             <div class="col-12 col-md-12 col-lg-10 carrito">
                 <div class="fondo-carrito">
                     <div class="titulo-carrito">
                         <h1 class="">Carrito</h1>
-                        <a href="<?=url.'?controlador=producto&accion=destruir_carrito'?>">Vaciar carrito</a>
+                        <a href="<?=url.'?controlador=pedido&accion=destruir_carrito'?>">Vaciar carrito</a>
                     </div>
                 </div>
                 <div class="row no-margin-row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
-                        <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
+                        <?php
+                        $pos = 0;
+                        foreach ($_SESSION['selecciones'] as $pedido) { ?>
                             <div class="producto d-flex flex-direction-row">
                                 <div class="producto-imagen" style="background-image:url(assets/images/<?= $pedido->getProducto()->getImagen()?>)"></div>
                                 <div class="producto-info">
@@ -34,22 +37,23 @@
                                         <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
                                     </div>
                                     <div class="producto-seccion-derecha">
-                                        <form class="producto-cantidad" action="" method="POST">
-                                            <button type="submit" name="menos" class="quantity-button restar"> - </button>
-                                            <input type="hidden" name="cantidad" value="<?=$pedido->getCantidad()?>">
+                                        <form class="producto-cantidad" action="<?=url?>?controlador=producto&accion=carrito" method="POST">
+                                            <input type="hidden" name="id" value="<?= $pedido->getProducto()->getId() ?>">
+                                            <button type="submit" name="Del" value="<?=$pos?>" class="quantity-button restar"> - </button>
                                             <div class="quantity-value"><?=$pedido->getCantidad()?></div>
-                                            <button type="submit" name="mas" class="quantity-button"> + </button>
+                                            <button type="submit" name="Add" value="<?=$pos?>"  class="quantity-button"> + </button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="boton-eliminar-producto">
-                                    <form action="" method="POST">
-                                    <input type="hidden" name="cantidad" value="0">
-                                        <button type="submit" name="eliminar" class="quantity-button eliminar-button"> x </button>
+                                    <form action="<?=url?>?controlador=producto&accion=carrito" method="POST">
+                                        <input type="hidden" name="id" value="<?= $pedido->getProducto()->getId() ?>">
+                                        <input type="hidden" name="cantidad" value="0">
+                                        <button type="submit" name="Remove" class="quantity-button eliminar-button"> x </button>
                                     </form>
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php $pos++; } ?>
                     </div>
                     <div class="col-12 col-md-10 col-lg-4 resumen-carrito">
                         <div>

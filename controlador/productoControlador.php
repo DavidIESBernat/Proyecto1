@@ -9,12 +9,22 @@ class productoControlador {
         // Inicializamos sesion
         session_start();
 
-        if(!isset($_SESSION['selecciones'])) {
+        if (!isset($_SESSION['selecciones'])) {
             $_SESSION['selecciones'] = array(); 
         } else {
-            if(isset($_POST['id'])){
+            if (isset($_POST['id'])) {
                 $pedido = new Pedido(productoDAO::obtenerProductoPorID($_POST['id']));
-                array_push($_SESSION['selecciones'], $pedido);
+                $posicion = array_search(serialize($pedido), array_map('serialize', $_SESSION['selecciones']));
+        
+                if ($posicion !== false) {
+                    // El pedido ya existe en la sesión
+                    $cantidad = $_SESSION['selecciones'][$posicion]->getCantidad();
+                    $_SESSION['selecciones'][$posicion]->setCantidad($cantidad + 1);// Suma uno a su cantidad
+                } else {
+                    // El pedido no existe en la sesión
+                    array_push($_SESSION['selecciones'], $pedido);
+                    header("Location:".url.'?controlador=producto&accion=carta#0'.$_POST['id']);
+                }
             }
         }
 
@@ -44,9 +54,25 @@ class productoControlador {
     public function carrito() {
         session_start();
         
-        if(!isset($_SESSION['selecciones'])) {
+        if(!isset($_SESSION['selecciones'])) { // Si la session no existe la crea
             $_SESSION['selecciones'] = array(); 
         }
+        
+        if(isset($_POST['Add'])) { // Sumar la cantidad del mismo producto
+            $pedido = $_SESSION['selecciones'][$_POST['Add']];
+            $pedido->setCantidad($pedido->getCantidad()+1);
+        } else if(isset($_POST['Del'])) { // Restar la cantidad de producto del carrito o eliminar si la cantidad es igual a 0
+            $pedido = $_SESSION['selecciones'][$_POST['Del']];
+            if($pedido->getCantidad()==1) {
+                unset($_SESSION['selecciones'][$_POST['Del']]);
+                $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
+            } else {
+                $pedido->setCantidad($pedido->getCantidad()-1);
+            }
+        } else if(isset($_POST['Remove'])) { // Eliminar producto del carrito
+            unset($_SESSION['selecciones'][$_POST['Remove']]);
+            $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
+        } 
         // Header
         include_once 'vista/header.php';
         // Main
@@ -55,11 +81,6 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
 
-    public function destruir_carrito() {
-        session_start();
-        session_destroy();
-        header("Location:".url.'?controlador=producto&accion=carrito');
-    }
     public function mostrarProductos() {
 
         $categorias = productoDAO::obtenerCategorias();
@@ -132,6 +153,4 @@ class productoControlador {
         header("Location:".url.'?controlador=producto&accion=nuevaCategoria');
     }
 }
-
-
 ?>
