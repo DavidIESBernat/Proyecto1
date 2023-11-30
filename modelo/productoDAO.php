@@ -133,6 +133,19 @@ class productoDAO {
         }
         header("Location:".url.'?controlador=producto&accion=carta#0'.$_POST['id']); // Vuelve a la posicion de la carta donde nos encontrabamos
     }
+
+    public static function precioTotalPedido() {      
+        $precioTotal = 0;
+        $precioTotalConjunto = 0;
+
+        foreach ($_SESSION['selecciones'] as $pedido) {
+            $precio = $pedido->getProducto()->getPrecio();
+            $cantidad = $pedido->getCantidad();
+            $precioTotal = $precio * $cantidad;
+            $precioTotalConjunto = $precioTotalConjunto + $precioTotal;
+        }
+        return $precioTotalConjunto;
+    }
 }
     
 ?>

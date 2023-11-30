@@ -64,6 +64,8 @@ class productoControlador {
             unset($_SESSION['selecciones'][$_POST['Eliminar']]);
             $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
         } 
+        
+        $precioTotal = productoDAO::precioTotalPedido();
         // Header
         include_once 'vista/header.php';
         // Main

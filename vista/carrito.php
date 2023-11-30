@@ -66,7 +66,7 @@
                                             <td class="capitalize"><?= $pedido->getProducto()->getNombre() ?></td>
                                         </div>
                                         <div>
-                                            <td class="d-flex justify-content-end"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€ * </td>
+                                            <td class="d-flex justify-content-end"><?= number_format($pedido->getProducto()->getPrecio() * $pedido->getCantidad(), 2,',','.') ?>€ * </td>
                                             <td><?= $pedido->getCantidad()?>u</td>
                                         </div>
                                     </tr>
@@ -77,7 +77,7 @@
                         <div>
                             <div class="div-precio-total">
                                 <div class="texto-precio-total">Total Selección:</div>
-                                <div class="precio-total">0,00€ <span class="iva-precio-total">IVA incluido</span></div>
+                                <div class="precio-total"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
                             <div class="boton-comprar">
                                 <form action="" method="POST">
