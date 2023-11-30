@@ -13,20 +13,11 @@ class productoControlador {
             $_SESSION['selecciones'] = array(); 
         } else {
             if (isset($_POST['id'])) {
-                $pedido = new Pedido(productoDAO::obtenerProductoPorID($_POST['id']));
-                $posicion = array_search(serialize($pedido), array_map('serialize', $_SESSION['selecciones']));
-        
-                if ($posicion !== false) {
-                    // El pedido ya existe en la sesión
-                    $cantidad = $_SESSION['selecciones'][$posicion]->getCantidad();
-                    $_SESSION['selecciones'][$posicion]->setCantidad($cantidad + 1);// Suma uno a su cantidad
-                } else {
-                    // El pedido no existe en la sesión
-                    array_push($_SESSION['selecciones'], $pedido);
-                    header("Location:".url.'?controlador=producto&accion=carta#0'.$_POST['id']);
-                }
+                $id = $_POST['id'];
+                productoDAO::pedido($id);
             }
         }
+    
 
         // Header
         include_once 'vista/header.php';
@@ -79,6 +70,11 @@ class productoControlador {
         include_once 'vista/carrito.php';
         // Footer
         include_once 'vista/footer.php';
+    }
+    public function destruir_carrito() {
+        session_start();
+        session_destroy();
+        header("Location:".url.'?controlador=producto&accion=carrito');
     }
 
     public function mostrarProductos() {

@@ -14,7 +14,6 @@
 
 </head>
 <body class="bg-black">
-    <?php var_dump($_SESSION['selecciones']) ?>
     <div class="row secciones-carrito">
         <?php if($_SESSION['selecciones']){ ?>
             <div class="col-12 col-md-12 col-lg-10 carrito">
