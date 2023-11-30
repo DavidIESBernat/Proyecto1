@@ -13,8 +13,8 @@ class productoDAO {
         $consulta = $con->prepare("SELECT * FROM producto"); 
         $consulta->execute();
         $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-        foreach($resultados as $resultado) {
-            $producto = new Producto();
+        foreach($resultados as $resultado) { // Bucle foreach que recorre todos los productos obtenidos
+            $producto = new Producto(); // Los productos son declarados como clase Producto y se establecen sus valores con Sets
             $producto->setId($resultado['id']);
             $producto->setNombre($resultado['nombre']);
             $producto->setDescripcion($resultado['descripcion']);
@@ -22,11 +22,11 @@ class productoDAO {
             $producto->setCategoria($resultado['categoria']);
             $producto->setImagen($resultado['imagen']);
     
-            $productos[] = $producto;
+            $productos[] = $producto; // Aqui guardamos todos los campos anterior de productos en el array principal donde se almacenan todos los productos
             }
         
             $con->close();
-            return $productos;
+            return $productos; // Devuelve los productos
     }
 
     /* Funcion para obtener todas las categorias de la base de datos*/
@@ -34,20 +34,20 @@ class productoDAO {
         $con = dataBase::connect(); // Conexion con la base de datos
         $consulta = $con->prepare("SELECT * FROM categoria"); 
         $consulta->execute();
-        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
+        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC); // Obtiene todas las categorias
 
-        foreach($resultados as $resultado) {
-            $categoria = new Categoria();
+        foreach($resultados as $resultado) { // Bucle foreach que recorre las categorias
+            $categoria = new Categoria(); // Declaracion de una nueva categoria en la que guardamos todos sus valores con sets
             $categoria->setId($resultado['id']);
             $categoria->setNombre($resultado['nombre']);
             $categoria->setDescripcion($resultado['descripcion']);
             $categoria->setImagen($resultado['imagen']);
     
-            $categorias[] = $categoria;
+            $categorias[] = $categoria; // Guardamos la categoria en el array categorias
         }
     
         $con->close();
-        return $categorias;
+        return $categorias; // Devuelve las categorias
 
     }
     /*Obtener un producto de la base de datos segun su id*/ 
@@ -100,20 +100,7 @@ class productoDAO {
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
     }
-    /* Funcion para eliminar un pedido de la sesion donde se almacena*/
-    public static function delProductoCarrito($id) {
-        session_start();
-        if (isset($_SESSION['selecciones'])) { // Compruebo que la sesion existe
-            // Obtengo el pedido de productoDAO en base al id del producto seleccionado para eliminar
-            $pedido = new Pedido(productoDAO::obtenerProductoPorID($id));
-            $posicion = array_search($pedido, $_SESSION['selecciones']); // Busco la posicion del pedido en el array
-            
-            if ($posicion !== false) { // Comprobacion de que el valor existe en el array
-                unset($_SESSION['selecciones'][$posicion]); // Si existe elimina ese valor del array
-                $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
-            }
-        }
-    }
+
     // Funcion para añadir al carrito un pedido desde la carta
     public static function pedido($id) {
         $nuevoPedido = new Pedido(productoDAO::obtenerProductoPorID($_POST['id'])); // Crea un nuevo pedido en base a la id
@@ -134,17 +121,20 @@ class productoDAO {
         header("Location:".url.'?controlador=producto&accion=carta#0'.$_POST['id']); // Vuelve a la posicion de la carta donde nos encontrabamos
     }
 
-    public static function precioTotalPedido() {      
+    // Devuelve el precio total de todos los pedidos
+    public static function precioTotalPedido() { 
+        // Variables declaradas como 0     
         $precioTotal = 0;
         $precioTotalConjunto = 0;
 
+        // Bucle para recorrer el array de la session y guardar en $pedido sus array indexadas
         foreach ($_SESSION['selecciones'] as $pedido) {
-            $precio = $pedido->getProducto()->getPrecio();
-            $cantidad = $pedido->getCantidad();
-            $precioTotal = $precio * $cantidad;
-            $precioTotalConjunto = $precioTotalConjunto + $precioTotal;
+            $precio = $pedido->getProducto()->getPrecio(); // Guarda el precio de el producto actual
+            $cantidad = $pedido->getCantidad(); // Guarda la cantidad del mismo producto
+            $precioTotal = $precio * $cantidad; // Multiplica el precio por la cantidad de productos añadidos
+            $precioTotalConjunto = $precioTotalConjunto + $precioTotal; // Autosuma los precios anteriores con el valor total
         }
-        return $precioTotalConjunto;
+        return $precioTotalConjunto; // Devuelve precio total de todos los productos de la sesion
     }
 }
     

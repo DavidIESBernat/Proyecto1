@@ -36,7 +36,7 @@
                                         <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
                                     </div>
                                     <div class="producto-seccion-derecha">
-                                        <form class="producto-cantidad" action="<?=url?>?controlador=producto&accion=carrito" method="POST">
+                                        <form class="producto-cantidad" action="<?=url?>?controlador=pedido&accion=carrito" method="POST">
                                             <input type="hidden" name="id" value="<?= $pedido->getProducto()->getId() ?>">
                                             <button type="submit" name="Del" value="<?=$pos?>" class="quantity-button restar"> - </button>
                                             <div class="quantity-value"><?=$pedido->getCantidad()?></div>
@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="boton-eliminar-producto">
-                                    <form action="<?=url?>?controlador=producto&accion=carrito" method="POST">
+                                    <form action="<?=url?>?controlador=pedido&accion=carrito" method="POST">
                                         <input type="hidden" name="id" value="<?= $pedido->getProducto()->getId() ?>">
                                         <input type="hidden" name="cantidad" value="0">
                                         <button type="submit" name="Eliminar" value="<?=$pos?>" class="quantity-button eliminar-button"> x </button>

@@ -5,6 +5,8 @@ include_once 'modelo/Pedido.php';
 class productoControlador {
     
 
+    // Funcion index, esta funcion es la funcion principal que se carga siempre que no tenemos una accion, en ella carga la pagina home
+    // Tambien si seleccionamos un producto para añadir al carrito lo creara llamando a la funcion pedido
     public function index() {
         // Inicializamos sesion
         session_start();
@@ -27,9 +29,11 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
     
+    // Funcion que muestra el header
     public function header() {
         include_once 'vista/header.php';
     }
+    // Funcion que muestra  
     public function carta() {
         session_start();
         // Header
@@ -42,43 +46,7 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
 
-    public function carrito() {
-        session_start();
-        
-        if(!isset($_SESSION['selecciones'])) { // Si la session no existe la crea
-            $_SESSION['selecciones'] = array(); 
-        }
-        
-        if(isset($_POST['Add'])) { // Sumar la cantidad del mismo producto
-            $pedido = $_SESSION['selecciones'][$_POST['Add']];
-            $pedido->setCantidad($pedido->getCantidad()+1);
-        } else if(isset($_POST['Del'])) { // Restar la cantidad de producto del carrito o eliminar si la cantidad es igual a 0
-            $pedido = $_SESSION['selecciones'][$_POST['Del']];
-            if($pedido->getCantidad()==1) {
-                unset($_SESSION['selecciones'][$_POST['Del']]);
-                $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
-            } else {
-                $pedido->setCantidad($pedido->getCantidad()-1);
-            }
-        } else if(isset($_POST['Eliminar'])) { // Eliminar producto del carrito
-            unset($_SESSION['selecciones'][$_POST['Eliminar']]);
-            $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
-        } 
-        
-        $precioTotal = productoDAO::precioTotalPedido();
-        // Header
-        include_once 'vista/header.php';
-        // Main
-        include_once 'vista/carrito.php';
-        // Footer
-        include_once 'vista/footer.php';
-    }
-    public function destruir_carrito() {
-        session_start();
-        session_destroy();
-        header("Location:".url.'?controlador=producto&accion=carrito');
-    }
-
+    // Funcion para mostrar todos los productos en modo Administrador
     public function mostrarProductos() {
 
         $categorias = productoDAO::obtenerCategorias();
@@ -87,6 +55,7 @@ class productoControlador {
         include_once 'vista/mostrarProductos.php';
     }
 
+    // Funcion para eliminar un producto en la ventana de Administrador
     public function eliminarProducto() {
 
         $id= $_POST['id'];
@@ -94,6 +63,7 @@ class productoControlador {
         header("Location:".url.'?controlador=producto&accion=mostrarProductos');
     }
 
+    // Funcion para modificar un producto en la ventana de Administrador
     public function modificarProducto() {
 
             $id = $_POST['id'];
@@ -107,6 +77,7 @@ class productoControlador {
             
     }
 
+    // Funcion para editar un producto en la ventana de administrador
     public function editarProducto() {
 
         $id = $_POST['id'];
@@ -120,11 +91,13 @@ class productoControlador {
         header("Location:".url.'?controlador=producto&accion=mostrarProductos');
     }
 
+    // Funcion que llama a categorias y a la vista para crear un nuevo producto
     public function nuevoProducto() {
         $categorias = productoDAO::obtenerCategorias();
         include_once 'vista/nuevoProducto.php';
     }
 
+    // Funcion para añadir un nuevo producto en la vista de Administrador
     public function añadirProducto() {
 
         $nombre = $_POST['nombre'];
