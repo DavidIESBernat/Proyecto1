@@ -63,9 +63,15 @@
           <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
         </form>
       </li>
-      <li class="nav-item nav-item-hover login">
-        <a class="nav-link" href="<?=url.'?controlador=producto&accion=login'?>">Iniciar sesión</a>
-      </li>
+      <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ $login = 0; if($login == 0) {?>
+        <li class="nav-item nav-item-hover login">
+        <a class="nav-link" href="<?=url.'?controlador=usuario&accion=login'?>">Iniciar sesión</a>
+        </li>
+      <?php } else { ?>
+        <li class="nav-item nav-item-hover login">
+        <a class="nav-link" href="<?=url.'?controlador=usuario&accion=perfilUsuario'?>">Nombre Usuario</a>
+        </li>
+      <?php } ?>
       <li class="nav-item nav-item-hover">
         <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=pedido&accion=carrito'?>">
             <div>Carrito <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito"></div>

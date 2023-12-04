@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: Source Sans Pro,sans-serif;
+    src: url(../fonts/BlantickScript.ttf);
+}
+:root {
+    /* --main-bg-color: brown; */
+    --bg-color0: #ffffff;
+    --bg-color1: #e61414;
+    --bg-color2: #444444;
+    --bg-color3: #666666;
+    --bg-color4: #888888;
+    --bg-color5: #000000;
+    --bg-color-fondo1: #F3F3F3;
+    --bg-color-fondo2: #000;
+    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
+}
+
+.containerLogin {
+    margin: auto;
+    background-color: var(--bg-color-fondo1);
+    height:  620px;
+    padding-top: 50px;
+}
+
+.titulo_login {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.formularioLogin {
+    background-color: var(--bg-color0);
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.campo_texto {
+    position: relative;
+    margin: 25px 45px 25px 45px;
+    border-bottom: 2.5px solid var(--bg-color5); 
+}
+
+.inputFormulario {
+    background: none;
+    padding: 10px;
+    display: block;
+    border: none;
+    width: 100%;
+}
+
+.inputFormulario:focus {
+    outline: none;
+}
+
+.campo_texto label {
+    font-size: 16px;
+    color: var(--bg-color5);
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical según tus preferencias */
+    left: 0;
+}
+
+.campo_texto:hover {
+    border-bottom: 2.5px solid var(--bg-color1);
+    transition: 0.3s ease-in-out all;
+}
+
+.campo_texto:hover label {
+    color: var(--bg-color1);
+}
+
+.loginLabel {
+    font-weight:600;
+    font-size: 16px;
+    color: var(--bg-color5);
+    transition: 0.3s ease-in-out all;
+    cursor:text;
+
+}
+
+/* Al seleccionar el input mover el label a la parte superior izquierda y reducir su tamaño*/
+.inputFormulario:focus~label,
+.inputFormulario:valid~label{
+    top: -10px;
+    font-size: 13px;
+}
+
+.boton_enviar {
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: auto;
+    margin-top: 50px;
+    background-color: var(--bg-color5);
+    padding: 15px;
+    color:var(--bg-color0);
+    font-weight: 600;
+}
+
+.boton_enviar:hover {
+    background-color: var(--bg-color1);
+    color: var(--bg-color0);
+}

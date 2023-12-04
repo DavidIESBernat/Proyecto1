@@ -2,6 +2,7 @@
 include_once 'config/parameters.php';
 include_once 'controlador/productoControlador.php';
 include_once 'controlador/pedidoControlador.php';
+include_once 'controlador/usuarioControlador.php';
 
 if(!isset($_GET['controlador'])) {
     // Si no se pasa nada, se mostrara pagina principal de pedidos.
