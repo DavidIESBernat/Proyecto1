@@ -1,9 +1,11 @@
 <?php
 include_once 'modelo/productoDAO.php';
+include_once 'modelo/pedidoDAO.php';
+include_once 'modelo/usuarioDAO.php';
 include_once 'modelo/Producto.php';
 include_once 'modelo/Pedido.php';
+
 class productoControlador {
-    
 
     // Funcion index, esta funcion es la funcion principal que se carga siempre que no tenemos una accion, en ella carga la pagina home
     // Tambien si seleccionamos un producto para añadir al carrito lo creara llamando a la funcion pedido
@@ -16,7 +18,7 @@ class productoControlador {
         } else {
             if (isset($_POST['id'])) {
                 $id = $_POST['id'];
-                productoDAO::pedido($id);
+                pedidoDAO::pedido($id);
             }
         }
     

@@ -29,7 +29,7 @@ class pedidoControlador {
             $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
         } 
         
-        $precioTotal = productoDAO::precioTotalPedido(); // Obtener el precio total de todos los productos
+        $precioTotal = pedidoDAO::precioTotalPedido(); // Obtener el precio total de todos los productos
         // Header
         include_once 'vista/header.php';
         // Main
@@ -43,6 +43,14 @@ class pedidoControlador {
         session_start();
         session_destroy();
         header("Location:".url.'?controlador=pedido&accion=carrito');
+    }
+
+    public function confirmar() {
+        // Te almacena el pedido en la base de datos PedidoDAO que guarda el pedido en la BBDD
+
+        // Guardo la cookie
+        setcookie('UltimoPedido',$_POST['valorTotal'],time()+3600); // Crear Cookie
+        setcookie('UltimoPedido',$_POST['valorTotal'],time()-3600); // Eliminar Cookie
     }
 }
 ?>
