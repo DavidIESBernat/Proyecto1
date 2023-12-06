@@ -6,7 +6,7 @@
 </head>
         <body>
                 <h1>Añadir  nueva categoria</h1>
-                <a href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Volver</a>
+                <a href="<?=url.'?controlador=categoria&accion=mostrarCategorias'?>">Volver</a>
                 <table border="1">
                         <tr>
                                 <th>Nombre*</th>
@@ -14,7 +14,7 @@
                                 <th>Imagen</th>
                         </tr>
                         <tr>
-                                <form action=<?=url.'?controlador=producto&accion=añadirCategoria'?> method='POST'>
+                                <form action=<?=url.'?controlador=categoria&accion=añadirCategoria'?> method='POST'>
                                         <td><input name='nombre' value="" required></td>
                                         <td><input name='descripcion' value=""></td>
                                         <td><input name='imagen' value=""></td>

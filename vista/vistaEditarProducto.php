@@ -16,6 +16,7 @@
                                 <th></th>
                         </tr>
                         <tr>
+                                <a href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Volver</a>
                                 <form action=<?=url.'?controlador=producto&accion=editarProducto'?> method='POST'>
                                         <input type='hidden' name='id' value="<?=$id?>">
                                         <td><input name='idDesactivado' disabled value="<?=$id?>"></td>

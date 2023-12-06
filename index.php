@@ -1,6 +1,7 @@
 <?php
 include_once 'config/parameters.php';
 include_once 'controlador/productoControlador.php';
+include_once 'controlador/categoriaControlador.php';
 include_once 'controlador/pedidoControlador.php';
 include_once 'controlador/usuarioControlador.php';
 

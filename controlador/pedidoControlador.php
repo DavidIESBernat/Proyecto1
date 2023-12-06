@@ -1,8 +1,15 @@
 <?php
 include_once 'modelo/productoDAO.php';
+include_once 'modelo/categoriaDAO.php';
+include_once 'modelo/pedidoDAO.php';
 include_once 'modelo/Producto.php';
 include_once 'modelo/Pedido.php';
 class pedidoControlador {
+
+     // Funcion por si index.php trata de acceder a index de pedidoControlador, automaticamente redirige al controlador de producto
+     public function index() {
+        header("Location:".url."?controlador=producto");
+    }
 
     /* Funcion para eliminar un producto de la sesion que se muestra en el carrito*/
     //Funcion para acceder al carrito, modificar cantidad de productos y eliminarlos.
@@ -38,10 +45,10 @@ class pedidoControlador {
         include_once 'vista/footer.php';
     }
 
-    // Funcion para eliminar la sesion actual 
+    // Funcion para eliminar la sesion actual de selecciones
     public function destruir_carrito() {
         session_start();
-        session_destroy();
+        unset($_SESSION['selecciones']);
         header("Location:".url.'?controlador=pedido&accion=carrito');
     }
 

@@ -17,24 +17,24 @@
                         <input type="submit" value="Volver">
                     </form>
                 </td>
-                <h1>Lista de productos</h1>
+                <h1>Gestionar Productos</h1>
                 <td>
-                    <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
-                        <input type="submit" value="Añadir Producto">
-                    </form>
-                </td>
-                <td>
-                    <form action="<?= url.'?controlador=producto&accion=nuevaCategoria'?>" method="POST">
-                        <input type="submit" value="Añadir Categoria">
+                    <form action="<?= url.'?controlador=categoria&accion=mostrarCategorias'?>" method="POST">
+                        <input type="submit" value="Mostrar Categorias">
                     </form>
                 </td>    
+                <td>
+                    <form action="<?= url.'?controlador=producto&accion=nuevoProducto'?>" method="POST">
+                        <input type="submit" value="Nuevo Producto">
+                    </form>
+                </td>
             </tr>
         </table>
 
         <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Imagen
+                <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Precio</th>

@@ -37,7 +37,7 @@
         <div class="divisor"></div>
       </li>
       <li class="nav-item nav-item-hover">
-        <a class="nav-link" href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Contacto</a>
+        <a class="nav-link">Contacto</a>
         <div class="divisor"></div>
       </li>
       <!--<li class="nav-item dropdown">
@@ -65,7 +65,15 @@
       </li>
       <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ $login = 0; if($login == 0) {?>
         <li class="nav-item nav-item-hover login">
-        <a class="nav-link" href="<?=url.'?controlador=usuario&accion=login'?>">Iniciar sesión</a>
+        <?php
+          if(isset($_SESSION['usuario'])) {
+            echo '<a class="nav-link" href="'.url.'?controlador=usuario&accion=perfil">';
+            echo $_SESSION['usuario']['nombre'];
+            echo "</a>";
+          } else {
+            echo '<a class="nav-link" href="'.url.'?controlador=usuario&accion=login">Iniciar Sesión</a>';
+          }
+        ?>
         </li>
       <?php } else { ?>
         <li class="nav-item nav-item-hover login">

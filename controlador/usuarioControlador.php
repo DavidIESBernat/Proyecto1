@@ -1,48 +1,63 @@
 <?php
 include_once 'modelo/productoDAO.php';
+include_once 'modelo/categoriaDAO.php';
+include_once 'modelo/pedidoDAO.php';
 include_once 'modelo/Producto.php';
 include_once 'modelo/Pedido.php';
+
 
 // Controlador del usuario, login, modificar contraseña etc...
 class usuarioControlador {
 
-    // Funcion para cargar la vista de iniciar sesion
-    public function login() {
-        // Header
-        include_once 'vista/header.php';
-        // Main
-        include_once 'vista/login.php';
-        // Footer
-        include_once 'vista/footer.php';
+    // Funcion por si index.php trata de acceder a index de usuarioControlador, automaticamente redirige al controlador de producto
+    public function index() {
+        header("Location:".url."?controlador=producto");
     }
 
-    // Funcion que verifica si el usuario existe
-    public function verificarLogin() {
-        $username = $_POST['username'];
-        $contraseña = $_POST['password'];
+    // Funcion para cargar la vista de iniciar sesion
+    public function login() {
+        session_start();
 
-        $usuario = usuarioDAO::verificarUsuario($username);
-
-        if (isset($usuario[$_POST["username"]]) && ($usuario[$_POST["username"]]==$_POST["password"]) ){
-
-            session_start();
-            if(!array_key_exists("nomusuari", $_SESSION)) {
-                // Usuari no existeix i per tant, es crea
-                $_SESSION["nomusuari"] = $_POST["usuari"];
-                header("location:compte.php"); 
-            } else {
-                // Usuari existex, per tant, no es crea cap usuari
-                header("location:login.php");
-            }
+        // Comprobacion para evitar iniciar sesion si ya tenemos una sesion iniciada
+        if(isset($_SESSION['usuario'])) {
+            header("Location:".url."?controlador=usuario&accion=perfil");
         } else {
-            echo "Error d'usuari";
+            // Header
+            include_once 'vista/header.php';
+            // Main
+            include_once 'vista/login.php';
+            // Footer
+            include_once 'vista/footer.php';
         }
     }
 
+    // Funcion utiliza para iniciar sesion verificando si los campos son correctos creando la sesion correspondiente
+    public function verificarLogin() {
+        session_start();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            // Llama a la funcion verificarUsuario de usuarioDAO y envia el usuario y la contraseña enviados en la vista login
+            usuarioDAO::verificarUsuario($username, $password);
+        }
+    }
+
+    // Funcion para acceder a la vista del perfil de usuario
+    public function perfil() {
+        session_start();
+        // Header
+        include_once 'vista/header.php';
+        // Main
+        include_once 'vista/perfil.php';
+        // Footer
+        include_once 'vista/footer.php';
+    }
+    // Destruir la sesion actual de usuario
     public function logout() {
         session_start();
-        session_destroy();
-        header(url."?controlador=producto");
+        unset($_SESSION['usuario']);
+        header("Location:".url."?controlador=producto");
     }
 }
 ?>

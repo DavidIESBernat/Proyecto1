@@ -107,3 +107,12 @@
     background-color: var(--bg-color1);
     color: var(--bg-color0);
 }
+
+.login_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color:var(--bg-color1);
+    font-weight: 600;
+}

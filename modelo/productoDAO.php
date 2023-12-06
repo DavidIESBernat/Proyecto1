@@ -29,28 +29,6 @@ class productoDAO {
             $con->close();
             return $productos; // Devuelve los productos
     }
-
-    /* Funcion para obtener todas las categorias de la base de datos*/
-    public static function obtenerCategorias() { // Devuelve todas las categorias.
-        $con = dataBase::connect(); // Conexion con la base de datos
-        $consulta = $con->prepare("SELECT * FROM categoria"); 
-        $consulta->execute();
-        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC); // Obtiene todas las categorias
-
-        foreach($resultados as $resultado) { // Bucle foreach que recorre las categorias
-            $categoria = new Categoria(); // Declaracion de una nueva categoria en la que guardamos todos sus valores con sets
-            $categoria->setId($resultado['id']);
-            $categoria->setNombre($resultado['nombre']);
-            $categoria->setDescripcion($resultado['descripcion']);
-            $categoria->setImagen($resultado['imagen']);
-    
-            $categorias[] = $categoria; // Guardamos la categoria en el array categorias
-        }
-    
-        $con->close();
-        return $categorias; // Devuelve las categorias
-
-    }
     
     /*Obtener un producto de la base de datos segun su id*/ 
     public static function obtenerProductoPorID($id) { // Devuelve un producto segun su id.
@@ -94,15 +72,6 @@ class productoDAO {
         $con = dataBase::connect();
         $consulta = $con->prepare("INSERT INTO PRODUCTO (id, nombre, descripcion, precio, categoria, imagen) VALUES (NULL, ?, ?, ?, ?, ?)"); // Consulta para añadir un nuevo producto
         $consulta->bind_param("ssdis", $nombre, $descripcion, $precio, $categoria, $imagen);
-        $consulta->execute(); // Ejecuta la consulta
-        $con->close(); // Cierra la conexion
-    }
-
-    /* Funcion para añadir una nueva categoria a la base de datos */
-    public static function nuevaCategoria($nombre,$descripcion,$imagen) { // Añade una nueva categoria
-        $con = dataBase::connect();
-        $consulta = $con->prepare("INSERT INTO CATEGORIA (id, nombre, descripcion, imagen) VALUES (NULL, ?, ?, ?)"); // Consulta para añadir una nueva categoria
-        $consulta->bind_param("sss", $nombre, $descripcion, $imagen);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
     }

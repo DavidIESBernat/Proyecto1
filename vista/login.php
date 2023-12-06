@@ -27,6 +27,14 @@
                 <input class="inputFormulario" type="password" name="password" required></input>
                 <label class="loginLabel" for="password">Contraseña</label>
             </div>
+            <?php
+                // Comprueba si se ha enviado por el formulario valores erroneos y muestra un mensaje de error
+                if (isset($_SESSION["error_message"])) {
+                    echo "<div class='login_error'>".$_SESSION["error_message"]."</div>";
+                    // Limpia el mensaje de error para que no se muestre nuevamente
+                    unset($_SESSION["error_message"]);
+                }
+            ?>
             <input class="boton_enviar" type="submit" name="enviar"value="Iniciar sesion"></input>
         </form>
     </div>
