@@ -1,5 +1,7 @@
 Requisitos:
 
+    -- QUEDA MOSTRAR PEDIDOS REALIZADOS EN EL PERFIL DE USUARIO, AÑADIR HERENCIA Y PERSONALIZAR BOTON DEL CARRITO REALIZAR PEDIDO
+
     Login: Crear un login y una vista de usuario donde ver los atributos y pedidos.
         - Si inicias sesion con Admin puedes acceder a la vista para gestionar productos y pedidos de usuarios.
 

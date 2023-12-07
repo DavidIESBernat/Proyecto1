@@ -52,12 +52,14 @@ class pedidoControlador {
         header("Location:".url.'?controlador=pedido&accion=carrito');
     }
 
-    public function confirmar() {
+    public function confirmarPedido() {
+        session_start();
         // Te almacena el pedido en la base de datos PedidoDAO que guarda el pedido en la BBDD
-
-        // Guardo la cookie
-        setcookie('UltimoPedido',$_POST['valorTotal'],time()+3600); // Crear Cookie
-        setcookie('UltimoPedido',$_POST['valorTotal'],time()-3600); // Eliminar Cookie
+        if(isset($_SESSION['usuario'])) {
+            pedidoDAO::confirmarPedido();
+        } else {
+            header("Location:".url.'?controlador=usuario&accion=login');
+        }
     }
 }
 ?>

@@ -3,8 +3,8 @@
 
 /* FONTS */
 @font-face {
-    font-family: "BlantickScript";
-    src: url(../fonts/BlantickScript.ttf);
+    font-family: Source Sans Pro,sans-serif;
+    src: url(../fonts/SourceSansPro-Regular.ttf);
 }
 /*Variables CSS*/
 :root {
@@ -482,7 +482,9 @@ a {
     background-image: url('../images/menu-icon.svg');
   }
 
-  
+  .account_image {
+    margin-left: 3px;
+  }
   /*-------------
       Footer
   -------------*/

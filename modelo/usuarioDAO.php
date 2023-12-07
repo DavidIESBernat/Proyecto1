@@ -33,6 +33,20 @@ class usuarioDAO {
             return $usuarios; // Devuelve los usuarios
     }
 
+    public static function ObtenerUsuarioPorId($id) {
+        // Con = conexion
+        $con = dataBase::connect(); // Conexion con la base de datos
+
+        $consulta = $con->prepare("SELECT * FROM USUARIO WHERE idUsuario = ?");
+        $consulta->bind_param("i", $id);
+        $consulta->execute(); // Ejecuta la consulta
+        $resultado = $consulta->get_result();
+        $usuario = $resultado->fetch_object('Usuario');
+        $con->close(); // Cierra la conexion
+
+        return $usuario; // Devuelve el usuario obtenido
+    }
+
     // Funcion que devuelve true o false para determinar si la cuenta actual es el administrador
     public static function verificarAdministrador() {
         session_start();
@@ -69,7 +83,7 @@ class usuarioDAO {
             $_SESSION['usuario'] = $usuario;
 
             // Redirige a la pagina home
-            header("Location:".url.'?controlador=producto');
+            header("Location:".url.'?controlador=usuario&accion=perfil');
             exit();
         } else {
             // Si se introducen credenciales incorrectas devolvemos el mensaje de error por sesion y redirigimos al login donde ahora se mostrara el mensaje de error
@@ -79,6 +93,15 @@ class usuarioDAO {
         }
         $con->close(); // Cierra la conexion
         
+    }
+    
+    // Funcion para modificar un usuario desde la vista del perfil
+    public static function modificarUsuario($username,$nombre,$apellido,$email,$telefono,$direccion,$poblacion) {
+        $con = dataBase::connect();
+        $consulta = $con->prepare("UPDATE USUARIO SET nombre = ?, apellido = ?, email = ?, numeroTlf = ?, direccion = ?, poblacion = ? WHERE username = ?"); // Consulta para actualizar segun id
+        $consulta->bind_param("sssisss", $nombre, $apellido, $email, $telefono, $direccion, $poblacion, $username);
+        $consulta->execute(); // Ejecuta la consulta
+        $con->close(); // Cierra la conexion
     }
 
 }

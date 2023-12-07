@@ -80,7 +80,7 @@
                                 <div class="precio-total"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
                             <div class="boton-comprar">
-                                <form action="" method="POST">
+                                <form action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
                                     <button>REALIZAR PEDIDO</button>
                                 </form>
                             </div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <?php } else {?>
-                <div class="col-12 carrito-vacio" >
+                <div class="col-12 carrito-vacio">
                     <h1>El carrito esta vacio</h1>
                 </div>
             <?php }?>

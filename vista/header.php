@@ -40,20 +40,6 @@
         <a class="nav-link">Contacto</a>
         <div class="divisor"></div>
       </li>
-      <!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>-->
     </ul>
     
     <ul class="navbar-nav mr-auto">
@@ -63,26 +49,21 @@
           <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
         </form>
       </li>
-      <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ $login = 0; if($login == 0) {?>
-        <li class="nav-item nav-item-hover login">
-        <?php
-          if(isset($_SESSION['usuario'])) {
-            echo '<a class="nav-link" href="'.url.'?controlador=usuario&accion=perfil">';
-            echo $_SESSION['usuario']['nombre'];
-            echo "</a>";
-          } else {
-            echo '<a class="nav-link" href="'.url.'?controlador=usuario&accion=login">Iniciar Sesión</a>';
-          }
-        ?>
-        </li>
-      <?php } else { ?>
-        <li class="nav-item nav-item-hover login">
-        <a class="nav-link" href="<?=url.'?controlador=usuario&accion=perfilUsuario'?>">Nombre Usuario</a>
-        </li>
-      <?php } ?>
+      <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ 
+        if(isset($_SESSION['usuario'])) {?>
+          <li class='nav-item nav-item-hover'>
+            <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=usuario&accion=perfil'?>"><?=$_SESSION['usuario']['nombre']?>
+              <img width='20' height='20' class="account_image" src='assets/images/account.png' alt="perfil">
+            </a>
+          </li>
+        <?php } else { ?>
+          <li class='nav-item nav-item-hover login'>
+            <a class="nav-link" href="<?=url.'?controlador=usuario&accion=login'?>">Iniciar Sesión</a>
+          </li>
+        <?php } ?>
       <li class="nav-item nav-item-hover">
         <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=pedido&accion=carrito'?>">
-            <div>Carrito <img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito"></div>
+            Carrito<img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito">
         </a>
       </li>
     </ul>

@@ -41,5 +41,46 @@ class pedidoDAO {
         }
         return $precioTotalConjunto; // Devuelve precio total de todos los productos de la sesion
     }
+
+    public static function confirmarPedido() {
+        $idUsuario = $_SESSION['usuario']['idUsuario']; // Guarda el id de usuario de la sesion actual
+        $fecha = date('Y-m-d'); // Obtiene y guarda la fecha en formato año-mes-dia
+        $precioTotal = pedidoDAO::precioTotalPedido(); // Obtiene el precio total del pedido
+
+        // Conexion con la base de datos
+        $con = dataBase::connect();
+        // Crea la query para insertar una nueva entrada en la tabla pedido
+        $query = "INSERT INTO PEDIDO (idUsuario, precioTotal, fecha) VALUES (?, ?, ?)";
+        $consulta = $con->prepare($query); // Prepara la conexion de esa query
+        $consulta->bind_param("ids", $idUsuario, $precioTotal, $fecha);
+        $consulta->execute(); // Ejecuta la Query
+
+        $idPedido = $consulta->insert_id;  // Obtener el ID del nuevo pedido creado
+        $consulta->close(); // Cierra la conexion
+
+
+        // Crea la query para insertar una nueva entrada en la tabla pedido
+        $query = "INSERT INTO PEDIDOPRODUCTO (idPedido, idProducto, cantidad, precio) VALUES (?, ?, ?, ?)";
+        $consultaProducto = $con->prepare($query); // Prepara la conexion de esa query
+        // Obtiene los productos actuales añadidos al carrito recorriendo la session
+        foreach ($_SESSION['selecciones'] as $pedido) {
+            $idProducto = $pedido->getProducto()->getId(); // Obtiene el id de producto
+            $cantidad = $pedido->getCantidad(); // Obtiene la cantidad
+            $precio = $pedido->getCantidad() * $pedido->getProducto()->getPrecio(); // Precio conjunto del producto * cantidad
+
+            $consultaProducto->bind_param("iiid", $idPedido, $idProducto, $cantidad, $precio); 
+            $consultaProducto->execute(); // Ejecuta la Query
+        }
+        $consultaProducto->close(); // Cierra la conexion
+        $con->close();
+
+        $precioTotal = pedidoDAO::precioTotalPedido(); // Obtengo el precio total para crear la cookie del precio total del ultimo pedido
+        setcookie('UltimoPedido',$precioTotal,time()+3600); // Se crea una cookie temporal de 1 hora UltimoPedido con el precio total del pedido
+
+        // Una vez ya se ha realizado el pedido vaciamos la sesion donde se almacenan los productos del carrito
+        unset($_SESSION['selecciones']);
+        header("Location:".url.'?controlador=usuario&accion=ultimasCompras'); 
+
+    }
 }
 ?>

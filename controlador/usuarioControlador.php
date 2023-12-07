@@ -46,6 +46,9 @@ class usuarioControlador {
     // Funcion para acceder a la vista del perfil de usuario
     public function perfil() {
         session_start();
+        $id = $_SESSION['usuario']['idUsuario'];
+        $usuario = usuarioDAO::obtenerUsuarioPorId($id);
+
         // Header
         include_once 'vista/header.php';
         // Main
@@ -58,6 +61,21 @@ class usuarioControlador {
         session_start();
         unset($_SESSION['usuario']);
         header("Location:".url."?controlador=producto");
+    }
+
+    // Funcion para modificar un usuario llamado desde la vista perfil
+    public function modificarUsuario() {
+        $username = $_POST['username'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $telefono = $_POST['numero'];
+        $direccion = $_POST['direccion'];
+        $poblacion = $_POST['poblacion'];
+        
+        usuarioDAO::modificarUsuario($username,$nombre,$apellido,$email,$telefono,$direccion,$poblacion);
+        header("Location:".url.'?controlador=usuario&accion=perfil');
+
     }
 }
 ?>
