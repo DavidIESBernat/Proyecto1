@@ -5,11 +5,11 @@ Requisitos:
     Login: Crear un login y una vista de usuario donde ver los atributos y pedidos.
         - Si inicias sesion con Admin puedes acceder a la vista para gestionar productos y pedidos de usuarios.
 
-    Herencia: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL.
+    Herencia: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL o tamaño.
 
 
     Cookies:
-        Opcion Facil:
+        Opcion Facil: *Implementada en el perfil, se muestra cuando se ha realizado un pedido en la ultima hora*
         - Mostrar el precio total del ultimo pedido
         - Nota maxima: 6 puntos.
 
