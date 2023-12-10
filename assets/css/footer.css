@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: Source Sans Pro,sans-serif;
+    src: url(../fonts/SourceSansPro-Regular.ttf);
+}
+/*Variables CSS*/
+:root {
+    /* --main-bg-color: brown; */
+    --bg-color0: #ffffff;
+    --bg-color1: #e61414;
+    --bg-color2: #444444;
+    --bg-color3: #666666;
+    --bg-color4: #888888;
+    --bg-color5: #000000;
+    --bg-color-fondo1: #F3F3F3;
+    --bg-color-fondo2: #000;
+    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
+}
+* {
+    font-family: Source Sans Pro,sans-serif;
+}
+
+.footer {
+    background-color: var(--bg-color0);
+    height: 140px;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  .up-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .down-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .circle-rss {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--bg-color5);
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .circle-rss:hover {
+    border: 2px solid var(--bg-color5);
+  }
+  .icon-rss {
+    margin: auto;
+    width: 20px;
+    height: 20px;
+  }
+  .circle-rss:hover .icon-rss {
+    width: 25px;
+    height: 25px;
+    transition: width 0.3s ease, color 0.3s ease-out;
+    transition: height 0.3s ease, color 0.3s ease-out;
+  }
+  .text-footer {
+    color: var(--bg-color5);
+    letter-spacing: 4.45%;
+    font-weight: 500;
+    font-size: 13pt;
+    margin: auto;
+  }

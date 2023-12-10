@@ -13,6 +13,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/footer.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>  
     <!--Seccion superior del footer que contiene las redes sociales-->

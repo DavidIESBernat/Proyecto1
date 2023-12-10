@@ -48,7 +48,6 @@ class usuarioControlador {
         session_start();
         $id = $_SESSION['usuario']['idUsuario'];
         $usuario = usuarioDAO::obtenerUsuarioPorId($id);
-
         // Header
         include_once 'vista/header.php';
         // Main

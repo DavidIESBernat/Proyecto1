@@ -1,0 +1,129 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: Source Sans Pro,sans-serif;
+    src: url(../fonts/SourceSansPro-Regular.ttf);
+}
+:root {
+    /* --main-bg-color: brown; */
+    --bg-color0: #ffffff;
+    --bg-color1: #e61414;
+    --bg-color2: #444444;
+    --bg-color3: #666666;
+    --bg-color4: #888888;
+    --bg-color5: #000000;
+    --bg-color-fondo1: #F3F3F3;
+    --bg-color-fondo2: #000;
+    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
+}
+
+* {
+    font-family: Source Sans Pro,sans-serif;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.textPedido {
+    font-size: 15pt;
+    font-weight: 700;
+}
+
+.textProducto{
+    font-size: 12pt;
+    font-weight: 600;
+}
+
+.textTituloProducto {
+    font-size: 15pt;
+    font-weight: 600;
+    letter-spacing: 8%;
+}
+.mainContainer {
+    background-color: var(--bg-color-fondo1);
+}
+
+.tituloContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: end;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--bg-color5);
+    margin-bottom: 20px;
+}
+.pedidoContainer {
+    max-width: 1440px;
+    margin: auto;
+}
+.pedido {
+    background-color: var(--bg-color0);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pedidoInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: auto;
+    height: 50px;
+    background-color: var(--bg-color0); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transform: translateY(-3px); 
+
+}
+
+.fecha {
+    margin-left: 20px;
+}
+
+.precioTotal {
+    margin-right: 20px;
+}
+
+.producto {  
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--bg-color0);
+    box-shadow: 0 0 7.5px rgba(0, 0, 0, 0.1);
+
+}
+
+.productoInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    height: 150px;
+    width: 100%;
+    text-align: left;
+}
+
+.imagen {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.infoLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+.infoRight {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    text-align: right;
+}

@@ -22,16 +22,23 @@
 * {
     font-family: Source Sans Pro,sans-serif;
 }
-.perfilContainer {
-    max-width: 1440px;
+
+.mainContainer {
     background-color: var(--bg-color-fondo1);
+    max-width: 1440px;
+}
+.perfilContainer {
+    margin: auto;  
 }
 
-.titulo {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    max-width: 1200px;
+.tituloContainer {
+    display: flex;
+    justify-content: space-between;
     margin: auto;
+    align-items: end;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--bg-color5);
+    margin-bottom: 20px;
 }
 
 .formularioAtributos {
@@ -44,19 +51,27 @@
 }
 
 .formularioContainer {
-    max-width: 1200px;
     margin: auto;
 }
 
-.opciones {
-    max-width: 1200px;
+.containerInfo {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.ultimaCompra {
     margin: auto;
     padding-left: 50px;
     padding-right: 50px;
     display: flex;
     justify-content: center;
-    padding-bottom: 25px;
-    padding-top: 25px;
+}
+
+.opciones {
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: center;
 }
 .opciones form {
     margin-left: 5px;

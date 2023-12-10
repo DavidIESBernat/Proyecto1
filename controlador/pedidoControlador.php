@@ -61,5 +61,25 @@ class pedidoControlador {
             header("Location:".url.'?controlador=usuario&accion=login');
         }
     }
+
+    public function cargarPedido() {
+        session_start();
+        
+        if(isset($_SESSION['usuario'])) {
+            $resultados = pedidoDAO::cargarPedido();
+            $pedidos = $resultados['pedidos'];
+            $productosPedido = $resultados['productos'];
+
+            $productos = productoDAO::obtenerProductos();
+            // Header
+            include_once 'vista/header.php';
+            // Main
+            include_once 'vista/pedidos.php';
+            // Footer
+            include_once 'vista/footer.php';
+        } else {
+            header("Location:".url.'?controlador=usuario&accion=login');
+        }
+    }
 }
 ?>

@@ -82,5 +82,77 @@ class pedidoDAO {
         header("Location:".url.'?controlador=usuario&accion=ultimasCompras'); 
 
     }
+    // Funcion para obtener todos los pedidos de un usuario con sus respectivos productos
+    public static function cargarPedido() {
+        $pedidosArray = [];
+        $productosArray = [];
+        $idUsuario = $_SESSION['usuario']['idUsuario']; // Guarda el id de usuario de la sesion actual
+    
+        // Conexion con la base de datos
+        $con = dataBase::connect();
+        
+        // Crea la query para insertar una nueva entrada en la tabla pedido
+        $query = "SELECT * FROM PEDIDO WHERE idUsuario = ?";
+        $consulta = $con->prepare($query); // Prepara la conexion de esa query
+        $consulta->bind_param("i", $idUsuario);
+        $consulta->execute();
+        
+        // Obtiene los resultados
+        $resultadoPedidos = $consulta->get_result();
+        $pedidos = $resultadoPedidos->fetch_all(MYSQLI_ASSOC);
+    
+        // Cerramos
+        $resultadoPedidos->close();
+    
+        // Bucle para recorrer los pedidos creados y guardar su informacion
+        foreach ($pedidos as $pedido) {
+            $idPedido = $pedido['idPedido'];
+            $idUsuario = $pedido['idUsuario'];
+            $precioTotal = $pedido['precioTotal'];
+            $fecha = $pedido['fecha'];
+
+            // Almacena los valores de pedido en un array
+            $pedidosArray[] = array(
+                'idPedido' => $idPedido,
+                'idUsuario' => $idUsuario,
+                'precioTotal' => $precioTotal,
+                'fecha' => $fecha
+            );
+            
+            // Cerrar el conjunto de resultados antes de ejecutar una nueva consulta
+            $consulta->close();
+    
+            $query = "SELECT * FROM PEDIDOPRODUCTO WHERE idPedido = ?";
+            $consulta = $con->prepare($query);
+            $consulta->bind_param("i", $idPedido);
+            $consulta->execute();
+    
+            // Obtener los resultados
+            $resultadoProductos = $consulta->get_result();
+            $productos = $resultadoProductos->fetch_all(MYSQLI_ASSOC);
+    
+            // Cerrar el conjunto de resultados
+            $resultadoProductos->close();
+    
+            foreach($productos as $producto) {
+                $idProducto = $producto['idProducto'];
+                $cantidad = $producto['cantidad'];
+                $precio = $producto['precio'];
+
+                 // Almacena los valores de productos en un array con su idPedido
+                $productosArray[] = array(
+                    'idPedido' => $idPedido,
+                    'idProducto' => $idProducto,
+                    'cantidad' => $cantidad,
+                    'precio' => $precio
+                );
+            }
+        }
+        // Devolver un array que contiene la información de pedidos y productos
+        return array('pedidos' => $pedidosArray, 'productos' => $productosArray);
+        // Cerrar la conexión con la base de datos
+        $con->close();
+    }
 }
+
 ?>
