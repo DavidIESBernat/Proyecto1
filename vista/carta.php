@@ -23,9 +23,8 @@
     </div>
     <!--Container Categorias-->
     <div class="row no-margin-row container-categories d-flex justify-content-center">
-        <div class="col-12 category-header">
+        <div class="col-10 category-header">
             <h1 class="category-title">Categorías</h1>
-            <div class="category-line"></div>
         </div>
         <!--Mostrar todas las Categorias-->
         <?php foreach ($categorias as $categoria) {?>
@@ -49,12 +48,11 @@
         <!-- Mostrar todos los productos por su categoria -->
         <!-- Bucle para crear el titulo de la categoria actual-->
         <?php foreach ($categorias as $categoria) { ?>
-            <div id="<?=$categoria->getId()?>" class="col-12 category-header">
+            <div id="<?=$categoria->getId()?>" class="col-10 category-header">
                 <h1 class="category-title"><?=$categoria->getNombre()?></h1>
-                <div class="category-line"></div>
             </div>
             <!-- Mostrar productos para la categoria actual-->
-            <div class="row no-margin-row d-flex justify-content-center">
+            <div class="col-10 row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto->getCategoria() == $categoria->getId()) {?>
                         <form action="<?=url."?controlador=producto&accion=sel#".$producto->getId() ?>" method="POST" class="col-4 card category">

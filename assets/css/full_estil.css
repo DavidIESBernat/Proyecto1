@@ -334,10 +334,12 @@ a {
   }
 
   .category-header {
-    background-color: var(--bg-color-fondo1);
-    padding-left: 140px;
-    padding-right: 140px;
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: end;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--bg-color5);
     margin-bottom: 20px;
   }
 
@@ -601,6 +603,7 @@ a {
     max-width: 1440px;
     margin: auto;
     height: 70px;
+    color: var(--bg-color0);
   }
 
   .navbar-brand {
@@ -609,6 +612,7 @@ a {
 
   .nav-item {
     background-color: var(--bg-color5);
+    color: var(--bg-color0);
   }
 
   .button-cartshop {
