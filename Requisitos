@@ -1,21 +1,35 @@
 Requisitos:
 
-    -- QUEDA AÑADIR HERENCIA Y PERSONALIZAR BOTON DEL CARRITO REALIZAR PEDIDO
 
-    Login: Crear un login y una vista de usuario donde ver los atributos y pedidos.
-        - Si inicias sesion con Admin puedes acceder a la vista para gestionar productos y pedidos de usuarios.
+    DISEÑO:
+    -- Terminar boton finalizar pedido *En progreso* *Consejo crear el boton completo con la seccion de la flecha y mostrar el hover a la inversa*
+    -- Añadir un numero de la cantidad de objetos añadidos al carrito  
+    -- Añadir un boton de cantidad en la propia carta
+    -- Crear una vista donde mostrar un producto al hacer clic sobre el y consigo usar la etiqueta alt para ciegos
+      -> Para añadir al carrito el producto debera pulsarse dicho boton, debe a cambiar a color blanco. *Falta cambiar flecha svg*
+    -- Añadir comentarios al CSS y separarlo en diferentes documentos
+    -- Modificar footer al diseñado en figma
+    -- Todos los botones deben tener un mismo diseño grafico (Carrito, Header, Carta, Perfil etc...)
+    -- Redimensionar las secciones Carta y Calendario de la vista Home a un tamaño inferior cuando se convierte en responsive
+    -- Mantener en el header la misma distancia entre el border y el logo pero en la seccion derecha donde el carrito y el login.
 
-    Herencia: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL o tamaño.
+    PROGRAMACION:
+    -- Añadir Herencia en las bebidas
+
+        Login *Finalizado*: Crear un login y una vista de usuario donde ver los atributos y pedidos.
+            - Si inicias sesion con Admin puedes acceder a la vista para gestionar productos y pedidos de usuarios.
+
+        Herencia *En Progreso*: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL o tamaño.
 
 
-    Cookies:
-        Opcion Facil: *Implementada en el perfil, se muestra cuando se ha realizado un pedido en la ultima hora*
-        - Mostrar el precio total del ultimo pedido
-        - Nota maxima: 6 puntos.
+        Cookies:
+            Opcion Facil *Finalizado*: *Implementada en el perfil, se muestra cuando se ha realizado un pedido en la ultima hora*
+            - Mostrar el precio total del ultimo pedido
+            - Nota maxima: 6 puntos.
 
-        Opcion Dificil:
-        - Tener un boton que devuelva el ultimo pedido
-        - Nota maxima: 10 puntos.
+            Opcion Dificil:
+            - Tener un boton que devuelva el ultimo pedido
+            - Nota maxima: 10 puntos.
 
 
 

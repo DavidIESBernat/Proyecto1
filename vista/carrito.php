@@ -20,7 +20,7 @@
                 <div class="fondo-carrito">
                     <div class="titulo-carrito">
                         <h1 class="">Carrito</h1>
-                        <a href="<?=url.'?controlador=pedido&accion=destruir_carrito'?>">Vaciar carrito</a>
+                        <a class="btnVaciar" href="<?=url.'?controlador=pedido&accion=destruir_carrito'?>">Vaciar carrito</a>
                     </div>
                 </div>
                 <div class="row no-margin-row justify-content-center">
@@ -79,11 +79,10 @@
                                 <div class="texto-precio-total">Total Selección:</div>
                                 <div class="precio-total"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
-                            <div class="boton-comprar">
-                                <form action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
-                                    <button>REALIZAR PEDIDO</button>
-                                </form>
-                            </div>
+                            <form class="container-btnComprar" action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
+                                <button class="btnInclinado"><span class="btnInclinado-text">REALIZAR PEDIDO</span></button>
+                                <div class="btnInclinado-arrow"><span class="btnInclinado-text">IMG</span></div>
+                            </form>
                         </div>
                     </div>
                 </div>

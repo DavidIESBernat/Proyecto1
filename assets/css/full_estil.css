@@ -6,30 +6,82 @@
     font-family: Source Sans Pro,sans-serif;
     src: url(../fonts/SourceSansPro-Regular.ttf);
 }
-/*Variables CSS*/
-:root {
-    /* --main-bg-color: brown; */
+
+:root { /*Variables de la hoja de estilo actual*/
+    /* Colores definidos */
     --bg-color0: #ffffff;
     --bg-color1: #e61414;
     --bg-color2: #444444;
     --bg-color3: #666666;
     --bg-color4: #888888;
     --bg-color5: #000000;
+    --bg-color6: #999999;
+    /* Colores de fondo*/
     --bg-color-fondo1: #F3F3F3;
     --bg-color-fondo2: #000;
-    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
+    --bg-color-fondo3: #EBEBEB; 
 }
 
-* {
+* { /*Global, define la fuente a utilizar*/
     font-family: Source Sans Pro,sans-serif;
 }
 
-body {
+body { /*Actua sobre el body definiendo el mismo*/
     max-width: 1440px;
     margin: auto;
-    margin-top: 70px;
-    
+    margin-top: 70px; 
 }
+
+.btn-no-margin { /* Elimina los margenes por defecto de boostrap de la etiqueta btn*/
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+  --bs-btn-border-width: 0;
+}
+.no-margin-row { /* Elimina los margenes por defecto de boostrap de la etiqueta row*/
+  --bs-gutter-x: 0em;
+  --bs-gutter-y: 0em;
+}
+
+/*---Boton Inclinado con flecha---*/
+.btnInclinado { /*Seccion principal del boton*/
+  background-color: var(--bg-color1);
+  height: 37px;
+  width: 173px;
+  border: none;
+  -ms-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+.btnInclinado:hover { /**/
+  color: var(--bg-color0); 
+  background-color: var(--bg-color5); 
+  }
+.btnInclinado-text { /**/
+  color: var(--bg-color0); 
+  font-weight: bold;
+  font-size: 14px;
+  -ms-transform: skewX(20deg);
+  -webkit-transform: skewX(20deg);
+  transform: skewX(20deg);
+  display: inline-block;
+  margin-bottom: 3px;
+}
+.btnInclinado-arrow { /**/
+  background-color: rgba(0, 0, 0, 0.0);
+  width: 37px;
+  height: 37px;
+  -ms-transform: skewX(-20deg);
+  -webkit-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+.btnInclinado-arrow:hover { /**/
+  background-color: var(--bg-color6);
+  margin-left: -1px;
+}
+
+  /*----------------------------------*/
+  /* ---CSS PROPIO DE LA VISTA HOME---*/
+  /*----------------------------------*/
 
 .color {
   background-color: var(--bg-color-fondo3);
@@ -237,21 +289,17 @@ a {
     padding-bottom: 10px;
   }
 
-  /* CSS PROPIO DE CARTA.HTML*/
-
- .btn-no-margin {
-    --bs-btn-padding-x: 0;
-    --bs-btn-padding-y: 0;
-    --bs-btn-border-width: 0;
-  }
-  .container-categories {
+  /*-----------------------------------*/
+  /* ---CSS UTILIZADO POR CARTA.HTML---*/
+  /*-----------------------------------*/
+  .container-categories { /* Container de categorias*/
     display: flex;
     background-color:#F3F3F3;
     max-width: 1440px;
     margin: auto;
   }
 
-  .container-products {
+  .container-products { /* Container de productos*/
     display: flex;
     justify-content: center;
     background-color:#F3F3F3;
@@ -259,23 +307,14 @@ a {
     margin: auto;
   }
 
-  .no-margin-row {
-    --bs-gutter-x: 0em;
-    --bs-gutter-y: 0em;
-  }
-
+  /* Tamaño de la secciones categoria*/
   .category {
     width: 360px;
     height: 540px;
   }
-  .red-button {
-    color: var(--bg-color1);
-    font-weight: 900;
-    font-size: 9pt;
-    margin-bottom: 0;
-  }
 
-  .card {
+  /*---Articulo que usan la categoria o los producto---*/
+  .card { /*Actua sobre la base del Articulo*/
     border-radius: 0px;
     border: 0px;
     min-width: 360;
@@ -283,14 +322,12 @@ a {
     position: relative;
     overflow: hidden;
   }
-
-  .card-img-top {
+  .card-img-top { /* Imagen superior del articulo*/
     border-radius: 0px;
     object-fit: cover;
     height: 286px;
   }
-
-  .card-body {
+  .card-body { /*Cuerpo del articulo*/
     background-color: var(--bg-color0);
     height: 254px;
     width: 360px;
@@ -302,22 +339,18 @@ a {
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease-out;
   }
-
-  .card-body-bottom {
+  .card-body-bottom { /*Seccion inferior de el cuerpo del articulo*/
     display: flex;
     align-items: center;
   }
-
-  .precio {
+  .precio { /*Actua sobre la seccion donde se muestra Precio */
     margin-bottom: 0;
     font-weight: 600;
   }
-
-  .category .product-image {
+  .category .product-image { /*Define el tamaño de la imagen de la seccion*/
     height: 286px;
   }
-
-  .card-title {
+  .card-title { /* Titulo de el articulo*/
     color: var(--bg-color5);
     font-size:23pt;
     text-transform: uppercase;
@@ -325,15 +358,13 @@ a {
     letter-spacing: -1;
     margin-bottom: 0;
   }
-
-  .card-text {
+  .card-text { /* Actua sobre el texto del articulo */
     color: var(--bg-color3);
     font-size: 12pt;
     font-weight: 600;
     margin-bottom: 0;
   }
-
-  .category-header {
+  .category-header { /* Cabecera de seccion, añade una gran linea divisoria debajo del titulo*/
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -342,56 +373,66 @@ a {
     border-bottom: 2px solid var(--bg-color5);
     margin-bottom: 20px;
   }
-
-  .category-line {
-    height: 2px;
-    width: auto;
-    background-color: var(--bg-color5);
-  }
-
-  .category-title {
+  .category-title { /* Titulo de la categoria*/
     margin-left: 20px;
     font-size: 40;
     font-weight: 500;
   }
-
-  #arrow_svg {
-    fill: var(--bg-color1);
-    margin-left: 8px;
-  }
-
-  .product-image {
+  .product-image { /*Imagen del producto*/
     background-size: cover;
     background-repeat: no-repeat;
     height: 286px;
     width: 360px;
     transition: transform 0.5s ease-in-out;
   }
-  .card:hover .card-body {
+ /*--------------------------------------*/
+
+   /*---Boton Añadir al carrito---*/
+   .red-button { /*Texto de boton*/
+    color: var(--bg-color1);
+    font-weight: 900;
+    font-size: 9pt;
+    margin-bottom: 0;
+  }
+  #arrow_svg { /* Imagen SVG del boton*/
+    fill: var(--bg-color1);
+    margin-left: 8px;
+  }
+  .btnAñadir:hover .red-button { /*Hover del boton sobre el texto*/
+    color: var(--bg-color0);
+    fill: var(--bg-color0);
+  }
+  .btnAñadir:hover #arrow_svg { /*Hover del boton sobre la imagen svg*/
+    color: var(--bg-color0);
+    fill: var(--bg-color0);
+  }
+  /*------------------------------*/
+
+  /*---Hovers---*/
+  .card:hover .card-body { /*Hover que cambia un articulo a negro con una transicion*/
     background-color: var(--bg-color5);
     transition: background-color 0.5s ease-in-out;
     cursor: pointer;
   }
-
-  .card:hover .card-title {
+  .card:hover .card-title { /*Hover que cambia el titulo a blanco*/
     color: var(--bg-color0);
   }
-
   .card:hover .precio {
-    color: var(--bg-color0);
+    color: var(--bg-color0); /*Hover que cambia el precio a blanco*/
   }
-  .card:hover .product-image {
+  .card:hover .product-image { /*Hover que amplia la imagen del articulo*/
     transform: scale(1.1);
     object-fit: cover;
   }
+  /*------------*/
 
   /*-------------
       Carrito
   -------------*/
-  .fondo-carrito {
+  .fondo-carrito { /*Color de fondo del carrito*/
     background-color: var(--bg-color-fondo1);
   }
-  .titulo-carrito {
+  .titulo-carrito { /*Titulo del carrito*/
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -400,7 +441,7 @@ a {
     border-bottom: 2px solid var(--bg-color5);
     margin-bottom: 10px;
   }
-  .secciones-carrito {
+  .secciones-carrito { /*Secciones del carrito*/
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -408,13 +449,13 @@ a {
     background-color: var(--bg-color-fondo1); 
   }
  
-  .carrito {
+  .carrito { /*Container de carrito*/
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .carrito .producto {
+  .carrito .producto { /*Container del producto*/
     height: 150px;
     background-color: var(--bg-color0);
     max-width: 765px;
@@ -422,7 +463,7 @@ a {
     margin-bottom: 10px;
     
   }
-  .producto-info {
+  .producto-info { /*Container de la informacion del producto*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -433,29 +474,29 @@ a {
     padding-left: 15px;
     padding-right: 50px;
   }
-  .producto-text {
+  .producto-text { /*Texto del producto*/
     display: flex;
     flex-direction: column;
     align-items: left;
   }
 
-  .producto-nombre {
+  .producto-nombre { /*Nombre del producto*/
     font-size: 15pt;
     font-weight: 700;
     letter-spacing: 8%;
   }
   
-  .producto-precio {
+  .producto-precio { /*Precio del producto*/
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 4.45%;
   }
-  .producto-cantidad {
+  .producto-cantidad { /*Cantidad de producto*/
     display: flex;
     align-items: center;
     flex-direction: row;
   }
-  .producto-imagen {
+  .producto-imagen { /*Imagen de producto*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -463,17 +504,13 @@ a {
     min-height: 150px;
   }
 
-  .producto-ingredientes {
-    margin-right: 30px;
-  }
-
-  .producto-seccion-derecha {
+  .producto-seccion-derecha { /*Seccion 'Tu Seleccion' del carrito*/
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
-  .quantity-value {
+  .quantity-value { /*Campo cantidad del carrito*/
     width: 38px;
     height: 20px;
     display: flex;
@@ -488,7 +525,7 @@ a {
     font-weight: bold;
   }
 
-  .quantity-button {
+  .quantity-button { /*Boton cantidad del carrito*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,11 +537,11 @@ a {
     font-size: 20px;
     font-weight: 600;
   }
-  .quantity-button:hover {
+  .quantity-button:hover { /*Hover del boton cantidad del carrito*/
     background-color: var(--bg-color1);
   }
 
-  .resumen-carrito {
+  .resumen-carrito { /**/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -515,14 +552,14 @@ a {
     margin-top: 10px;
 
   }
-  .tabla-carrito {
+  .tabla-carrito { /**/
     width: 85%;
     margin-left: 30px;
     margin-right: 30px;
     
   }
   
-  .tabla-carrito td{
+  .tabla-carrito td{ /**/
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 12pt;
@@ -531,25 +568,25 @@ a {
     margin-bottom: 15px;
     text-transform: capitalize;
   }
-  .product-line {
+  .product-line { /**/
     width: auto;
     height: 1px;
     background-color: var(--bg-color4);
   }
 
-  .title-resumen-carrito {
+  .title-resumen-carrito { /**/
     font-size: 15pt;
     font-weight: bold;
     margin-left: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  .carrito .producto .boton-eliminar-producto {
+  .carrito .producto .boton-eliminar-producto { /**/
     display: flex;
     justify-content: end;
   }
   
-  .div-precio-total {
+  .div-precio-total { /**/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -557,44 +594,54 @@ a {
     margin: 30px;
 
   }
-  .texto-precio-total {
+  .texto-precio-total { /**/
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.8px;
 
   }
-  .precio-total {
+  .precio-total { /**/
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 0.8px;
 
   }
-  .iva-precio-total {
+  .iva-precio-total { /**/
     font-size: 10px;
     font-weight: 600;
     padding-left: 3px;
     letter-spacing: 0px;
   }
 
-  .boton-comprar {
+  .section-footer-bottom { /**/
+    max-width: 1440px;
+    height: 10px;
+    margin: auto;
+    background-color: var(--bg-color-fondo1);
+  }
+  .carrito-vacio { /**/
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnVaciar { /**/
+    color: var(--bg-color1);
+    font-weight: 600;
+  }
+
+  .btnVaciar:hover { /**/
+    color: var(--bg-color5);
+  }
+
+  .container-btnComprar { /**/
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 30px;
   }
 
-  .section-footer-bottom {
-    max-width: 1440px;
-    height: 10px;
-    margin: auto;
-    background-color: var(--bg-color-fondo1);
-  }
-  .carrito-vacio {
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   /*---------------HEADER----------------*/
   .navbar {
     background-color: var(--bg-color-fondo2);
