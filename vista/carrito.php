@@ -15,7 +15,7 @@
 
 </head>
 <body class="bg-black">
-    <div class="row secciones-carrito">
+    <div class="row no-margin-row secciones-carrito">
         <?php if($_SESSION['selecciones']){ ?>
             <div class="col-12 col-md-12 col-lg-10 carrito">
                 <div class="fondo-carrito">
