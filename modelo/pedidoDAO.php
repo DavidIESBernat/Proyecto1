@@ -153,6 +153,17 @@ class pedidoDAO {
         // Cerrar la conexión con la base de datos
         $con->close();
     }
-}
 
+    // Calcula la cantidad total de productos en el array y devuelve su posicion
+    public static function cantidadTotalProductos() {
+        if(isset($_SESSION['selecciones']) && count($_SESSION['selecciones']) >= 1) {
+            $cantidadTotal = 0;
+            foreach ($_SESSION['selecciones'] as $pedido) {
+                $cantidad = $pedido->getCantidad();
+                $cantidadTotal = $cantidad + $cantidadTotal;
+            }
+            return $cantidadTotal;
+        }
+    }
+}
 ?>

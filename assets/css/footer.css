@@ -15,6 +15,8 @@
     --bg-color3: #666666;
     --bg-color4: #888888;
     --bg-color5: #000000;
+    --bg-color6: #999999;
+    --bg-color7: #ededed;
     --bg-color-fondo1: #F3F3F3;
     --bg-color-fondo2: #000;
     --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
@@ -23,30 +25,67 @@
     font-family: Source Sans Pro,sans-serif;
 }
 
-.footer {
+.top-footer {
+  height: 80px;
+}
+.mid-footer {
+  height: 70px;
+  background-color: var(--bg-color0);
+}
+.down-footer {
     background-color: var(--bg-color0);
-    height: 140px;
-    max-width: 1440px;
+    min-height: 110px;
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    border-top: 2px solid var(--bg-color7);
   }
-  .up-footer {
+
+  .section-logo {
+    height: 80px;
+    background-color: var(--bg-color1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+  }
+  
+  .section-partners {
+    background-color: var(--bg-color5);
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .imagen-logo {
+    height: 45px;
+  }
+  .imagen-partner {
+    padding-left: 20px;
+    height: 45px;
+  }
+  .redes-sociales {
+    background-color: var(--bg-color0);
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 10px;
   }
-  .down-footer {
+  .texto {
+    background-color: var(--bg-color0);
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 17px;
   }
   .circle-rss {
     display: flex;
     justify-content: center;
     width: 40px;
     height: 40px;
-    border: 1px solid var(--bg-color5);
+    border: 1px solid var(--bg-color6);
     border-radius: 50%;
     margin-left: 5px;
     margin-right: 5px;
@@ -69,7 +108,36 @@
   .text-footer {
     color: var(--bg-color5);
     letter-spacing: 4.45%;
-    font-weight: 500;
-    font-size: 13pt;
+    font-size: 13px;
+    font-weight: bold;
     margin: auto;
   }
+
+  /*Maximo 768px = Columna MD*/
+@media only screen and (max-width: 768px) {
+
+  .section-logo {
+    justify-content: center;
+  }
+  .section-partners {
+    justify-content: center;
+  }
+  .imagen-partner {
+    height: 30px;
+  }
+  .down-footer {
+    flex-direction: column;
+    }
+  .redes-sociales {
+    background-color: var(--bg-color7);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+  .texto {
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

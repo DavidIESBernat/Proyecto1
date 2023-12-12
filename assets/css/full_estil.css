@@ -16,6 +16,7 @@
     --bg-color4: #888888;
     --bg-color5: #000000;
     --bg-color6: #999999;
+    --bg-color7: #ededed;
     /* Colores de fondo*/
     --bg-color-fondo1: #F3F3F3;
     --bg-color-fondo2: #000;
@@ -426,222 +427,6 @@ a {
   }
   /*------------*/
 
-  /*-------------
-      Carrito
-  -------------*/
-  .fondo-carrito { /*Color de fondo del carrito*/
-    background-color: var(--bg-color-fondo1);
-  }
-  .titulo-carrito { /*Titulo del carrito*/
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    align-items: end;
-    padding-top: 30px;
-    border-bottom: 2px solid var(--bg-color5);
-    margin-bottom: 10px;
-  }
-  .secciones-carrito { /*Secciones del carrito*/
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: auto;
-    background-color: var(--bg-color-fondo1); 
-  }
- 
-  .carrito { /*Container de carrito*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .carrito .producto { /*Container del producto*/
-    height: 150px;
-    background-color: var(--bg-color0);
-    max-width: 765px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-  }
-  .producto-info { /*Container de la informacion del producto*/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-    height: 150px;
-    padding-left: 15px;
-    padding-right: 50px;
-  }
-  .producto-text { /*Texto del producto*/
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
-
-  .producto-nombre { /*Nombre del producto*/
-    font-size: 15pt;
-    font-weight: 700;
-    letter-spacing: 8%;
-  }
-  
-  .producto-precio { /*Precio del producto*/
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 4.45%;
-  }
-  .producto-cantidad { /*Cantidad de producto*/
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-  .producto-imagen { /*Imagen de producto*/
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-width: 150px;
-    min-height: 150px;
-  }
-
-  .producto-seccion-derecha { /*Seccion 'Tu Seleccion' del carrito*/
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .quantity-value { /*Campo cantidad del carrito*/
-    width: 38px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1px;
-    margin-right: 1px;
-    background-color: var(--bg-color4);
-    color: var(--bg-color0);
-    border: none;
-    font-size: 10pt;
-    font-weight: bold;
-  }
-
-  .quantity-button { /*Boton cantidad del carrito*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    background-color: var(--bg-color5);
-    border: none;
-    color: var(--bg-color0);
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .quantity-button:hover { /*Hover del boton cantidad del carrito*/
-    background-color: var(--bg-color1);
-  }
-
-  .resumen-carrito { /**/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 320px;
-    min-width: 390px;
-    background-color: var(--bg-color0);
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-  }
-  .tabla-carrito { /**/
-    width: 85%;
-    margin-left: 30px;
-    margin-right: 30px;
-    
-  }
-  
-  .tabla-carrito td{ /**/
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 12pt;
-    font-weight: 600;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    text-transform: capitalize;
-  }
-  .product-line { /**/
-    width: auto;
-    height: 1px;
-    background-color: var(--bg-color4);
-  }
-
-  .title-resumen-carrito { /**/
-    font-size: 15pt;
-    font-weight: bold;
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .carrito .producto .boton-eliminar-producto { /**/
-    display: flex;
-    justify-content: end;
-  }
-  
-  .div-precio-total { /**/
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--bg-color4);
-    margin: 30px;
-
-  }
-  .texto-precio-total { /**/
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-
-  }
-  .precio-total { /**/
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.8px;
-
-  }
-  .iva-precio-total { /**/
-    font-size: 10px;
-    font-weight: 600;
-    padding-left: 3px;
-    letter-spacing: 0px;
-  }
-
-  .section-footer-bottom { /**/
-    max-width: 1440px;
-    height: 10px;
-    margin: auto;
-    background-color: var(--bg-color-fondo1);
-  }
-  .carrito-vacio { /**/
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .btnVaciar { /**/
-    color: var(--bg-color1);
-    font-weight: 600;
-  }
-
-  .btnVaciar:hover { /**/
-    color: var(--bg-color5);
-  }
-
-  .container-btnComprar { /**/
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-
   /*---------------HEADER----------------*/
   .navbar {
     background-color: var(--bg-color-fondo2);
@@ -678,7 +463,6 @@ a {
     cursor: pointer;
     line-height: 1em;
     background-color: var(--bg-color-5);
-
   }
 
   .login {
@@ -752,8 +536,17 @@ a {
     margin-left: 3px;
   }
 
+  .margen-derecho { /*Margen derecho del header*/
+    width: 96px; 
+  }
 
 /* Propiedades Responsive */
+/*Maximo 1240px *Solo actua sobre el header* */
+@media only screen and (max-width: 1240px) {
+  .margen-derecho { /*Margen derecho del header*/
+    width: 20px; 
+  }
+}
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
 
@@ -791,15 +584,14 @@ a {
     justify-content: left;
     align-items: left;
   }
-  
+
 }
-/*Maximo 600px*/
-@media only screen and (max-width: 600px) {
+/*Maximo 765px = COLUMNA MDS*/
+@media only screen and (max-width: 765px) {
   .section-info {
     min-height: 360px;
     max-width: 1440px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
   }
 
   .section-banner {

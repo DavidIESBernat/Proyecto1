@@ -15,10 +15,35 @@
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/footer.css" rel="stylesheet" type="text/css" media="screen">
 </head>
-<body>  
-    <!--Seccion superior del footer que contiene las redes sociales-->
-    <div class="footer expand-lg">
-        <div class="row up-footer">
+<body class="bg-black">
+    <!--Seccion inicial-->  
+    <div class="top-footer row no-margin-row">
+        <!--Logo-->
+        <div class="section-logo col-12 col-md-4">
+            <img src="assets/images/logo.svg" class="imagen-logo"></img>
+        </div>
+        <!--Partners-->
+        <div class="section-partners col-12 col-md-8">
+            <img src="assets/images/ajuntamentBarcelona.svg" class="imagen-partner"></img>
+            <img src="assets/images/diputacio.svg" class="imagen-partner"></img>
+            <img src="assets/images/catalunya.svg" class="imagen-partner"></img>
+            <img src="assets/images/turisme.svg" class="imagen-partner"></img>
+        </div>
+    </div>
+    <!--Secion central-->
+    <div class="col-12 mid-footer"></div>
+    <!--Seccion inferior-->
+    <div class="col-12 down-footer">
+        <!--Seccion izquierda-->
+        <div class="col-12 col-md-4 texto">
+            <p class="text-footer">Copyright 2023 | David Valero Arevalo</p>
+        </div>
+        <!--Seccion intermedia-->
+        <div class="col-12 col-md-4 texto">
+            <p class="text-footer">Circuit de Barcelona-Catalunya</p>
+        </div>
+        <!--Seccion derecha que contiene las redes sociales-->  
+        <div class="col-12 col-md-4 row row no-margin-row redes-sociales">
             <a class="col-2 circle-rss" href="">
                 <img class="icon-rss" src="assets/images/facebook.svg" alt="Facebook">
             </a>
@@ -40,10 +65,6 @@
             <a class="col-2 circle-rss" href="">
                 <img class="icon-rss" src="assets/images/whatsapp-svgrepo-com.svg" alt="WhatsApp">
             </a>  
-        </div>
-        <!--Seccion inferior del footer con copyright y autor-->
-        <div class="down-footer">
-            <p class="text-footer">Copyright 2023 | David Valero Arevalo</p>
         </div>
     </div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

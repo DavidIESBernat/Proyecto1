@@ -25,6 +25,7 @@ class productoControlador {
     
 
         // Header
+        $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
         include_once 'vista/header.php';
         // Main
         include_once 'vista/home.php';
@@ -32,10 +33,11 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
     
-    // Funcion que muestra  
+    // Funcion que muestra la carta
     public function carta() {
         session_start();
         // Header
+        $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
         include_once 'vista/header.php';
         // Main
         $categorias = categoriaDAO::obtenerCategorias();
@@ -161,6 +163,9 @@ class productoControlador {
         } else {
             header("Location:".url.'?controlador=producto');
         }
+    }
+    public function footer() {
+        include_once 'vista/footer.php';
     }
 }
 ?>

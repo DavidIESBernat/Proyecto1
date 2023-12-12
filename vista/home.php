@@ -70,15 +70,15 @@
     <!--Seccion Cabecera-->
     <div class="section-info bg-white">
       <div class="row">
-        <div class="col-4">
-          <h2 class="col-12 title-info">¿Qué hacer y ver en el restaurante Pit-Stop?</h2>
-          <p class="col-12 subtitle-info">
+        <div class="col-12 col-md-4">
+          <h2 class="title-info">¿Qué hacer y ver en el restaurante Pit-Stop?</h2>
+          <p class="subtitle-info">
             Vive una experiencia inolvidable  en el 
             restaurante deportivo del Circuit de 
             Barcelona-Catalunya en familia, con amigos
             o acompañado de aficionados al deporte.</p>
         </div>
-        <div class="description-box col-8">
+        <div class="description-box col-12 col-md-8">
           <p class="description-info">
             El restaurante <strong>Pit-Stop</strong> abre sus puertas a los aficionados del deporte que quieran disfrutar de una experiencia culinaria
             con increíbles vistas  de la recta principal  y el paddock del <strong>Circuit de Barcelona-Catalunya</strong> en el que podrán disfrutar de todos
@@ -100,7 +100,6 @@
       </div>
     </div>
     <div class="section-info-bottom"></div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-
 </html>

@@ -38,6 +38,7 @@ class pedidoControlador {
         
         $precioTotal = pedidoDAO::precioTotalPedido(); // Obtener el precio total de todos los productos
         // Header
+        $cantidadCarrito = pedidoDAO::cantidadTotalProductos(); // Obtiene la cantidad de productos añadidos al carrito
         include_once 'vista/header.php';
         // Main
         include_once 'vista/carrito.php';
@@ -52,6 +53,7 @@ class pedidoControlador {
         header("Location:".url.'?controlador=pedido&accion=carrito');
     }
 
+    // Funcion para realizar un pedido cuando pulsamos el boton de realizar pedido
     public function confirmarPedido() {
         session_start();
         // Te almacena el pedido en la base de datos PedidoDAO que guarda el pedido en la BBDD
@@ -62,16 +64,18 @@ class pedidoControlador {
         }
     }
 
+    // Carga los pedidos realizados por un usuario y los muestra
     public function cargarPedido() {
         session_start();
         
-        if(isset($_SESSION['usuario'])) {
+        if(isset($_SESSION['usuario'])) { // Comprueba que se ha iniciado sesion
             $resultados = pedidoDAO::cargarPedido();
             $pedidos = $resultados['pedidos'];
             $productosPedido = $resultados['productos'];
 
             $productos = productoDAO::obtenerProductos();
             // Header
+            $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
             include_once 'vista/header.php';
             // Main
             include_once 'vista/pedidos.php';

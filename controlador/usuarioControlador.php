@@ -23,6 +23,7 @@ class usuarioControlador {
             header("Location:".url."?controlador=usuario&accion=perfil");
         } else {
             // Header
+            $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
             include_once 'vista/header.php';
             // Main
             include_once 'vista/login.php';
@@ -49,6 +50,7 @@ class usuarioControlador {
         $id = $_SESSION['usuario']['idUsuario'];
         $usuario = usuarioDAO::obtenerUsuarioPorId($id);
         // Header
+        $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
         include_once 'vista/header.php';
         // Main
         include_once 'vista/perfil.php';

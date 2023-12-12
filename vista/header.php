@@ -15,7 +15,6 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
-    
 </head>
 <body class="color">
   <nav class="navbar navbar-expand-lg fixed-top">
@@ -44,7 +43,6 @@
           <div class="divisor"></div>
         </li>
       </ul>
-      
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 d-flex flex-direction-row">
@@ -52,6 +50,8 @@
             <button class="btn btn-custom my-2 my-sm-0" type="submit"><img width="20" height="auto" src="assets/images/lupa.svg"></button>
           </form>
         </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
         <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ 
           if(isset($_SESSION['usuario'])) {?>
             <li class='nav-item nav-item-hover'>
@@ -67,8 +67,14 @@
         <li class="nav-item nav-item-hover">
           <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=pedido&accion=carrito'?>">
               Carrito<img width="20" height="20" src="assets/images/carrito_compra.png" alt="imagen_carrito">
+              <?php 
+                if(isset($_SESSION['selecciones']) && count($_SESSION['selecciones']) >= 1) {
+                  ?><span class="cantidadCarrito"><?=" (".$cantidadCarrito.") "?></span><?php
+                }
+              ?>
           </a>
         </li>
+        <li class="margen-derecho"></li>
       </ul>
     </div>
   </nav>
