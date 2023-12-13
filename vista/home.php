@@ -11,6 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/home.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 <body class="bg-black">
@@ -28,7 +29,7 @@
     <!--Seccion Elementos Seleccionables-->
     <div class="row no-margin-row section-elements">
       <!--Elemento Carta-->
-      <a href="<?php $url?>?controlador=producto&accion=carta" class="col-12 col-md-6 row no-margin-row element d-flex align-items-center">
+      <a href="<?php $url?>?controlador=producto&accion=carta" class="col-12 col-md-6 row no-margin-row element">
         <div class="col-12 col-md-3 element-image carta"></div>
         <div class="col-12 col-md-3 element-text d-flex justify-content-between">
           <div>
@@ -44,7 +45,7 @@
         </div>
       </a>
       <!--Elemento Calendario-->
-      <a class="col-12 col-md-6 row no-margin-row element d-flex align-items-center ">
+      <a class="col-12 col-md-6 row no-margin-row elemento">
         <div class="col-12 col-md-3 element-image calendario"></div>
         <div class="col-12 col-md-3 element-text d-flex justify-content-between">
           <div>

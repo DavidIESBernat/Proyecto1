@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Pit-Stop</title>
-    
+    <title>Home - Restaurante Pit-Stop</title>
+
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
     <meta name="keywords" content="Paraules clau">
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/header.css" rel="stylesheet" type="text/css" media="screen">
+
 </head>
 <body class="color">
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top header-navbar">
     <a class="navbar-brand logo" href="<?=url.'?controlador=producto'?>">
       <img class="logo-img" src="assets/images/logo.svg" width="200" height="44" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon icono"></span>
     </button>
     <div class="collapse navbar-collapse items" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item nav-item-hover">
-          <a class="nav-link" href="<?=url.'?controlador=producto'?>">Inicio</a>
+        <li class="nav-item nav-item-hover botonHeader">
+          <a class="nav-link botonHeaderText" href="<?=url.'?controlador=producto'?>">Inicio</a>
         </li>
-        <li class="nav-item nav-item-hover">
-          <a class="nav-link" href="<?=url.'?controlador=producto&accion=carta'?>">Carta</a>
+        <li class="nav-item nav-item-hover botonHeader ">
+          <a class="nav-link botonHeaderText" href="<?=url.'?controlador=producto&accion=carta'?>">Carta</a>
         </li>
-        <li class="nav-item nav-item-hover">
-          <a class="nav-link">Calendario</a>
+        <li class="nav-item nav-item-hover botonHeader">
+          <a class="nav-link botonHeaderText">Calendario</a>
         </li>
-        <li class="nav-item nav-item-hover">
-          <a class="nav-link">Contacto</a>
+        <li class="nav-item nav-item-hover botonHeader">
+          <a class="nav-link botonHeaderText">Contacto</a>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto">

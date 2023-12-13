@@ -1,0 +1,140 @@
+  /* NO FUNCIONA CORRECTAMENTE*/
+/*---------------HEADER----------------*/
+.header-navbar {
+    background-color: var(--bg-color-fondo2);
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0;
+    max-width: 1440px;
+    margin: auto;
+    height: 70px;
+    color: var(--bg-color0);
+  }
+
+  .botonHeader {
+    background-color: var(--bg-color5);
+    color: var(--bg-color0);
+  }
+
+  .button-cartshop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .botonHeaderText{ /*Botones del Header*/
+    color: var(--bg-color0);
+    text-transform: uppercase;
+    border-right: 1px solid var(--bg-color2);
+    letter-spacing: .8px;
+    font-weight: 900;
+    padding: 15px;
+    font-size: .625rem;
+    cursor: pointer;
+    line-height: 1em;
+    background-color: var(--bg-color-5);
+    
+  }
+
+  .botonHeader:hover {  /*Botones del Header*/
+    background-color: var(--bg-color1);
+    color: var(--bg-color0);
+  }
+  .botonHeaderText:hover{ /*Hover del texto de los botones del Header*/
+    color: var(--bg-color0);
+    background-color: var(--bg-color1);
+  }
+
+  .botonHeaderText:active{ /*Active del texto de los botones del Header*/
+    color: var(--bg-color0);
+  }
+
+  .login { /*Boton Login tamaño minimo*/
+    min-width: 112px;
+  }
+
+  .logo { /*Aplica sobre el container del logo*/
+    background-color: var(--bg-color1); /*Color fondo seccion*/
+    width: 22%; /* Ancho de la seccion del logo*/
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    height: 70px;
+    min-width: 240px;
+    margin-right: 0;
+  }
+
+  .logo-img { /*Aplica sobre la imagen del logo*/
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .items { /*Container de los botones del navegador*/
+    display: flex;
+    justify-content:space-between;
+  }
+
+  .no-border-link { /*Propiedad utilizada para evitar el borde derecho del boton*/
+    border-right: 0px;
+    max-height: 40px;
+    margin: auto;
+  }
+
+  .account { /*Propiedad utiliza por el boton de account*/
+    max-height: 40px;
+    margin: auto;
+  }
+
+  .btn-custom { /*Boton del navegador*/
+    margin-left: 0.2px;
+    border: 1px solid  var(--bg-color2);
+    background-color: var(--bg-color2);
+    border-radius: 0;
+    color: var(--bg-color0);
+    margin-right: 15px;
+  }
+
+  .btn-custom:hover { /*Hover del boton con fondo rojo*/
+    background-color: var(--bg-color1);
+  }
+
+  .input-buscar { /*Input de buscar*/
+    border-radius: 0px;
+  }
+
+  .icono { /*Imagen del navegador desplegable*/
+    background-image: url('../images/menu-icon.svg');
+  }
+
+  .account_image { /*Imagen de la cuenta*/
+    margin-left: 3px;
+  }
+
+  .margen-derecho { /*Margen derecho del header*/
+    width: 96px; 
+  }
+
+  /*Responsive*/
+
+/*Maximo 1240px*/
+@media only screen and (max-width: 1240px) {
+  .margen-derecho { /*Margen derecho del header*/
+    width: 20px; 
+  }
+}
+
+/*Maximo 1000px*/
+@media only screen and (max-width: 1000px) {
+  .button-cartshop {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
+
+}
+/*Maximo 765px = COLUMNA MDS*/
+@media only screen and (max-width: 765px) {
+  .button-cartshop {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
+}

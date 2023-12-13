@@ -1,0 +1,138 @@
+  /* NO FUNCIONA CORRECTAMENTE*/
+  
+  /*-----------------------------------*/
+  /* ---CSS UTILIZADO POR CARTA.HTML---*/
+  /*-----------------------------------*/
+  .container-categories { /* Container de categorias*/
+    display: flex;
+    background-color:#F3F3F3;
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  .container-products { /* Container de productos*/
+    display: flex;
+    justify-content: center;
+    background-color:#F3F3F3;
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  /* Tamaño de la secciones categoria*/
+  .category {
+    width: 360px;
+    height: 540px;
+  }
+
+  /*---Articulo que usan la categoria o los producto---*/
+  .card { /*Actua sobre la base del Articulo*/
+    border-radius: 0px;
+    border: 0px;
+    min-width: 360;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img-top { /* Imagen superior del articulo*/
+    border-radius: 0px;
+    object-fit: cover;
+    height: 286px;
+  }
+  .card-body { /*Cuerpo del articulo*/
+    background-color: var(--bg-color0);
+    height: 254px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease-out;
+  }
+  .card-body-bottom { /*Seccion inferior de el cuerpo del articulo*/
+    display: flex;
+    align-items: center;
+  }
+  .precio { /*Actua sobre la seccion donde se muestra Precio */
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  .category .product-image { /*Define el tamaño de la imagen de la seccion*/
+    height: 286px;
+  }
+  .card-title { /* Titulo de el articulo*/
+    color: var(--bg-color5);
+    font-size:23pt;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: -1;
+    margin-bottom: 0;
+  }
+  .card-text { /* Actua sobre el texto del articulo */
+    color: var(--bg-color3);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  .category-header { /* Cabecera de seccion, añade una gran linea divisoria debajo del titulo*/
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: end;
+    padding-top: 30px;
+    border-bottom: 2px solid var(--bg-color5);
+    margin-bottom: 20px;
+  }
+  .category-title { /* Titulo de la categoria*/
+    margin-left: 20px;
+    font-size: 40;
+    font-weight: 500;
+  }
+  .product-image { /*Imagen del producto*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 286px;
+    width: 360px;
+    transition: transform 0.5s ease-in-out;
+  }
+ /*--------------------------------------*/
+
+   /*---Boton Añadir al carrito---*/
+   .red-button { /*Texto de boton*/
+    color: var(--bg-color1);
+    font-weight: 900;
+    font-size: 9pt;
+    margin-bottom: 0;
+  }
+  #arrow_svg { /* Imagen SVG del boton*/
+    fill: var(--bg-color1);
+    margin-left: 8px;
+  }
+  .btnAñadir:hover .red-button { /*Hover del boton sobre el texto*/
+    color: var(--bg-color0);
+    fill: var(--bg-color0);
+  }
+  .btnAñadir:hover #arrow_svg { /*Hover del boton sobre la imagen svg*/
+    color: var(--bg-color0);
+    fill: var(--bg-color0);
+  }
+  /*------------------------------*/
+
+  /*---Hovers---*/
+  .card:hover .card-body { /*Hover que cambia un articulo a negro con una transicion*/
+    background-color: var(--bg-color5);
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  .card:hover .card-title { /*Hover que cambia el titulo a blanco*/
+    color: var(--bg-color0);
+  }
+  .card:hover .precio {
+    color: var(--bg-color0); /*Hover que cambia el precio a blanco*/
+  }
+  .card:hover .product-image { /*Hover que amplia la imagen del articulo*/
+    transform: scale(1.1);
+    object-fit: cover;
+  }
+  /*------------*/
