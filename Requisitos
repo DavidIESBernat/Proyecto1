@@ -10,7 +10,7 @@ Requisitos:
       -> Para añadir al carrito el producto debera pulsarse dicho boton, debe a cambiar a color blanco. *Finalizado*
     -- *En proceso* -- Añadir comentarios al CSS y separarlo en diferentes documentos
     -- *Finalizado* -- Modificar footer al diseñado en figma y que sea responsive
-    -- *Sin Comenzar* -- Todos los botones deben tener un mismo diseño grafico (Carrito, Header, Carta, Perfil etc...)
+    -- *En proceso* -- Todos los botones deben tener un mismo diseño grafico (Carrito, Header, Carta, Perfil etc...)
     -- *Sin Comenzar* -- Redimensionar las secciones Carta y Calendario de la vista Home a un tamaño inferior cuando se convierte en responsive
     
 
@@ -20,7 +20,7 @@ Requisitos:
         Login *Finalizado*: Crear un login y una vista de usuario donde ver los atributos y pedidos.
             - Si inicias sesion con Admin puedes acceder a la vista para gestionar productos y pedidos de usuarios.
 
-        Herencia *En Progreso*: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL o tamaño.
+        Herencia *En Progreso*: Utilizar herencia en algun lugar, por ejemplo que las bebidas tengan un atributo adicional que sean los mL o si contiene alchol.
 
 
         Cookies:

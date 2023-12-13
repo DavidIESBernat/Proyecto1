@@ -54,7 +54,7 @@
                 <?php } ?>
             </div>
         <?php } else {?>
-            <div class="col-12 carrito-vacio">
+            <div class="col-12 pedidos-vacio">
                 <h1>No hay pedidos que mostrar</h1>
             </div>
         <?php }?>

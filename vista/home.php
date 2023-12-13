@@ -16,13 +16,7 @@
 <body class="bg-black">
     <!--Seccion de Banner-->
     <div class="section-banner">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            <h1 class="title banner-text">Restaurante Pit-Stop</h1>
-          </div>
-        </div>
-      </div>
+      <h1 class="title banner-text">Restaurante Pit-Stop</h1>
     </div>
     <!--Seccion Cabecera-->
     <div class="section-header bg-white text-center d-flex align-items-center justify-content-center ">
@@ -32,11 +26,11 @@
       </div>
     </div>
     <!--Seccion Elementos Seleccionables-->
-    <div class="row col-12 section-elements">
+    <div class="row no-margin-row section-elements">
       <!--Elemento Carta-->
-      <a href="<?php $url?>?controlador=producto&accion=carta" class="col-6 element d-flex align-items-center">
-        <div class="col-3 element-image carta"></div>
-        <div class="col-3 element-text d-flex justify-content-between">
+      <a href="<?php $url?>?controlador=producto&accion=carta" class="col-12 col-md-6 row no-margin-row element d-flex align-items-center">
+        <div class="col-12 col-md-3 element-image carta"></div>
+        <div class="col-12 col-md-3 element-text d-flex justify-content-between">
           <div>
             <h2 class="element-title">Carta</h2>
             <p class="element-description">
@@ -50,9 +44,9 @@
         </div>
       </a>
       <!--Elemento Calendario-->
-      <a class="col-6 element d-flex align-items-center ">
-        <div class="col-3 element-image calendario"></div>
-        <div class="col-3 element-text d-flex justify-content-between">
+      <a class="col-12 col-md-6 row no-margin-row element d-flex align-items-center ">
+        <div class="col-12 col-md-3 element-image calendario"></div>
+        <div class="col-12 col-md-3 element-text d-flex justify-content-between">
           <div>
             <h2 class="element-title">Calendario</h2>
             <p class="element-description">

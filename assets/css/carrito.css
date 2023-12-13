@@ -217,8 +217,8 @@
     margin: auto;
     background-color: var(--bg-color-fondo1);
   }
-  .carrito-vacio { /**/
-    height: 600px;
+  .carrito-vacio { /*Container del carrito cuando esta vacio*/
+    min-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;

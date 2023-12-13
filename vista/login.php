@@ -35,7 +35,9 @@
                     unset($_SESSION["error_message"]);
                 }
             ?>
-            <input class="boton_enviar" type="submit" name="enviar"value="Iniciar sesion"></input>
+            <div class="boton">
+                <input class="boton_simple boton" type="submit" name="enviar"value="Iniciar sesion"></input>
+            </div>
         </form>
     </div>
 </body>

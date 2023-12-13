@@ -25,6 +25,17 @@
     font-family: Source Sans Pro,sans-serif;
 }
 
+input {
+    border: 1px solid var(--bg-color4);
+    border-radius: 0px;
+    padding: 10px;
+}
+
+label {
+    color: var(--bg-color5);
+    font-weight: 600;
+}
+
 .mainContainer {
     background-color: var(--bg-color-fondo1);
     max-width: 1440px;

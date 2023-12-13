@@ -25,35 +25,35 @@
                 <input type="text" name="username" value="<?=$usuario->getUsername();?>" hidden>
                     <div class="col-12 col-md-10 col-lg-6 row">
                         <label class="col-3" for="username">Username</label>
-                        <input class="col-9"type="text" value="<?=$usuario->getUsername();?>" disabled>
-                    </div>
-                    <div class="col-12 col-md-10 col-lg-6 row">
-                        <label class="col-3" for="nombre">Nombre</label>
-                        <input class="col-9" type="text" name="nombre" value="<?=$usuario->getNombre();?>" required>
-                    </div>
-                    <div class="col-12 col-md-10  col-lg-6 row">
-                        <label class="col-3" for="apellido">Apellido</label>
-                        <input class="col-9" type="text" name="apellido" value="<?=$usuario->getApellido();?>">
-                    </div>
-                    <div class="col-12 col-md-10 col-lg-6 row">
-                        <label class="col-3" for="email">Email</label>
-                        <input class="col-9" type="text" name="email" value="<?=$usuario->getEmail();?>">
-                    </div>
-                    <div class="col-12 col-md-10  col-lg-6 row">
-                        <label class="col-3" for="email">Telefono</label>
-                        <input class="col-9" type="text" name="numero" value="<?=$usuario->getNumeroTlf();?>">
-                    </div>
-                    <div class="col-12 col-md-10 col-lg-6 row">
-                        <label class="col-3" for="email">Direccion</label>
-                        <input class="col-9" type="text" name="direccion" value="<?=$usuario->getDireccion();?>">
+                        <input class="col-9" type="text" value="<?=$usuario->getUsername();?>" disabled>
                     </div>
                     <div class="col-12 col-md-10 col-lg-6 row">
                         <label class="col-3" for="email">Poblacion</label>
                         <input class="col-9" type="text" name="poblacion" value="<?=$usuario->getPoblacion();?>">
                     </div>
                     <div class="col-12 col-md-10 col-lg-6 row">
+                        <label class="col-3" for="nombre">Nombre</label>
+                        <input class="col-9" type="text" name="nombre" value="<?=$usuario->getNombre();?>" required>
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-6 row">
+                        <label class="col-3" for="email">Direccion</label>
+                        <input class="col-9" type="text" name="direccion" value="<?=$usuario->getDireccion();?>">
+                    </div>
+                    <div class="col-12 col-md-10  col-lg-6 row">
+                        <label class="col-3" for="apellido">Apellido</label>
+                        <input class="col-9" type="text" name="apellido" value="<?=$usuario->getApellido();?>">
+                    </div>
+                    <div class="col-12 col-md-10  col-lg-6 row">
+                        <label class="col-3" for="email">Telefono</label>
+                        <input class="col-9" type="text" name="numero" value="<?=$usuario->getNumeroTlf();?>">
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-6 row">
+                        <label class="col-3" for="email">Email</label>
+                        <input class="col-9" type="text" name="email" value="<?=$usuario->getEmail();?>">
+                    </div>
+                    <div class="col-12 col-md-10 col-lg-6 row">
                         <div class="col-3"></div>
-                        <input class="col-9" type="submit" value="Aplicar Cambios"> 
+                        <input class="col-9 boton_simple aplicar_cambios" type="submit" value="Aplicar Cambios"> 
                     </div>
                 </form>
             </div>
@@ -63,16 +63,16 @@
                 <?php }?>
                 <div class="opciones">
                     <form action="<?=url?>?controlador=pedido&accion=cargarPedido" method="POST">
-                        <button type="submit" value="modificar">Mis Pedidos</button>
+                        <button class="boton_simple" type="submit" value="modificar">Mis Pedidos</button>
                     </form>
                     <!-- Si se ha iniciado sesion con el usuario admin se mostrara un boton para acceder a las opciones de administrador-->
                     <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']['username'] == "admin") { ?>
                         <form action="<?=url?>?controlador=producto&accion=mostrarProductos" method="POST">
-                            <button type="submit">Administración</button>
+                            <button class="boton_simple" type="submit">Administración</button>
                         </form>
                     <?php } ?>
                     <form action="<?=url?>?controlador=usuario&accion=logout" method="POST">
-                        <button type="submit" value="logout">Cerrar Sesión</button>
+                        <button class="boton_simple" type="submit" value="logout">Cerrar Sesión</button>
                     </form>
                 </div>
             </div>

@@ -28,7 +28,7 @@
 .containerLogin {
     margin: auto;
     background-color: var(--bg-color-fondo1);
-    height:  620px;
+    min-height: 495px;
     padding-top: 50px;
 }
 
@@ -95,23 +95,8 @@
     font-size: 13px;
 }
 
-.boton_enviar {
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    margin: auto;
+.boton {
     margin-top: 50px;
-    background-color: var(--bg-color5);
-    padding: 15px;
-    color:var(--bg-color0);
-    font-weight: 600;
-}
-
-.boton_enviar:hover {
-    background-color: var(--bg-color1);
-    color: var(--bg-color0);
 }
 
 .login_error {

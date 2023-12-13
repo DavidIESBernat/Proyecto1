@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/header.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body class="color">
   <nav class="navbar navbar-expand-lg fixed-top">
@@ -28,19 +29,15 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item nav-item-hover">
           <a class="nav-link" href="<?=url.'?controlador=producto'?>">Inicio</a>
-          <div class="divisor"></div>
         </li>
         <li class="nav-item nav-item-hover">
           <a class="nav-link" href="<?=url.'?controlador=producto&accion=carta'?>">Carta</a>
-          <div class="divisor"></div>
         </li>
         <li class="nav-item nav-item-hover">
           <a class="nav-link">Calendario</a>
-          <div class="divisor"></div>
         </li>
         <li class="nav-item nav-item-hover">
           <a class="nav-link">Contacto</a>
-          <div class="divisor"></div>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto">
@@ -55,7 +52,7 @@
         <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ 
           if(isset($_SESSION['usuario'])) {?>
             <li class='nav-item nav-item-hover'>
-              <a class="nav-link no-border-link button-cartshop" href="<?=url.'?controlador=usuario&accion=perfil'?>"><?=$_SESSION['usuario']['nombre']?>
+              <a class="nav-link account button-cartshop" href="<?=url.'?controlador=usuario&accion=perfil'?>"><?=$_SESSION['usuario']['nombre']?>
                 <img width='20' height='20' class="account_image" src='assets/images/account.png' alt="perfil">
               </a>
             </li>

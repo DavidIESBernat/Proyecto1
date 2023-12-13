@@ -129,3 +129,10 @@
     align-items: right;
     text-align: right;
 }
+
+.pedidos-vacio { /*Container de pedidos cuando esta vacio*/
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
