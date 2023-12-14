@@ -66,47 +66,76 @@ a {
 }
 
 /*---Boton Inclinado con flecha---*/
+.container-btnInclinado { /*Contenedor del Boton Inclinado*/
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
 .btnInclinado { /*Seccion principal del boton*/
-  background-color: var(--bg-color1);
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-color0);
   height: 37px;
-  width: 173px;
   border: none;
+
+}
+.btnInclinado-textContainer { /*Texto que contiene el boton inclinado*/
+  color: var(--bg-color0); 
+  background-color: var(--bg-color1);
+  width: 173px;
+  height: 37px;
   -ms-transform: skewX(-20deg);
   -webkit-transform: skewX(-20deg);
   transform: skewX(-20deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.btnInclinado:hover { /*Hover del boton inclinado*/
-  color: var(--bg-color0); 
-  background-color: var(--bg-color5); 
-  }
-.btnInclinado-text { /*Texto que contiene el boton inclinado*/
-  color: var(--bg-color0); 
+.btnInclinado-text { /*Texto de btnInclinado-text*/
   font-weight: bold;
   font-size: 14px;
+  color: var(--bg-color0);
   -ms-transform: skewX(20deg);
   -webkit-transform: skewX(20deg);
   transform: skewX(20deg);
-  display: inline-block;
-  margin-bottom: 3px;
 }
 .btnInclinado-arrow { /*Seccion flecha que contiene la misma en el boton inclinado*/
   background-color: rgba(0, 0, 0, 0.0);
   width: 37px;
   height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -ms-transform: skewX(-20deg);
   -webkit-transform: skewX(-20deg);
   transform: skewX(-20deg);
 }
-.btnInclinado-arrow:hover { /*Hover para la seccion de la flecha en el boton inclinado*/
-  background-color: var(--bg-color6);
-  margin-left: -1px;
+#btnInclinado-arrowImage { /*ID del boton etiqueta */
+  fill: var(--bg-color0);
+  -ms-transform: skewX(20deg);
+  -webkit-transform: skewX(20deg);
+  transform: skewX(20deg);
+  width: 27px;
+  height: 27px;
+}
+.btnInclinado:hover .btnInclinado-textContainer { /*Hover del boton inclinado*/
+  color: var(--bg-color0); 
+  background-color: var(--bg-color5); 
 }
 
+.btnInclinado:hover .btnInclinado-arrow { /*Hover para la seccion de la flecha en el boton inclinado*/
+  background-color: var(--bg-color6);
+}
+
+.btnInclinado:hover .btnInclinado-arrow #btnInclinado-arrowImage {
+fill: var(--bg-color1) !important; 
+}
 
   /*---------------------*/
   /* ---CSS DEL HEADER---*/
   /*---------------------*/
-.navbar {
+.navbar { /*Navegador del Header*/
   background-color: var(--bg-color-fondo2);
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0;
@@ -116,21 +145,21 @@ a {
   color: var(--bg-color0);
 }
 
-.navbar-brand {
+.navbar-brand { /* */
   margin-right: 0;
 }
 
-.nav-item {
+.nav-item { /* */
   background-color: var(--bg-color5);
   color: var(--bg-color0);
 }
 
-.button-cartshop {
+.button-cartshop { /*Boton del Carrito*/
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.nav-link {
+.nav-link { /* */
   color: var(--bg-color0);
   text-transform: uppercase;
   border-right: 1px solid var(--bg-color2);
@@ -143,23 +172,23 @@ a {
   background-color: var(--bg-color-5);
 }
 
-.login {
+.login { /*Aplica sobre el boton de login*/
   min-width: 112px;
 }
-.nav-item-hover:hover {
+.nav-item-hover:hover { /* */
   background-color: var(--bg-color1);
   color: var(--bg-color0);
 }
-.nav-link:hover{
+.nav-link:hover{ /* */
   color: var(--bg-color0);
   background-color: var(--bg-color1);
 }
 
-.nav-link:active{
+.nav-link:active{ /* */
   color: var(--bg-color0);
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-expand-lg .navbar-nav .nav-link { /* */
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -178,7 +207,7 @@ a {
   margin-bottom: 8px;
 }
 
-.items { /**/
+.items { /*Seccion que contiene los diferentes botones*/
   display: flex;
   justify-content:space-between;
 }
@@ -226,10 +255,6 @@ a {
  /*----------------------------------*/
   /* ---CSS PROPIO DE LA VISTA HOME---*/
   /*----------------------------------*/
-
-  .color {
-    background-color: var(--bg-color-fondo3);
-  }
   
   .section-banner { /*Container del banner*/
     height: 500px;
@@ -295,7 +320,7 @@ a {
     justify-content: space-evenly;
   }
 
-  .element {
+  .element { /*Elemento de la seccion elements*/
     max-width: 620px;
     min-height: 420px;
     background-color: var(--bg-color0);
@@ -305,7 +330,7 @@ a {
     position: relative;
   }
 
-  .element-image {
+  .element-image { /*Imagen del elemento*/
     background-size: cover;
     background-repeat: no-repeat;
     height: 420px;
@@ -313,7 +338,7 @@ a {
     transition: transform 0.5s ease-in-out; 
   }
 
-  .element-text {
+  .element-text { /*Texto del elemento*/
     background-color: var(--bg-color0);
     min-height: 420px;
     min-width: 310px;
@@ -324,13 +349,12 @@ a {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 50px;
-
     overflow: hidden;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease-out;
   }
 
-  .element-title {
+  .element-title { /* Titulo del elemento*/
     font-size: 50;
     font-weight: 600;
     text-transform: uppercase;
@@ -338,52 +362,49 @@ a {
     color: var(--bg-color5);
   }
 
-  .element-description {
+  .element-description { /*Descripcion del elemento*/
     padding-top: 10px;
     font-size: 15;
     font-weight: 600;
     color: var(--bg-color3);
   }
 
-  .carta {
+  .carta { /*Propiedad que incluye y posiciona la imagen en el elemento carta*/
     background-image: url('../images/smash-burger.webp');
     background-position-x: 36%;
   }
 
-  .calendario {
+  .calendario { /*Propiedad que incluye y posiciona la imagen en el elemento calendario*/
     background-image: url('../images/calendario-laboral-2023_98.webp');
     background-position-x: 80%;
   }
 
 
-  .element:hover {
+  .element:hover { /*Hover del elemento*/
     cursor: pointer;
   }
-  .element:hover .element-text {
+  .element:hover .element-text { /*Hover del elemento que aplica sobre el texto del mismo*/
     background-color: var(--bg-color5);
     color: var(--bg-color0);
   }
 
-  .element:hover .element-title {
+  .element:hover .element-title { /*Hover del elemento que aplica sobre el titulo del mismo*/
     color: var(--bg-color0);
   }
 
-  .element:hover .element-image {
+  .element:hover .element-image { /*Hover del elemento que aplica sobre la imagen mismo*/
     transform: scale(1.1);
   }
 
-  .button-discover {
+  .button-discover { /*Boton de Descubrir ubicado en la parte inferior del elemento*/
     color: var(--bg-color1);
     font-size: 13;
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 50px;
   }
-  .button:hover {
-    color: var(--bg-color1);
-  }
 
-  .section-info {
+  .section-info { /*Seccion del home donde se muestra una descripcion del restaurante*/
     min-height: 360px;
     max-width: 1440px;
     padding-left: 150px;
@@ -393,22 +414,14 @@ a {
     justify-content: center;
   }
 
-  .section-info-bottom {
+  .section-info-bottom { /*Seccion vacia bajo la seccion info y sobre el footer*/
     max-width: 1440px;
     height: 60px;
     margin: auto;
     background-color: var(--bg-color-fondo1);
   }
-  .section-text {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .text-box{
-    width: 1000px;
-    margin-right: 50px;
-  }
-  .title-info {
+  .title-info { /*Titulo de la seccion informacion*/
     color: var(--bg-color1);
     font-size: 2rem;
     line-height: 1.25em;
@@ -416,7 +429,7 @@ a {
     letter-spacing: -.5px;
   }
   
-  .subtitle-info {
+  .subtitle-info { /*Subtitulo de la seccion informacion*/
     letter-spacing: 0;
     margin-top: 30px;
     font-weight: 600;
@@ -426,7 +439,7 @@ a {
     text-align: left;
   }
 
-  .description-info {
+  .description-info { /*Descripcion de la seccion informacion*/
     color: var(--bg-color2);
     font-weight: 500;
     letter-spacing: 0;
@@ -581,26 +594,26 @@ a {
     width: 20px; 
   }
 
-  .element {
+  .element { /*Modifica el ancho maximo de los elemento de la home*/
     max-width: 320px;
   }
 
-  .element-image {
+  .element-image { /*Modifica los tamaños de la imagen de los elemento de la home*/
     height: 320px;
     min-width: 320px;
   }
 
-  .element-text {
+  .element-text { /*Modifica los tamaños de el texto de elemento de la home*/
     min-height: 320px;
     min-width: 320px;
     padding: 20px;
   }
 
-  .button-discover {
+  .button-discover { /*Elimina el margen inferior al boton descubrir de un elemento de la home*/
     padding-bottom: 0px;
   }
 
-  .element-title {
+  .element-title { /*Modifica las propiedades del titulo de un elemento de la home*/
     font-size: 50;
     font-weight: 600;
     text-transform: uppercase;
@@ -608,7 +621,7 @@ a {
     color: var(--bg-color5);
   }
 
-  .element-description {
+  .element-description { /*Modifica las propiedades de la descripcion de un elemento de la home*/
     padding-top: 10px;
     font-size: 15;
     font-weight: 600;
@@ -618,29 +631,29 @@ a {
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
 
-    .section-banner {
+    .section-banner { /*Modifica el tamaño de la seccion del banner en la home*/
       max-height: 300px;
     }
 
-    .banner-text {
+    .banner-text { /*Modifica el texto del banner de la home*/
       font-size: 4.625rem;
   }
 
     
-  .title-section {
+  .title-section { /*Modifica el tamaño del titulo de la home*/
     font-size: 2.25rem;
   }
 
-  .text-section {
+  .text-section { /*Modifica el tamaño del texto de la home*/
     font-size: 1.0rem;
   }
 
-  .items {
+  .items { /*Modifica la distribucion de los botones del navegador*/
     display: block;
     justify-content:left;
   }
 
-  .section-info {
+  .section-info { /*Establece nuevos tamaños para la seccion de informacion de la home*/
     min-height: 360px;
     max-width: 1440px;
     padding-left: 100px;
@@ -649,7 +662,7 @@ a {
     padding-bottom: 20px;
   }
 
-  .button-cartshop {
+  .button-cartshop { /*Modifica la ubicacion del boton del Carrito*/
     display: flex;
     justify-content: left;
     align-items: left;
@@ -659,15 +672,15 @@ a {
 /*Maximo 765px = COLUMNA MDS*/
 @media only screen and (max-width: 765px) {
 
-  .section-elements {
+  .section-elements { /*Reduce los tamaños del container que contiene los elementos de la home*/
     padding-top: 0px;
     padding-bottom: 30px;
   }
-  .element {
+  .element { /*Reestablece el margen superior a los elementos de la home*/
     margin-top: 30px;
   }
 
-  .section-info {
+  .section-info { /*Restablece los tamaños de la seccion informacion de la home*/
     min-height: 360px;
     max-width: 1440px;
     padding: 20px;
@@ -675,25 +688,25 @@ a {
     margin-bottom: 20px;
   }
 
-  .section-banner {
+  .section-banner { /*Restablece los tamaños de la seccion del banner en la home*/
     max-height: 200px;
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .title-section {
+  .title-section { /*Reestablece el tamaño del titulo de la home*/
     font-size: 1.75rem;
     padding-left: 15px;
     padding-right: 15px;
   }
   
-  .text-section {
+  .text-section { /*Modifica el tamaño del texto de la home*/
     font-size: 0.8rem;
   }
-  .banner-text {
+  .banner-text { /*Modifica el texto del banner de la home*/
     font-size: 3.625rem;
   }
-  .button-cartshop {
+  .button-cartshop { /*Modifica la ubicacion del boton del Carrito*/
     display: flex;
     justify-content: left;
     align-items: left;

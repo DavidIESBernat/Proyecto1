@@ -7,7 +7,7 @@
     src: url(../fonts/SourceSansPro-Regular.ttf);
 }
 :root {
-    /* --main-bg-color: brown; */
+    /* Variables definidas */
     --bg-color0: #ffffff;
     --bg-color1: #e61414;
     --bg-color2: #444444;
@@ -25,32 +25,32 @@
     font-family: Source Sans Pro,sans-serif;
 }
 
-.containerLogin {
+.containerLogin { /*Container principal de la seccion login*/
     margin: auto;
     background-color: var(--bg-color-fondo1);
     min-height: 495px;
     padding-top: 50px;
 }
 
-.titulo_login {
+.titulo_login { /*Titulo del login*/
     margin: auto;
     display: flex;
     justify-content: center;
     padding-top: 50px;
 }
-.formularioLogin {
+.formularioLogin { /*Formulario*/
     background-color: var(--bg-color0);
     max-width: 500px;
     margin: auto;
     padding-bottom: 50px;
 }
-.campo_texto {
+.campo_texto { /*Seccion donde se encuentrar un input y su respectivo label*/
     position: relative;
     margin: 25px 45px 25px 45px;
     border-bottom: 2.5px solid var(--bg-color5); 
 }
 
-.inputFormulario {
+.inputFormulario { /*Inputs del formulario*/
     background: none;
     padding: 10px;
     display: block;
@@ -58,28 +58,28 @@
     width: 100%;
 }
 
-.inputFormulario:focus {
+.inputFormulario:focus { /*Focus de los input del formulario*/
     outline: none;
 }
 
-.campo_texto label {
+.campo_texto label { /*Aplica sobre los label de la clase campo_texto*/
     font-size: 16px;
     color: var(--bg-color5);
     position: absolute;
-    top: 10px; /* Ajusta la posición vertical según tus preferencias */
+    top: 10px;
     left: 0;
 }
 
-.campo_texto:hover {
+.campo_texto:hover { /*Hover de la seccion campo_texto*/
     border-bottom: 2.5px solid var(--bg-color1);
     transition: 0.3s ease-in-out all;
 }
 
-.campo_texto:hover label {
+.campo_texto:hover label { /*Hover de los label de la seccion campo_texto*/
     color: var(--bg-color1);
 }
 
-.loginLabel {
+.loginLabel { /*Clase que aplica sobre los label*/
     font-weight:600;
     font-size: 16px;
     color: var(--bg-color5);
@@ -95,11 +95,11 @@
     font-size: 13px;
 }
 
-.boton {
+.boton { /*Aplica sobre el boton de enviar formulario*/
     margin-top: 50px;
 }
 
-.login_error {
+.login_error { /*Propiedades del mensaje que se muestra si hay un error al iniciar sesion*/
     display: flex;
     justify-content: center;
     align-items: center;

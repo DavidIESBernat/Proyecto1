@@ -7,7 +7,7 @@
     src: url(../fonts/SourceSansPro-Regular.ttf);
 }
 :root {
-    /* --main-bg-color: brown; */
+    /* Variables definidas */
     --bg-color0: #ffffff;
     --bg-color1: #e61414;
     --bg-color2: #444444;

@@ -25,14 +25,14 @@
     font-family: Source Sans Pro,sans-serif;
 }
 
-.top-footer {
+.top-footer { /*Parte alta del footer*/
   height: 80px;
 }
-.mid-footer {
+.mid-footer { /*Seccion central del footer*/
   height: 70px;
   background-color: var(--bg-color0);
 }
-.down-footer {
+.down-footer { /*Seccion baja del footer*/
     background-color: var(--bg-color0);
     min-height: 110px;
     display: flex;
@@ -42,7 +42,7 @@
     border-top: 2px solid var(--bg-color7);
   }
 
-  .section-logo {
+  .section-logo { /*Seccion del logo*/
     height: 80px;
     background-color: var(--bg-color1);
     display: flex;
@@ -51,7 +51,7 @@
     padding-right: 20px;
   }
   
-  .section-partners {
+  .section-partners { /*Seccion de los partners*/
     background-color: var(--bg-color5);
     height: 80px;
     display: flex;
@@ -59,28 +59,28 @@
     align-items: center;
   }
 
-  .imagen-logo {
+  .imagen-logo { /*Imagen del logo*/
     height: 45px;
   }
-  .imagen-partner {
+  .imagen-partner { /*Imagen de los partner*/
     padding-left: 20px;
     height: 45px;
   }
-  .redes-sociales {
+  .redes-sociales { /*Imagen de las redes sociales*/
     background-color: var(--bg-color0);
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 10px;
   }
-  .texto {
+  .texto { /*Seccion que contiene los textos del footer*/
     background-color: var(--bg-color0);
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 17px;
   }
-  .circle-rss {
+  .circle-rss { /*Secciones circulares de las redes sociales*/
     display: flex;
     justify-content: center;
     width: 40px;
@@ -91,21 +91,21 @@
     margin-right: 5px;
     cursor: pointer;
   }
-  .circle-rss:hover {
+  .circle-rss:hover { /*Hover de dichas secciones*/
     border: 2px solid var(--bg-color5);
   }
-  .icon-rss {
+  .icon-rss { /*Iconos de las redes sociales*/
     margin: auto;
     width: 20px;
     height: 20px;
   }
-  .circle-rss:hover .icon-rss {
+  .circle-rss:hover .icon-rss { /*Hover de los iconos cuando nos encontramos sobre la seccion circular de las redes sociales*/
     width: 25px;
     height: 25px;
     transition: width 0.3s ease, color 0.3s ease-out;
     transition: height 0.3s ease, color 0.3s ease-out;
   }
-  .text-footer {
+  .text-footer { /*Texto del footer*/
     color: var(--bg-color5);
     letter-spacing: 4.45%;
     font-size: 13px;
@@ -116,26 +116,26 @@
   /*Maximo 768px = Columna MD*/
 @media only screen and (max-width: 768px) {
 
-  .section-logo {
+  .section-logo { /*Modifica la ubicacion del logo*/
     justify-content: center;
   }
-  .section-partners {
+  .section-partners { /*Modifica la ubicacion de los partner*/
     justify-content: center;
   }
-  .imagen-partner {
+  .imagen-partner { /*Modifica la altura de los partner*/
     height: 30px;
   }
-  .down-footer {
+  .down-footer { /*Centra la seccion inferior del footer*/
     flex-direction: column;
     }
-  .redes-sociales {
+  .redes-sociales { /*Modifica las redes sociales del footer*/
     background-color: var(--bg-color7);
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 0px;
     margin-top: 10px;
   }
-  .texto {
+  .texto { /*Modifica la seccion que contiene el texto del footer*/
     margin-bottom: 0px;
     padding-top: 10px;
     padding-bottom: 10px;

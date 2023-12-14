@@ -30,7 +30,7 @@
         <!--Mostrar todas las Categorias-->
         <?php foreach ($categorias as $categoria) {?>
             <a href="#<?= $categoria->getId()?>" class="col-4 card category">
-            <div class="product-image" style="background-image:url(assets/images/<?= $categoria->getImagen()?>)"></div>
+            <div class="product-image" aria-label="assets/images/<?= $categoria->getImagen()?>" style="background-image:url(assets/images/<?= $categoria->getImagen()?>)"></div>
             <div class="card-body">
                 <div class="card-body-top">
                     <h5 class="card-title"><?= $categoria->getNombre()?></h5>

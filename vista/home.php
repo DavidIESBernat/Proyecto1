@@ -45,7 +45,7 @@
         </div>
       </a>
       <!--Elemento Calendario-->
-      <a class="col-12 col-md-6 row no-margin-row elemento">
+      <a class="col-12 col-md-6 row no-margin-row element">
         <div class="col-12 col-md-3 element-image calendario"></div>
         <div class="col-12 col-md-3 element-text d-flex justify-content-between">
           <div>
