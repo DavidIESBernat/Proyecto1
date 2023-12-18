@@ -56,25 +56,25 @@
             <div class="row no-margin-row d-flex justify-content-center">
                 <?php foreach ($productos as $producto) { 
                     if($producto->getCategoria() == $categoria->getId()) {?>
-                        <form action="<?=url."?controlador=producto&accion=sel#".$producto->getId() ?>" method="POST" class="col-4 card category">
-                            <button id="0<?=$producto->getId()?>" class="btn btn-no-margin" type="submit">
-                                <input type="hidden" name="id" value="<?=$producto->getId()?>">
-                                <div class="product-image" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
-                                <div class="card-body section-text">
-                                    <div class="card-body-top">
-                                        <h5 class="card-title"><?= $producto->getNombre() ?></h5>
-                                        <p class="precio"><?= number_format($producto->getPrecio(), 2,',','.') ?>€</p>
-                                        <p class="card-text"><?= $producto->getDescripcion() ?></p>
+                        <div class="col-4 card category">
+                            <form action="<?=url."?controlador=producto&accion=mostrarProducto"?>" method="POST">
+                                <button id="0<?=$producto->getId()?>" class="btn btn-no-margin" type="submit">
+                                    <input type="hidden" name="id" value="<?=$producto->getId()?>">
+                                    <div class="product-image" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
+                                    <div class="card-body section-text">
+                                        <div class="card-body-top">
+                                            <h5 class="card-title"><?= $producto->getNombre() ?></h5>
+                                            <p class="precio"><?= number_format($producto->getPrecio(), 2,',','.') ?>€</p>
+                                            <p class="card-text"><?= $producto->getDescripcion() ?></p>
+                                        </div>
                                     </div>
-                                    <div class="card-body-bottom align-items-bottom btnAñadir">
-                                        <form action="<?=url."?controlador=producto&accion=sel#".$producto->getId() ?>" method="POST" class="btn">
-                                            <p class="red-button">AÑADIR AL CARRITO</p>
-                                        </form>
-                                        <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
-                                    </div>
-                                </div>
-                            </button>
-                        </form>
+                                </button>
+                            </form>
+                            <form action="<?=url."?controlador=producto&accion=sel#".$producto->getId() ?>" class="card-body-bottom align-items-bottom btnAñadir" method="POST" >
+                                <input type="hidden" name="id" value="<?=$producto->getId()?>"></input>
+                                <button type="submit" class="red-button-product">AÑADIR AL CARRITO <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg></button>
+                            </form>
+                        </div>
                     <?php }
                 }  ?>
             </div>

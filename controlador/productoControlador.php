@@ -18,8 +18,14 @@ class productoControlador {
             $_SESSION['selecciones'] = array(); 
         } else {
             if (isset($_POST['id'])) {
-                $id = $_POST['id'];
-                pedidoDAO::pedido($id);
+                if(isset($_POST['cantidad'])) {
+                    $id = $_POST['id'];
+                    $cantidad = $_POST['cantidad'];
+                    pedidoDAO::pedidoConCantidad($id,$cantidad);
+                } else {
+                    $id = $_POST['id'];
+                    pedidoDAO::pedido($id);
+                }
             }
         }
     
@@ -47,6 +53,38 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
 
+    public function mostrarProducto() {
+        session_start();
+        if(isset($_POST['id'])) { // Comprueba que existe un id para mostrarlo
+            $id = $_POST['id']; // Obtenemos el valor de producto
+            if(isset($_POST['cantidad'])) {
+                $cantidad = $_POST['cantidad']; // Obtenemos la cantidad del producto
+                if(isset($_POST['Add'])) { // Sumar la cantidad del producto en +1
+                    $cantidad++;
+                } else if(isset($_POST['Del'])) { // Comprueba si se ha enviado por post y entra
+                    if($cantidad==1) { 
+                        // La cantidad es negativa y no hace nada porque no puede ser un valor negativo
+                    } else { 
+                        // Si la cantidad es 1 o mas se suma uno a la cantidad actual
+                        $cantidad--;
+                    }
+                }
+            } else {
+                $cantidad = 1;
+            }
+    
+            // Header
+            $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
+            include_once 'vista/header.php';
+            // Main
+            $producto = productoDAO::obtenerProductoPorID($id);
+            include_once 'vista/producto.php';
+            // Footer
+            include_once 'vista/footer.php';
+        } else { // Si no existe un redirecciona a la pagina home
+            header("Location:".url.'?controlador=producto');
+        }
+    }
 
     //-----------------------------------------------------------\\
     // \/ TODAS LAS FUNCIONES SIGUIENTES SON DE ADMINISTRACION \/ \\

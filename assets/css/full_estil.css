@@ -490,7 +490,8 @@ fill: var(--bg-color1) !important;
   }
   .card-body { /*Cuerpo del articulo*/
     background-color: var(--bg-color0);
-    height: 254px;
+    /*height: 254px;*/
+    height: 214px;
     width: 360px;
     display: flex;
     flex-direction: column;
@@ -503,6 +504,7 @@ fill: var(--bg-color1) !important;
   .card-body-bottom { /*Seccion inferior de el cuerpo del articulo*/
     display: flex;
     align-items: center;
+    height: 40px;
   }
   .precio { /*Actua sobre la seccion donde se muestra Precio */
     margin-bottom: 0;
@@ -555,13 +557,35 @@ fill: var(--bg-color1) !important;
     font-size: 9pt;
     margin-bottom: 0;
   }
+
+  .red-button-product {
+    text-decoration: none;
+    text-align: left;
+    padding-left: 15px;
+    border: none;
+    background-color: var(--bg-color0);
+    color: var(--bg-color1);
+    font-weight: 900;
+    font-size: 9pt;
+    margin-bottom: 0;
+    width: 360px;
+    height: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease-out;
+  }
   #arrow_svg { /* Imagen SVG del boton*/
     fill: var(--bg-color1);
     margin-left: 8px;
   }
-  .btnAñadir:hover .red-button { /*Hover del boton sobre el texto*/
+
+  .card:hover .card-body-bottom .red-button-product {
+    background-color: var(--bg-color5);
+    transition: background-color 0.5s ease-in-out;
+  }
+  .btnAñadir:hover .red-button-product { /*Hover del boton sobre el texto*/
     color: var(--bg-color0);
     fill: var(--bg-color0);
+    background-color: var(--bg-color5);
+    transition: background-color 0.5s ease-in-out;
   }
   .btnAñadir:hover #arrow_svg { /*Hover del boton sobre la imagen svg*/
     color: var(--bg-color0);
