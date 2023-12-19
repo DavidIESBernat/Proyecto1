@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Home - Restaurante Pit-Stop</title>
-
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">
     <meta name="keywords" content="Paraules clau">
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" type="image/jpg" href="/favicon.jpg"/>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/header.css" rel="stylesheet" type="text/css" media="screen">
-
 </head>
+
 <body class="color">
   <nav class="navbar navbar-expand-lg fixed-top header-navbar">
     <a class="navbar-brand logo" href="<?=url.'?controlador=producto'?>">

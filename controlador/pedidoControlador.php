@@ -85,5 +85,16 @@ class pedidoControlador {
             header("Location:".url.'?controlador=usuario&accion=login');
         }
     }
+    // Funcion para recuperar el ultimo pedido de la cookie
+    public static function ultimoPedido() { 
+        session_start();
+        if (isset($_COOKIE['UltimoPedido'])) { // Si la cookie UltimoPedido existe entra al if
+            $seleccionesUnserialize = unserialize($_COOKIE['UltimoPedido']); // Deserealiza la cookie UltimoPedido para guardarla en una variable
+            $_SESSION['selecciones'] = $seleccionesUnserialize; // Guarda los valores de nuevo en la session selecciones
+            header("Location:".url.'?controlador=pedido&accion=carrito');
+        } else { // En caso de que no este creada la cookie UltimoPedido
+            header("Location:".url.'?controlador=pedido&accion=carrito');
+        }
+    }
 }
 ?>

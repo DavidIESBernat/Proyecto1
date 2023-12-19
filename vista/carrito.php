@@ -9,8 +9,6 @@
     <meta name="author" content="Autor">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/carrito.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
@@ -57,7 +55,14 @@
                     </div>
                     <div class="col-12 col-md-10 col-lg-4 resumen-carrito">
                         <div>
-                            <p class="title-resumen-carrito">TU SELECCIÓN</p>
+                            <div class="flex-row">
+                                <p class="title-resumen-carrito">TU SELECCIÓN</p>
+                                <?php if(isset($_COOKIE['UltimoPedido'])) { ?>
+                                    <a class="ultimoPedido btnVaciar" href="<?=url.'?controlador=pedido&accion=ultimoPedido'?>">Último Pedido</a>
+                                <?php } else { ?>
+                                    <a> </a>
+                                <?php }?>
+                            </div>
                             <div class="product-line"></div>
                             <table class="tabla-carrito">
                                 <!--Bucle para crear cada producto añadido al carrito en la tabla-->
@@ -97,6 +102,9 @@
             <?php } else {?>
                 <div class="col-12 carrito-vacio">
                     <h1>El carrito esta vacio</h1>
+                    <?php if(isset($_COOKIE['UltimoPedido'])) { ?>
+                        <a class="btnVaciar" href="<?=url.'?controlador=pedido&accion=ultimoPedido'?>">Cargar Último Pedido</a>
+                    <?php } ?>
                 </div>
             <?php }?>
         </div>

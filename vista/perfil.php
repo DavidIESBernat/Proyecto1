@@ -9,8 +9,6 @@
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/perfil.css" rel="stylesheet" type="text/css" media="screen">
     
 </head>
@@ -18,7 +16,7 @@
     <div class="mainContainer">
         <div class="perfilContainer col-12 col-md-10">
             <div class="tituloContainer">
-                <h1 class="">Hola <?= $usuario->getNombre(); ?> <?=$usuario->getApellido();?></h1>
+                <h1>Hola <?= $usuario->getNombre(); ?> <?=$usuario->getApellido();?></h1>
             </div>
             <div class="formularioContainer">
                 <form action="<?=url?>?controlador=usuario&accion=modificarUsuario" method="POST" class="formularioAtributos row no-margin-row">
@@ -58,8 +56,8 @@
                 </form>
             </div>
             <div class="containerInfo">
-                <?php if(isset($_COOKIE['UltimoPedido'])) { ?>
-                    <div class="ultimaCompra">El costo total del ultimo pedido es: <?=number_format($_COOKIE['UltimoPedido'], 2,',','.')?> €</div>
+                <?php if(isset($_COOKIE['PrecioUltimoPedido'])) { ?>
+                    <div class="ultimaCompra">El costo total del ultimo pedido es: <?=number_format($_COOKIE['PrecioUltimoPedido'], 2,',','.')?> €</div>
                 <?php }?>
                 <div class="opciones">
                     <form action="<?=url?>?controlador=pedido&accion=cargarPedido" method="POST">

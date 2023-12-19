@@ -1,11 +1,16 @@
 <?php
 class Pedido {
     private $producto;
-    private $cantidad = 1;
+    private $cantidad;
+    //private $cantidad = 1;
     
-
-    public function __construct($producto) {
+    /*public function __construct($producto) {
         $this->producto = $producto;
+    }*/
+
+    public function __construct($producto, $cantidad) {
+        $this->producto = $producto;
+        $this->cantidad = $cantidad;
     }
     
     public function compararPedido(Pedido $pedido) {

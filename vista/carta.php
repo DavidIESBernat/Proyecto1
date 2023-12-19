@@ -9,8 +9,6 @@
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/carta.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
@@ -60,7 +58,7 @@
                             <form action="<?=url."?controlador=producto&accion=mostrarProducto"?>" method="POST">
                                 <button id="0<?=$producto->getId()?>" class="btn btn-no-margin" type="submit">
                                     <input type="hidden" name="id" value="<?=$producto->getId()?>">
-                                    <div class="product-image" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
+                                    <div class="product-image" aria-label="assets/images/<?= $producto->getImagen()?>" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
                                     <div class="card-body section-text">
                                         <div class="card-body-top">
                                             <h5 class="card-title"><?= $producto->getNombre() ?></h5>

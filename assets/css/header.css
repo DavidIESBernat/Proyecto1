@@ -1,116 +1,125 @@
-  /* NO FUNCIONA CORRECTAMENTE*/
-/*---------------HEADER----------------*/
-.header-navbar {
-    background-color: var(--bg-color-fondo2);
-    --bs-navbar-padding-x: 0;
-    --bs-navbar-padding-y: 0;
-    max-width: 1440px;
-    margin: auto;
-    height: 70px;
-    color: var(--bg-color0);
-  }
+@charset "utf-8";
 
-  .botonHeader {
-    background-color: var(--bg-color5);
-    color: var(--bg-color0);
-  }
+  /*---------------------*/
+  /* ---CSS DEL HEADER---*/
+  /*---------------------*/
 
-  .button-cartshop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .botonHeaderText{ /*Botones del Header*/
-    color: var(--bg-color0);
-    text-transform: uppercase;
-    border-right: 1px solid var(--bg-color2);
-    letter-spacing: .8px;
-    font-weight: 900;
-    padding: 15px;
-    font-size: .625rem;
-    cursor: pointer;
-    line-height: 1em;
-    background-color: var(--bg-color-5);
-    
-  }
+.navbar { /*Navegador del Header*/
+  background-color: var(--bg-color-fondo2);
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0;
+  margin: auto;
+  height: 70px;
+  color: var(--bg-color0);
+}
 
-  .botonHeader:hover {  /*Botones del Header*/
-    background-color: var(--bg-color1);
-    color: var(--bg-color0);
-  }
-  .botonHeaderText:hover{ /*Hover del texto de los botones del Header*/
-    color: var(--bg-color0);
-    background-color: var(--bg-color1);
-  }
+.navbar-brand { /* */
+  margin-right: 0;
+}
 
-  .botonHeaderText:active{ /*Active del texto de los botones del Header*/
-    color: var(--bg-color0);
-  }
+.nav-item { /* */
+  background-color: var(--bg-color5);
+  color: var(--bg-color0);
+}
 
-  .login { /*Boton Login tamaño minimo*/
-    min-width: 112px;
-  }
+.button-cartshop { /*Boton del Carrito*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link { /* */
+  color: var(--bg-color0);
+  text-transform: uppercase;
+  border-right: 1px solid var(--bg-color2);
+  letter-spacing: .8px;
+  font-weight: 900;
+  padding: 15px;
+  font-size: .625rem;
+  cursor: pointer;
+  line-height: 1em;
+  background-color: var(--bg-color-5);
+}
 
-  .logo { /*Aplica sobre el container del logo*/
-    background-color: var(--bg-color1); /*Color fondo seccion*/
-    width: 22%; /* Ancho de la seccion del logo*/
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-    height: 70px;
-    min-width: 240px;
-    margin-right: 0;
-  }
+.login { /*Aplica sobre el boton de login*/
+  min-width: 112px;
+}
+.nav-item-hover:hover { /* */
+  background-color: var(--bg-color1);
+  color: var(--bg-color0);
+}
+.nav-link:hover{ /* */
+  color: var(--bg-color0);
+  background-color: var(--bg-color1);
+}
 
-  .logo-img { /*Aplica sobre la imagen del logo*/
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
+.nav-link:active{ /* */
+  color: var(--bg-color0);
+}
 
-  .items { /*Container de los botones del navegador*/
-    display: flex;
-    justify-content:space-between;
-  }
+.navbar-expand-lg .navbar-nav .nav-link { /* */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.logo { /*Aplica sobre el container del logo*/
+  background-color: var(--bg-color1); /*Color fondo seccion*/
+  width: 22%; /* Ancho de la seccion del logo*/
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  height: 70px;
+  min-width: 240px;
+}
 
-  .no-border-link { /*Propiedad utilizada para evitar el borde derecho del boton*/
-    border-right: 0px;
-    max-height: 40px;
-    margin: auto;
-  }
+.logo-img { /*Aplica sobre la imagen del logo*/
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
 
-  .account { /*Propiedad utiliza por el boton de account*/
-    max-height: 40px;
-    margin: auto;
-  }
+.items { /*Seccion que contiene los diferentes botones*/
+  display: flex;
+  justify-content:space-between;
+}
 
-  .btn-custom { /*Boton del navegador*/
-    margin-left: 0.2px;
-    border: 1px solid  var(--bg-color2);
-    background-color: var(--bg-color2);
-    border-radius: 0;
-    color: var(--bg-color0);
-    margin-right: 15px;
-  }
+.no-border-link { /*Propiedad utilizada para evitar el borde derecho del boton*/
+  border-right: 0px;
+  max-height: 40px;
+  margin: auto;
+}
 
-  .btn-custom:hover { /*Hover del boton con fondo rojo*/
-    background-color: var(--bg-color1);
-  }
+.account { /*Propiedad utiliza por el boton de account*/
+  max-height: 40px;
+  margin: auto;
+}
 
-  .input-buscar { /*Input de buscar*/
-    border-radius: 0px;
-  }
+.btn-custom { /*Boton del navegador*/
+  margin-left: 0.2px;
+  border: 1px solid  var(--bg-color2);
+  background-color: var(--bg-color2);
+  border-radius: 0;
+  color: var(--bg-color0);
+  margin-right: 15px;
+}
 
-  .icono { /*Imagen del navegador desplegable*/
-    background-image: url('../images/menu-icon.svg');
-  }
+.btn-custom:hover { /*Hover del boton con fondo rojo*/
+  background-color: var(--bg-color1);
+}
 
-  .account_image { /*Imagen de la cuenta*/
-    margin-left: 3px;
-  }
+.input-buscar { /*Input de buscar*/
+  border-radius: 0px;
+}
 
-  .margen-derecho { /*Margen derecho del header*/
-    width: 96px; 
-  }
+.navbar-toggler-icon { /*Imagen del navegador desplegable*/
+  background-image: url('../images/menu-icon.svg');
+}
+
+.account_image { /*Imagen de la cuenta*/
+  margin-left: 3px;
+}
+
+.margen-derecho { /*Margen derecho del header*/
+  width: 96px; 
+}
+
 
   /*Responsive*/
 

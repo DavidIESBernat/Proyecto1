@@ -9,8 +9,6 @@
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/producto.css" rel="stylesheet" type="text/css" media="screen">
     
 </head>
@@ -33,7 +31,8 @@
                         <button type="submit" name="Add" class="quantity-button"> + </button>
                     </form>
                     <form class="container-btnInclinado-producto col-md-4" action="<?=url."?controlador=producto&accion=sel#".$producto->getId()?>" method="POST">
-                        <input type="hidden" name="cantidad" value="<?=$cantidad ?>">
+                        <input type="hidden" name="id" value="<?=$producto->getId()?>">
+                        <input type="hidden" name="cantidad" value="<?=$cantidad?>">
                         <button type="submit "class="btnInclinado">
                         <div class="btnInclinado-textContainer">
                             <div class="btnInclinado-text">AÑADIR AL CARRITO</div>
