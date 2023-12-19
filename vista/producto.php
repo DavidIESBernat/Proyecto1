@@ -20,7 +20,12 @@
         <div class="productoContainer col-12 row no-margin-row">
             <img class="imagenProducto col-12 col-md-4" src="assets/images/<?=$producto->getImagen()?>" alt="<?=$producto->getImagen()?>">
             <div class="textoContainer col-12 col-md-8">
-                <div class="descripcion textMargin"><?=$producto->getDescripcion()?></div>
+                <div class="descripcion textMargin"><?=$producto->getDescripcion()?>
+                <?php if ($producto->getCategoria() == 5) { // Si el producto es una instancia de bebida mostrara los ml?>
+                    <!-- Mostrar el campo ml solo si es una Bebida -->
+                    <br>Cantidad: <?= $producto->getMl(); ?>ml
+                <?php } ?>
+                </div>
                 <div class="flex-row row no-margin-row">
                     <div class="precio textMargin col-12 col-md-4">Precio: <?=number_format($producto->getPrecio(), 2,',','.')?>€/u</div>
                     <form class="producto-cantidad col-md-4" action="<?=url."?controlador=producto&accion=mostrarProducto"?>" method="POST">

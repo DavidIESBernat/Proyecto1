@@ -31,7 +31,13 @@
                                 <div class="producto-imagen" style="background-image:url(assets/images/<?= $pedido->getProducto()->getImagen()?>)"></div>
                                 <div class="producto-info">
                                     <div class="producto-text">
-                                        <div class="producto-nombre"><?= $pedido->getProducto()->getNombre() ?></div>
+                                        <div class="producto-nombre"><?= $pedido->getProducto()->getNombre()." " ?>
+                                            <?php 
+                                                if ($pedido->getProducto() instanceof Bebida) {
+                                                    echo $pedido->getProducto()->getMl()."ml";
+                                                ?>
+                                            <?php } ?>
+                                        </div>
                                         <div class="producto-precio"><?= number_format($pedido->getProducto()->getPrecio(), 2,',','.') ?>€</div>
                                     </div>
                                     <div class="producto-seccion-derecha">
@@ -69,7 +75,13 @@
                                 <?php foreach ($_SESSION['selecciones'] as $pedido) { ?>
                                     <tr>
                                         <div>
-                                            <td class="capitalize"><?= $pedido->getProducto()->getNombre() ?></td>
+                                            <td class="capitalize"><?= $pedido->getProducto()->getNombre() ?>
+                                                <?php 
+                                                    if ($pedido->getProducto() instanceof Bebida) {
+                                                        echo $pedido->getProducto()->getMl()."ml";
+                                                    ?>
+                                                <?php } ?>
+                                            </td>
                                         </div>
                                         <div>
                                             <td class="d-flex justify-content-end"><?= number_format($pedido->getProducto()->getPrecio() * $pedido->getCantidad(), 2,',','.') ?>€ * </td>

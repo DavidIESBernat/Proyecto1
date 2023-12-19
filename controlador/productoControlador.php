@@ -159,8 +159,9 @@ class productoControlador {
             $precio = $_POST['precio'];
             $categoria = $_POST['categoria'];
             $imagen = $_POST['imagen'];
-
-            productoDAO::editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen);
+            $ml = $_POST['ml'];
+            
+            productoDAO::editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen, $ml);
             header("Location:".url.'?controlador=producto&accion=mostrarProductos');
         } else {
             header("Location:".url.'?controlador=producto');
@@ -195,8 +196,9 @@ class productoControlador {
             $precio = $_POST['precio'];
             $categoria = $_POST['categoria'];
             $imagen = $_POST['imagen'];
+            $ml = $_POST['ml'];
 
-            productoDAO::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen);
+            productoDAO::nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen,$ml);
             header("Location:".url.'?controlador=producto&accion=nuevoProducto');
         } else {
             header("Location:".url.'?controlador=producto');

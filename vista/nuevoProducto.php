@@ -14,13 +14,14 @@
                                 <th>Precio*</th>
                                 <th>Categoria*</th>
                                 <th>Imagen</th>
+                                <th>ml *Solo bebida*</th>
                                 <th></th>
                         </tr>
                         <tr>
                                 <form action=<?=url.'?controlador=producto&accion=añadirProducto'?> method='POST'>
-                                        <td><input name='nombre' value="" required></td>
-                                        <td><input name='descripcion' value=""></td>
-                                        <td><input name='precio' value="" required></td>
+                                        <td><input type="text" name='nombre' required></td>
+                                        <td><input type="text" name='descripcion'></td>
+                                        <td><input type="double" name='precio' required></td>
                                         <td>
                                                 <select name="categoria" required>
                                                         <?php foreach ($categorias as $categoria) {?>
@@ -28,7 +29,8 @@
                                                         <?php } ?>
                                                 </select>
                                         </td>
-                                        <td><input name='imagen' value=""></td>
+                                        <td><input type="text" name='imagen' value=""></td>
+                                        <td><input type="number" name='ml'></td>
                                         <td><input type="submit" name="Añadir" value="Añadir"></td>
                                 </form>
                         </tr>

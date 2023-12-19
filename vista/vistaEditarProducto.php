@@ -13,7 +13,8 @@
                                 <th>Precio</th>
                                 <th>Categoria</th>
                                 <th>Imagen</th>
-                                <th></th>
+                                <th>ml *Bebida</th>
+                                <th>Acción</th>
                         </tr>
                         <tr>
                                 <a href="<?=url.'?controlador=producto&accion=mostrarProductos'?>">Volver</a>
@@ -21,7 +22,7 @@
                                         <input type='hidden' name='id' value="<?=$id?>">
                                         <td><input name='idDesactivado' disabled value="<?=$id?>"></td>
                                         <td><input type="text" name='nombre' value="<?=$producto->getNombre()?>"></td>
-                                        <td><input type="text" name='descripcion' size="100" value="<?= $producto->getDescripcion()?>"></td>
+                                        <td><input type="text" name='descripcion' size="75" value="<?= $producto->getDescripcion()?>"></td>
                                         <td><input type="double" name='precio' size="8" value="<?=$producto->getPrecio()?>"></td>
                                         <td>
                                                 <select name="categoria" required>
@@ -34,6 +35,11 @@
                                                 </select>
                                         </td>
                                         <td><input name='imagen' value="<?=$producto->getImagen()?>"></td>
+                                        <?php if($producto->getCategoria() == 5) { ?>
+                                                <td><input type="number" name='ml' value="<?=$producto->getMl()?>"></td>
+                                        <?php } else {?>
+                                                <td><input disabled></td>
+                                        <?php }?>
                                         <td><input type="submit" name="editar" value="Modificar"></td>
                                 </form>
                         </tr>

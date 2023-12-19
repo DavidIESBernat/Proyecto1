@@ -8,16 +8,6 @@ class Producto {
     private $categoria;
     private $imagen;
 
-   /* public function __construct($id,$nombre,$descripcion,$precio,$categoria,$imagen) {
-
-        $this->id = $id;
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
-        $this->precio = $precio;
-        $this->categoria = $categoria;
-        $this->imagen = $imagen;
-    }*/
-
     public function __construct(){}
 
     /**
@@ -138,6 +128,5 @@ class Producto {
 
         return $this;
     }
-
 }
 ?>

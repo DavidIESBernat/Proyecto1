@@ -1,6 +1,6 @@
 <?php
 class Bebida extends Producto {
-    private $mL; // Minilitros
+    private $ml; // Minilitros
 
     // Constrctor
     function __construct() {
@@ -8,21 +8,21 @@ class Bebida extends Producto {
     }
 
     /**
-     * Get the value of mL
+     * Get the value of ml
      */ 
-    public function getML()
+    public function getMl()
     {
-        return $this->mL;
+        return $this->ml;
     }
 
     /**
-     * Set the value of mL
+     * Set the value of ml
      *
      * @return  self
      */ 
-    public function setML($mL)
+    public function setMl($ml)
     {
-        $this->mL = $mL;
+        $this->ml = $ml;
 
         return $this;
     }
