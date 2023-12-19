@@ -1,8 +1,5 @@
 @charset "utf-8";
-
-  /*---------------------*/
-  /* ---CSS DEL HEADER---*/
-  /*---------------------*/
+/* CSS Document */
 
 .navbar { /*Navegador del Header*/
   background-color: var(--bg-color-fondo2);

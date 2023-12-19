@@ -1,6 +1,6 @@
-  /*-----------------------------------*/
-  /* ---CSS UTILIZADO POR CARTA.HTML---*/
-  /*-----------------------------------*/
+@charset "utf-8";
+/* CSS Document */
+
   .container-categories { /* Container de categorias*/
     display: flex;
     background-color:#F3F3F3;

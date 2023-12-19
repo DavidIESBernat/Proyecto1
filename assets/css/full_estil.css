@@ -131,6 +131,30 @@ a {
 fill: var(--bg-color1) !important; 
 }  
 
+.section-header { /*Seccion del Header de la Home*/
+  min-height: 185px;
+}
+.text-red { /*Letra de color rojo con tamaño bolder *Utilizado en el header para resaltar una palabra* */
+  color: var(--bg-color1);
+  font-weight: bolder;
+}
+
+.title-section { /*Seccion del titulo*/
+  font-size: 3rem;
+  letter-spacing: -.5px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.text-section { /*Seccion del texto*/
+  font-size: 1.125rem;
+  line-height: 1.44444em;
+  letter-spacing: 0;
+  margin-bottom: 0;
+  color: var(--bg-color2);
+}
+
+
 /*Maximo 1240px*/
 @media only screen and (max-width: 1240px) {
   .margen-derecho { /*Margen derecho del header*/

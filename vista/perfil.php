@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC>
 <html lang="es">
 <head>
-    <title>Perfil de Usuario - Restaurante Pit-Stop</title>
+    <title><?= $usuario->getNombre(); ?> - Restaurante Pit-Stop</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="Descripció web">

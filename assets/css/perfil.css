@@ -1,30 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* FONTS */
-@font-face {
-    font-family: Source Sans Pro,sans-serif;
-    src: url(../fonts/SourceSansPro-Regular.ttf);
-}
-/*Variables CSS*/
-:root {
-    /* --main-bg-color: brown; */
-    --bg-color0: #ffffff;
-    --bg-color1: #e61414;
-    --bg-color2: #444444;
-    --bg-color3: #666666;
-    --bg-color4: #888888;
-    --bg-color5: #000000;
-    --bg-color6: #999999;
-    --bg-color7: #ededed;
-    --bg-color-fondo1: #F3F3F3;
-    --bg-color-fondo2: #000;
-    --bg-color-fondo3: #EBEBEB; /*Fondo color web*/
-}
-* {
-    font-family: Source Sans Pro,sans-serif;
-}
-
 input {
     border: 1px solid var(--bg-color4);
     border-radius: 0px;

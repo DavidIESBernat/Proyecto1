@@ -7,7 +7,8 @@
     <meta name="author" content="David Valero">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" type="image/jpg" href="/favicon.jpg"/>
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico"/>
+
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/full_estil.css" rel="stylesheet" type="text/css" media="screen">
     <link href="assets/css/header.css" rel="stylesheet" type="text/css" media="screen">

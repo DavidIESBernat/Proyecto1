@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Categoria</title>
+    <title>Modificar Categoria - Administrador</title>
 </head>
     <body>
         <table border="1">
