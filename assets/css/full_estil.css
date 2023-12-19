@@ -30,6 +30,7 @@
 body { /*Actua sobre el body definiendo el mismo*/
     margin: auto;
     margin-top: 70px; 
+    background-color: var(--bg-color-fondo1);
 }
 
 a {
