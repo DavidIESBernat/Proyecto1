@@ -172,9 +172,6 @@
     
 /*Maximo 1240px*/
 @media only screen and (max-width: 1240px) {
-    .margen-derecho { /*Margen derecho del header*/
-      width: 20px; 
-    }
   
     .element {
       max-width: 320px;
@@ -220,32 +217,13 @@
       .banner-text {
         font-size: 4.625rem;
     }
-  
-    .title-section {
-      font-size: 2.25rem;
-    }
-  
-    .text-section {
-      font-size: 1.0rem;
-    }
-  
-    .items {
-      display: block;
-      justify-content:left;
-    }
-  
+
     .section-info {
       min-height: 360px;
       padding-left: 100px;
       padding-right: 100px;
       padding-top: 20px;
       padding-bottom: 20px;
-    }
-  
-    .button-cartshop {
-      display: flex;
-      justify-content: left;
-      align-items: left;
     }
   
   }
@@ -273,22 +251,8 @@
       padding-right: 15px;
     }
   
-    .title-section {
-      font-size: 1.75rem;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    
-    .text-section {
-      font-size: 0.8rem;
-    }
     .banner-text {
       font-size: 3.625rem;
-    }
-    .button-cartshop {
-      display: flex;
-      justify-content: left;
-      align-items: left;
     }
   }
   

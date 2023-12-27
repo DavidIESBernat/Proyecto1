@@ -104,6 +104,41 @@ class usuarioDAO {
         $con->close(); // Cierra la conexion
     }
 
-}
+        // Funcion para registrar un usuario en la base de datos, si el usuario introducido ya existe devuelve un mensaje de error
+    public static function verificarRegistro($email, $username, $password) { 
 
+        // La String username y email se convierte en minuscula
+        $username = strtolower($username);
+        $email = strtolower($email);
+
+        // Consulta base de datos
+        $con = dataBase::connect(); // Conexion con la base de datos
+        $consulta = $con->prepare("SELECT * FROM USUARIO WHERE username = ?");
+        $consulta->bind_param("s", $username);
+        $consulta->execute(); // Ejecuta la consulta
+        $resultado = $consulta->get_result();
+        $usuario = $resultado->fetch_assoc();
+
+        // Comprueba que el username y la contraseña ingresadas son coincidentes con las encontradas en la base de datos
+        if($usuario && $usuario['username'] == $username) {
+            // Usuario ya existente
+            $_SESSION["error_message"] = "Usuario ya existente";
+            header("Location:" . url . '?controlador=usuario&accion=registro');
+            exit();
+        } else {
+            // Registramos usuario en la base de datos
+            $con = dataBase::connect();
+            $consulta = $con->prepare("INSERT INTO USUARIO(idUsuario,username,contraseña,nombre,apellido,email,numeroTlf,direccion,poblacion) VALUES (NULL, ?, ?, NULL, NULL, ?, NULL, NULL, NULL)"); // Consulta para actualizar segun id
+            $consulta->bind_param("sss", $username, $password, $email);
+            $consulta->execute(); // Ejecuta la consulta
+            $con->close(); // Cierra la conexion
+
+            // Redirige a la pagina login
+            header("Location:".url.'?controlador=usuario&accion=login');
+            exit();
+        }
+        $con->close(); // Cierra la conexion
+        
+    }
+}
 ?>

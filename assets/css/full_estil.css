@@ -155,129 +155,26 @@ fill: var(--bg-color1) !important;
   color: var(--bg-color2);
 }
 
-
-/*Maximo 1240px*/
-@media only screen and (max-width: 1240px) {
-  .margen-derecho { /*Margen derecho del header*/
-    width: 20px; 
-  }
-
-  .element { /*Modifica el ancho maximo de los elemento de la home*/
-    max-width: 320px;
-  }
-
-  .element-image { /*Modifica los tamaños de la imagen de los elemento de la home*/
-    height: 320px;
-    min-width: 320px;
-  }
-
-  .element-text { /*Modifica los tamaños de el texto de elemento de la home*/
-    min-height: 320px;
-    min-width: 320px;
-    padding: 20px;
-  }
-
-  .button-discover { /*Elimina el margen inferior al boton descubrir de un elemento de la home*/
-    padding-bottom: 0px;
-  }
-
-  .element-title { /*Modifica las propiedades del titulo de un elemento de la home*/
-    font-size: 50;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    color: var(--bg-color5);
-  }
-
-  .element-description { /*Modifica las propiedades de la descripcion de un elemento de la home*/
-    padding-top: 10px;
-    font-size: 15;
-    font-weight: 600;
-    color: var(--bg-color3);
-  }
-}
-
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
-
-    .section-banner { /*Modifica el tamaño de la seccion del banner en la home*/
-      max-height: 300px;
-    }
-
-    .banner-text { /*Modifica el texto del banner de la home*/
-      font-size: 4.625rem;
-  }
-
-    
-  .title-section { /*Modifica el tamaño del titulo de la home*/
+  .title-section {
     font-size: 2.25rem;
   }
 
-  .text-section { /*Modifica el tamaño del texto de la home*/
+  .text-section {
     font-size: 1.0rem;
-  }
-
-  .items { /*Modifica la distribucion de los botones del navegador*/
-    display: block;
-    justify-content:left;
-  }
-
-  .section-info { /*Establece nuevos tamaños para la seccion de informacion de la home*/
-    min-height: 360px;
-    max-width: 1440px;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .button-cartshop { /*Modifica la ubicacion del boton del Carrito*/
-    display: flex;
-    justify-content: left;
-    align-items: left;
   }
 
 }
 /*Maximo 765px = COLUMNA MDS*/
 @media only screen and (max-width: 765px) {
-
-  .section-elements { /*Reduce los tamaños del container que contiene los elementos de la home*/
-    padding-top: 0px;
-    padding-bottom: 30px;
-  }
-  .element { /*Reestablece el margen superior a los elementos de la home*/
-    margin-top: 30px;
-  }
-
-  .section-info { /*Restablece los tamaños de la seccion informacion de la home*/
-    min-height: 360px;
-    max-width: 1440px;
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .section-banner { /*Restablece los tamaños de la seccion del banner en la home*/
-    max-height: 200px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .title-section { /*Reestablece el tamaño del titulo de la home*/
+  .title-section {
     font-size: 1.75rem;
     padding-left: 15px;
     padding-right: 15px;
   }
   
-  .text-section { /*Modifica el tamaño del texto de la home*/
+  .text-section {
     font-size: 0.8rem;
-  }
-  .banner-text { /*Modifica el texto del banner de la home*/
-    font-size: 3.625rem;
-  }
-  .button-cartshop { /*Modifica la ubicacion del boton del Carrito*/
-    display: flex;
-    justify-content: left;
-    align-items: left;
   }
 }

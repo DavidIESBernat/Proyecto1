@@ -15,8 +15,12 @@
 </head>
 <body>
     <div class="containerLogin">
-        <form class="formularioLogin" action="<?=url?>?controlador=usuario&accion=verificarLogin" method="POST">
-            <h1 class="titulo_login">Iniciar sesión</h1>
+        <form class="formularioLogin" action="<?=url?>?controlador=usuario&accion=verificarRegistro" method="POST">
+            <h1 class="titulo_login">Regístrate</h1>
+            <div class="campo_texto">
+                <input class="inputFormulario" type="email" name="email" required></input>
+                <label class="loginLabel" for="email">Email</label>
+            </div>
             <div class="campo_texto">
                 <input class="inputFormulario" type="text" name="username" required></input>
                 <label class="loginLabel" for="username">Usuario</label>
@@ -33,10 +37,13 @@
                     unset($_SESSION["error_message"]);
                 }
             ?>
-            <div class="boton">
-                <input class="boton_simple" type="submit" name="enviar"value="Iniciar sesion"></input>
+            <div class="align-center">
+                <input type="checkbox" name="terminos" value="aceptado" required><a href="">&nbsp;Aceptar terminos de uso y condiciones</a></input>
+            </div>  
+            <div class="botonRegistro">
+                <input class="boton_simple" type="submit" name="enviar"value="Regístrate"></input>
             </div>
-            <p class="align-center">¿No estas Registrado?<a href="<?=url?>?controlador=usuario&accion=registro">&nbsp;Regístrate</a></p>
+            <p class="align-center">¿Ya eres miembro?<a href="<?=url?>?controlador=usuario&accion=login">&nbsp;Iniciar sesion</a></p>
         </form>
     </div>
 </body>

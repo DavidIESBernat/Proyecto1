@@ -38,7 +38,7 @@
 }
 
 .login { /*Aplica sobre el boton de login*/
-  min-width: 112px;
+  min-width: 131px;
 }
 .nav-item-hover:hover { /* */
   background-color: var(--bg-color1);
@@ -59,11 +59,13 @@
 }
 .logo { /*Aplica sobre el container del logo*/
   background-color: var(--bg-color1); /*Color fondo seccion*/
-  width: 22%; /* Ancho de la seccion del logo*/
+   /* Ancho de la seccion del logo*/
+  max-width: 22%;
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
   height: 70px;
+  flex-grow: 1;
   min-width: 240px;
 }
 
@@ -89,12 +91,10 @@
 }
 
 .btn-custom { /*Boton del navegador*/
-  margin-left: 0.2px;
   border: 1px solid  var(--bg-color2);
   background-color: var(--bg-color2);
   border-radius: 0;
   color: var(--bg-color0);
-  margin-right: 15px;
 }
 
 .btn-custom:hover { /*Hover del boton con fondo rojo*/
@@ -113,31 +113,42 @@
   margin-left: 3px;
 }
 
+.margen-buscador {
+  margin-left: auto;
+  margin-right: auto;
+}
 .margen-derecho { /*Margen derecho del header*/
-  width: 96px; 
+  margin-right: auto;
 }
-
-
   /*Responsive*/
-
-/*Maximo 1240px*/
-@media only screen and (max-width: 1240px) {
-  .margen-derecho { /*Margen derecho del header*/
-    width: 20px; 
+@media only screen and (max-width: 1224px) {
+ 
+  .margen-buscador {
+    margin-left: 0px;
+    margin-right: 0px;
   }
+  .margen-derecho { /*Margen derecho del header*/
+    margin-right: 0px;
+  }
+  
 }
-
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
+
   .button-cartshop {
     display: flex;
     justify-content: left;
     align-items: left;
   }
+  .items {
+    display: block;
+    justify-content:left;
+  }
 
 }
 /*Maximo 765px = COLUMNA MDS*/
 @media only screen and (max-width: 765px) {
+
   .button-cartshop {
     display: flex;
     justify-content: left;

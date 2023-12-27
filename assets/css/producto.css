@@ -3,7 +3,6 @@
 
 .mainContainer { /*Container principal de la vista producto*/
     background-color: var(--bg-color-fondo1);
-    max-width: 1440px;
     padding: 70px;
 }
 

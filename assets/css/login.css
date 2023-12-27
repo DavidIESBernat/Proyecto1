@@ -1,11 +1,19 @@
 @charset "utf-8";
 /* CSS Document */
 
+a {
+    color: var(--bg-color5);
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--bg-color1);
+}
 .containerLogin { /*Container principal de la seccion login*/
     margin: auto;
     background-color: var(--bg-color-fondo1);
-    min-height: 495px;
     padding-top: 50px;
+    margin-bottom: 50px;
 }
 
 .titulo_login { /*Titulo del login*/
@@ -18,7 +26,7 @@
     background-color: var(--bg-color0);
     max-width: 500px;
     margin: auto;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 .campo_texto { /*Seccion donde se encuentrar un input y su respectivo label*/
     position: relative;
@@ -72,7 +80,13 @@
 }
 
 .boton { /*Aplica sobre el boton de enviar formulario*/
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 12.5px;
+}
+
+.botonRegistro {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
 }
 
 .login_error { /*Propiedades del mensaje que se muestra si hay un error al iniciar sesion*/
@@ -82,4 +96,10 @@
     margin: auto;
     color:var(--bg-color1);
     font-weight: 600;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

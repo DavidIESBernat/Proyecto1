@@ -37,7 +37,7 @@
           <a class="nav-link botonHeaderText">Contacto</a>
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto margen-buscador">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 d-flex flex-direction-row">
             <input class="form-control mr-sm-2 input-buscar" type="search" placeholder="Buscar" aria-label="Buscar">
@@ -45,11 +45,11 @@
           </form>
         </li>
       </ul>
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto margen-derecho">
         <?php /* CAMBIAR BOTON SI HA INICIADO SESION O NO */ 
           if(isset($_SESSION['usuario'])) {?>
             <li class='nav-item nav-item-hover'>
-              <a class="nav-link account button-cartshop" href="<?=url.'?controlador=usuario&accion=perfil'?>"><?=$_SESSION['usuario']['nombre']?>
+              <a class="nav-link account button-cartshop" href="<?=url.'?controlador=usuario&accion=perfil'?>"><?=$_SESSION['usuario']['username']?>
                 <img width='20' height='20' class="account_image" src='assets/images/account.png' alt="perfil">
               </a>
             </li>
@@ -68,7 +68,6 @@
               ?>
           </a>
         </li>
-        <li class="margen-derecho"></li>
       </ul>
     </div>
   </nav>

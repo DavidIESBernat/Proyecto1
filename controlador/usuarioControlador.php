@@ -32,7 +32,7 @@ class usuarioControlador {
         }
     }
 
-    // Funcion utiliza para iniciar sesion verificando si los campos son correctos creando la sesion correspondiente
+    // Funcion utilizada para iniciar sesion verificando si los campos son correctos creando la sesion correspondiente
     public function verificarLogin() {
         session_start();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,6 +44,37 @@ class usuarioControlador {
         }
     }
 
+    // Funcion para acceder a la vista de registro
+    public function registro() {
+        session_start();
+
+        // Comprobacion para evitar iniciar sesion si ya tenemos una sesion iniciada
+        if(isset($_SESSION['usuario'])) {
+            header("Location:".url."?controlador=usuario&accion=perfil");
+        } else {
+            // Header
+            $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
+            include_once 'vista/header.php';
+            // Main
+            include_once 'vista/registro.php';
+            // Footer
+            include_once 'vista/footer.php';
+        }
+    }
+
+    // Funcion que verifica que los campos rellenados en registro son correctos para ser registrados en la base de datos
+    public function verificarRegistro() {
+        session_start();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            
+            // Llama a la funcion verificarUsuario de usuarioDAO y envia el usuario y la contraseña enviados en la vista login
+            usuarioDAO::verificarRegistro($email, $username, $password);
+        }
+    }
+    
     // Funcion para acceder a la vista del perfil de usuario
     public function perfil() {
         session_start();
