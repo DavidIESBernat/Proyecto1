@@ -8,25 +8,19 @@ include_once 'Usuario.php';
 class categoriaDAO {
 
      /* Funcion para obtener todas las categorias de la base de datos*/
-     public static function obtenerCategorias() { // Devuelve todas las categorias.
-        $con = dataBase::connect(); // Conexion con la base de datos
+    public static function obtenerCategorias() {
+        $con = dataBase::connect(); // Conexión con la base de datos
         $consulta = $con->prepare("SELECT * FROM categoria"); 
         $consulta->execute();
-        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC); // Obtiene todas las categorias
-
-        foreach($resultados as $resultado) { // Bucle foreach que recorre las categorias
-            $categoria = new Categoria(); // Declaracion de una nueva categoria en la que guardamos todos sus valores con sets
-            $categoria->setId($resultado['id']);
-            $categoria->setNombre($resultado['nombre']);
-            $categoria->setDescripcion($resultado['descripcion']);
-            $categoria->setImagen($resultado['imagen']);
+        $resultados = $consulta->get_result();
+        $categorias = array();
     
-            $categorias[] = $categoria; // Guardamos la categoria en el array categorias
+        while ($categoria = $resultados->fetch_object('Categoria')) {
+            $categorias[] = $categoria; // Guardamos categoria en el array categorias
         }
     
         $con->close();
-        return $categorias; // Devuelve las categorias
-
+        return $categorias; // Devuelve las categorías
     }
 
     /*Obtener una categoria de la base de datos segun su id*/ 

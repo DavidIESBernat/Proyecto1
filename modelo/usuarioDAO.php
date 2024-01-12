@@ -13,24 +13,15 @@ class usuarioDAO {
         $con = dataBase::connect(); // Conexion con la base de datos
         $consulta = $con->prepare("SELECT * FROM usuario"); 
         $consulta->execute();
-        $resultados = $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
-        foreach($resultados as $resultado) { // Bucle foreach que recorre todos los usuarios obtenidos
-            $usuario = new Usuario(); // Los Usuarios se declaran como tal y se establecen sus valores con Sets
-            $usuario->setId($resultado['id']);
-            $usuario->setUsername($resultado['username']);
-            $usuario->setContraseña($resultado['contraseña']);
-            $usuario->setNombre($resultado['nombre']);
-            $usuario->setApellido($resultado['apellido']);
-            $usuario->setEmail($resultado['email']);
-            $usuario->setNumeroTlf($resultado['numeroTlf']);
-            $usuario->setDireccion($resultado['direccion']);
-            $usuario->setPoblacion($resultado['poblacion']);
-    
-            $usuarios[] = $usuario; // Guardamos el array usuario actual en el array usuarios
-            }
+        $resultados = $consulta->get_result();
+        $usuarios = array();
         
-            $con->close();
-            return $usuarios; // Devuelve los usuarios
+        while ($usuario = $resultados->fetch_object('Usuario')) {
+            $usuarios[] = $usuario; // Agrega el usuario al array usuarios
+        }
+    
+        $con->close();
+        return $usuarios; // Devuelve los usuarios
     }
 
     public static function ObtenerUsuarioPorId($id) {

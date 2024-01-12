@@ -9,6 +9,22 @@ include_once 'Usuario.php';
 
 class productoDAO {
 
+
+    /*public static function obtenerProductos() { // Devuelve todos los productos.
+        $con = dataBase::connect(); // Conexion con la base de datos
+        $consulta = $con->prepare("SELECT * FROM producto"); 
+        $consulta->execute();
+        $resultados = $consulta->get_result();
+        $productos = array();
+
+        while ($producto = $resultados->fetch_object('Producto')) {
+            $productos[] = $producto; // Guardamos la bebida en el array productos
+        }
+
+        $con->close();
+        return $productos; // Devuelve los productos
+    }*/
+
     /*Funcion para obtener todos los productos de la base de datos*/
     public static function obtenerProductos() { // Devuelve todos los productos.
         $con = dataBase::connect(); // Conexion con la base de datos
