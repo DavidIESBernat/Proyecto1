@@ -64,9 +64,9 @@
                                             <h5 class="card-title"><?= $producto->getNombre() ?></h5>
                                             <p class="precio"><?= number_format($producto->getPrecio(), 2,',','.') ?>€</p>
                                             <p class="card-text"><?= $producto->getDescripcion() ?>
-                                            <?php if ($producto instanceof Bebida) { // Si el producto es una instancia de bebida mostrara los ml?>
+                                            <?php if ($producto->getCategoria() == 5) { // Si el producto es una instancia de bebida mostrara los ml?>
                                                 <!-- Mostrar el campo ml solo si es una Bebida -->
-                                                <br>Cantidad: <?= $producto->getMl() ?>ml
+                                                <br>Cantidad: <?= $producto->getMl(); ?>ml
                                             <?php } ?>
                                             </p>
                                         </div>

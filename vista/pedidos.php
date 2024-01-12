@@ -23,16 +23,16 @@
                 <?php foreach($pedidos as $pedido) { ?>
                     <div class="row no-margin-row pedido">
                         <div class="col-12 col-md-8 col-lg-12 pedidoInfo">
-                            <div class="text-align-center fecha textPedido">Fecha: <?= date('d-m-Y', strtotime($pedido['fecha'])) ?></div>
-                            <div class="text-align-center textPedido">Pedido n.º<?=$pedido['idPedido']?></div>
-                            <div class="text-align-center precioTotal textPedido">Total: <?=number_format($pedido['precioTotal'], 2,',','.')?>€</div>
+                            <div class="text-align-center fecha textPedido">Fecha: <?= date('d-m-Y', strtotime($pedido->fecha)) ?></div>
+                            <div class="text-align-center textPedido">Pedido n.º<?=$pedido->idPedido?></div>
+                            <div class="text-align-center precioTotal textPedido">Total: <?=number_format($pedido->precioTotal, 2,',','.')?>€</div>
                         </div>
                         <div class="row no-margin-row">
                             <?php foreach($productosPedido as $productoPedido) {
-                                if($productoPedido['idPedido'] == $pedido['idPedido']) { ?>
+                                if($productoPedido->idPedido == $pedido->idPedido) { ?>
                                     <div class="col-12 col-md-8 col-lg-6 producto">
                                     <?php foreach($productos as $producto) {
-                                        if($producto->getId() == $productoPedido['idProducto']) { ?>
+                                        if($producto->getId() == $productoPedido->idProducto) { ?>
                                             <div class="imagen" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
                                             <div class="productoInfo">
                                                 <div class="infoLeft">
@@ -40,8 +40,8 @@
                                                     <div class="textProducto"><?=number_format($producto->getPrecio(), 2,',','.')?>€/u</div> 
                                                 </div>
                                                 <div class="infoRight">
-                                                    <div class="textProducto">Cantidad: <?=$productoPedido['cantidad']?></div>
-                                                    <div class="textProducto"><?=number_format($productoPedido['precio'], 2,',','.')?>€</div> 
+                                                    <div class="textProducto">Cantidad: <?=$productoPedido->cantidad?></div>
+                                                    <div class="textProducto"><?=number_format($productoPedido->precio, 2,',','.')?>€</div> 
                                                 </div>
                                             </div>
                                         <?php } } ?>

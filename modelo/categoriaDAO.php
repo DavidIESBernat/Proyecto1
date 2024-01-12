@@ -31,7 +31,7 @@ class categoriaDAO {
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
-        $categoria = $resultado->fetch_object('Producto');
+        $categoria = $resultado->fetch_object('Categoria');
         $con->close(); // Cierra la conexion
 
         return $categoria; // Devuelve la categoria obtenida

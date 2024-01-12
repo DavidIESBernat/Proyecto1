@@ -7,12 +7,6 @@ class Pedido {
         $this->producto = $producto;
         $this->cantidad = $cantidad;
     }
-    
-    //public function compararPedido(Pedido $pedido) {
-        // Aquí defines la lógica para comparar los pedidos
-        // En este ejemplo, comparo los IDs de los productos
-    //    return $this->producto->getId() === $pedido->producto->getId();
-    //}
 
     public function compararPedido(Pedido $pedido) {
         // Aquí defines la lógica para comparar los pedidos
