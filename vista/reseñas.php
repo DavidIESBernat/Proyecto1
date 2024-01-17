@@ -25,9 +25,9 @@
             </p>
             <p class="col-12 col-md-6 filtrar-text ">Ordenar por: 
             <select>
-                <option value="ascendente">Orden Ascendente</option>
-                <option value="descendente">Orden Descendente</option>
-                <option value="valoracion">Valoracion</option>
+                <option value="original">Por defecto</option>
+                <option value="ascendente">Valoracion Ascendente</option>
+                <option value="descendente">Valoracion Descendente</option>
             </select>
         </p>
         </div>

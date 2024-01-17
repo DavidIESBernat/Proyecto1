@@ -97,6 +97,7 @@
                                 <div class="texto-precio-total">Total Selección:</div>
                                 <div class="precio-total"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
+                            <div>
                             <form class="container-btnInclinado" action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
                                 <button class="btnInclinado">
                                     <div class="btnInclinado-textContainer">
@@ -107,6 +108,11 @@
                                     </div>
                                 </button>
                             </form>
+                        </div>
+                        <div>
+                            <label>Propina:</label>
+                            <input type="number" id="propina" min="0" max="100" step="5" value="3" />
+                            <button onclick="omitirPropina()">Omitir propina</button>
                         </div>
                     </div>
                 </div>
@@ -123,5 +129,6 @@
     </div>
     <div class="section-footer-bottom"></div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/propina.js"></script>
 </body>
 </html>
