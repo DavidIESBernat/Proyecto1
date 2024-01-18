@@ -34,7 +34,7 @@
           <a class="nav-link botonHeaderText">Calendario</a>
         </li>
         <li class="nav-item nav-item-hover botonHeader">
-        <a class="nav-link botonHeaderText" href="<?=url.'?controlador=producto&accion=opiniones'?>">Reseñas</a>
+        <a class="nav-link botonHeaderText" href="<?=url.'?controlador=api&accion=mostrar_opiniones'?>">Reseñas</a>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto margen-buscador">

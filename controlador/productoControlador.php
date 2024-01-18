@@ -5,6 +5,7 @@ include_once 'modelo/usuarioDAO.php';
 include_once 'modelo/categoriaDAO.php';
 include_once 'modelo/Producto.php';
 include_once 'modelo/Pedido.php';
+include_once 'modelo/Opinion.php';
 
 class productoControlador {
 
@@ -53,17 +54,18 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
 
-    public function opiniones() {
+    public function mostrarOpiniones() {
         session_start();
         // Header
         $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
         include_once 'vista/header.php';
         // Main
+        $opiniones = opinionDAO::obtenerOpiniones();
         include_once 'vista/reseñas.php';
         // Footer
         include_once 'vista/footer.php';
-        
     }
+
     public function mostrarProducto() {
         session_start();
         if(isset($_POST['id'])) { // Comprueba que existe un id para mostrarlo

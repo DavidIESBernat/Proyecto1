@@ -45,47 +45,48 @@
                 </div>
                 <p class="descripcion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p> <!--Descripcion de la reseña-->
             </div>
+            
+            <?php foreach ($opiniones as $opinion) {?>
             <div class="col-10 col-md-5 reseña"> <!--Contenedor de una reseña-->
                 <div class="flex-between"> <!--Seccion que incluye el numero de  comanda a la que hace referencia la reseña y la fecha de la misma-->
-                    <p class="numComanda">Nº120 - David</p> <!--Numero de la Comanda y nombre de la persona que escribe la reseña-->
-                    <p class="fecha">09/01/2024</p> <!--Fecha de de la reseña-->
+                    <p class="numComanda">Nº<?= $opinion->getPedido_id()?> - <?=$opinion->getAutor()?> </p> <!--Numero de la Comanda y nombre de la persona que escribe la reseña-->
+                    <p class="fecha"><?= $opinion->getFecha()?></p> <!--Fecha de de la reseña-->
                 </div>
                 <div class="flex-between">
-                    <h3>Titulo de la reseña</h3> <!--Titulo de la Reseña-->
-                    <div class="valoraciones">
-                        <img alt="reseña con valoracion de 5 estrellas" src="assets/images/rate-3stars.svg">
-                    </div> <!--Valoracion de la reseña-->
+                    <h3><?= $opinion->getTitulo()?></h3> <!--Titulo de la Reseña-->
+                    <div class="valoraciones"> <!--En base a la valoracion muestra las estrellas correspondientes-->
+                    <?php
+                        // Switch que detecta la nota proporcionada por el usuario para mostrar las estrellas correspondientes en base a la nota.
+                        switch($opinion->getNota()) {
+                            case 1:
+                                ?><img alt="reseña con valoracion de 1 estrella" src="assets/images/rate-1stars.svg"><?php
+                                break;
+                            case 2:
+                                ?><img alt="reseña con valoracion de 2 estrellas" src="assets/images/rate-2stars.svg"><?php
+                                break;
+                            case 3:
+                                ?><img alt="reseña con valoracion de 3 estrellas" src="assets/images/rate-3stars.svg"><?php
+                                break;
+                            case 4:
+                                ?><img alt="reseña con valoracion de 4 estrellas" src="assets/images/rate-4stars.svg"><?php
+                                break;
+                            case 5:
+                                ?><img alt="reseña con valoracion de 5 estrellas" src="assets/images/rate-5stars.svg"><?php
+                                break;
+                            default:
+                                // Si la nota no es un valor entre 1 y 5
+                        } 
+                    ?>
+                    </div> 
                 </div>
-                <p class="descripcion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p> <!--Descripcion de la reseña-->
+                <p class="descripcion"><?=$opinion->getComentario()?></p> <!--Descripcion de la reseña-->
             </div>
-            <div class="col-10 col-md-5 reseña"> <!--Contenedor de una reseña-->
-                <div class="flex-between"> <!--Seccion que incluye el numero de  comanda a la que hace referencia la reseña y la fecha de la misma-->
-                    <p class="numComanda">Nº120 - David</p> <!--Numero de la Comanda y nombre de la persona que escribe la reseña-->
-                    <p class="fecha">09/01/2024</p> <!--Fecha de de la reseña-->
-                </div>
-                <div class="flex-between">
-                    <h3>Titulo de la reseña</h3> <!--Titulo de la Reseña-->
-                    <div class="valoraciones">
-                        <img alt="reseña con valoracion de 5 estrellas" src="assets/images/rate-2stars.svg">
-                    </div> <!--Valoracion de la reseña-->
-                </div>
-                <p class="descripcion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p> <!--Descripcion de la reseña-->
-            </div>
-            <div class="col-10 col-md-5 reseña"> <!--Contenedor de una reseña-->
-                <div class="flex-between"> <!--Seccion que incluye el numero de  comanda a la que hace referencia la reseña y la fecha de la misma-->
-                    <p class="numComanda">Nº120 - David</p> <!--Numero de la Comanda y nombre de la persona que escribe la reseña-->
-                    <p class="fecha">09/01/2024</p> <!--Fecha de de la reseña-->
-                </div>
-                <div class="flex-between">
-                    <h3>Titulo de la reseña</h3> <!--Titulo de la Reseña-->
-                    <div class="valoraciones">
-                        <img alt="reseña con valoracion de 5 estrellas" src="assets/images/rate-4stars.svg">
-                    </div> <!--Valoracion de la reseña-->
-                </div>
-                <p class="descripcion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p> <!--Descripcion de la reseña-->
-            </div>
-        </div>
+            <?php } ?>
+        <div>
+        <script src="assets/js/opiniones.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/dropdown-checkbox.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     </body>
 </html>
