@@ -20,8 +20,8 @@
         </div>
         <div class="row no-margin-row seccion-filtrar">
             <p class="col-12 col-md-6 filtrar-text ">Filtrar por:
-                <input type="text" id="dropdown1" />
-                <!--Dropdown con Checkbox - Uso de JavaScript -->
+                <input type="text" id="dropdown" />
+                <!--Dropdown con Checkboxs - Uso de JavaScript -->
             </p>
             <p class="col-12 col-md-6 filtrar-text ">Ordenar por: 
             <select>
@@ -31,20 +31,20 @@
             </select>
         </p>
         </div>
-        <div class="row no-margin-row seccion-reseñas"> <!--Seccion que incluye todas las reseñas-->
-            <div class="col-10 col-md-5 reseña"> <!--Contenedor de una reseña-->
-                <div class="flex-between"> <!--Seccion que incluye el numero de  comanda a la que hace referencia la reseña y la fecha de la misma-->
-                    <p class="numComanda">Nº120 - David</p> <!--Numero de la Comanda y nombre de la persona que escribe la reseña-->
-                    <p class="fecha">09/01/2024</p> <!--Fecha de de la reseña-->
+        <div class="row no-margin-row seccion-reseñas"> 
+            <!--<div class="col-10 col-md-5 reseña"> 
+                <div class="flex-between"> 
+                    <p class="numComanda" id="comanda">Nº120 - David</p> 
+                    <p class="fecha" id="fecha">09/01/2024</p> 
                 </div>
                 <div class="flex-between">
-                    <h3>Titulo de la reseña</h3> <!--Titulo de la Reseña-->
-                    <div class="valoraciones">
+                    <h3 id="titulo">Titulo de la reseña</h3> 
+                    <div class="valoraciones" id="nota">
                         <img alt="reseña con valoracion de 5 estrellas" src="assets/images/rate-5stars.svg">
-                    </div> <!--Valoracion de la reseña-->
+                    </div> 
                 </div>
-                <p class="descripcion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p> <!--Descripcion de la reseña-->
-            </div>
+                <p class="descripcion" id="opinion">Esto es una reseña de prueba sobre un pedido realizado en la web del restaurante pit-stop creada por David Valero Arevalo para el proyecto 1 de Disseny d'Aplicacions Web 2</p>
+            </div>-->
         </div>
         <script src="assets/js/opiniones.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>

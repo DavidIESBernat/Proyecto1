@@ -10,9 +10,10 @@ include_once 'modelo/Opinion.php';
 
 class apiControlador{    
  
+    // Funcion que detecta la accion a realizar
     public function index(){
        
-        // Funcion para mostrar las opiniones
+        // If para obtener las opiniones
         if($_GET["accion"] == 'mostrar_opiniones') {
             $opiniones = $this->mostrarOpiniones();
         }   
