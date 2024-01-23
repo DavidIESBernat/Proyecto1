@@ -15,22 +15,15 @@ class apiControlador{
         // Funcion para mostrar las opiniones
         if($_GET["accion"] == 'mostrar_opiniones') {
             $opiniones = $this->mostrarOpiniones();
-            echo json_encode($opiniones, JSON_UNESCAPED_UNICODE);
-            return;
         }   
     }
 
     // Funcion para obtener todas las opiniones de los pedidos
     public function mostrarOpiniones() {
-        session_start();
-        // Header
-        $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
-        include_once 'vista/header.php';
-        // Main
+
         $opiniones = opinionDAO::obtenerOpiniones();
-        include_once 'vista/reseñas.php';
-        // Footer
-        include_once 'vista/footer.php';
+        echo json_encode($opiniones, JSON_UNESCAPED_UNICODE);
+        
     }
 }
 ?>

@@ -16,13 +16,14 @@ class opinionDAO {
         $resultados = $consulta->get_result();
         $opiniones = array();
     
-        while ($opinion = $resultados->fetch_object('Opinion')) {
+        while ($opinion = $resultados->fetch_assoc()) {
             $opiniones[] = $opinion; // Guardamos la opinion en el array de opiniones
         }
     
         $con->close();
         return $opiniones; // Devuelve las opiniones
     }
+    
     // Funcion que añade una nueva opinion a la base de datos
     public static function nuevaOpinion($idPedido, $titulo, $comentario, $nota, $fecha, $autor) { 
         $con = dataBase::connect();

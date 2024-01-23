@@ -5,6 +5,7 @@ include_once 'controlador/categoriaControlador.php';
 include_once 'controlador/pedidoControlador.php';
 include_once 'controlador/usuarioControlador.php';
 include_once 'controlador/apiControlador.php';
+include_once 'controlador/opinionControlador.php';
 
 if(!isset($_GET['controlador'])) {
     // Si no se pasa nada, se mostrara pagina principal de pedidos.

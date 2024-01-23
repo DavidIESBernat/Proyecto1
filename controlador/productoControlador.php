@@ -54,18 +54,6 @@ class productoControlador {
         include_once 'vista/footer.php';
     }
 
-    public function mostrarOpiniones() {
-        session_start();
-        // Header
-        $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
-        include_once 'vista/header.php';
-        // Main
-        $opiniones = opinionDAO::obtenerOpiniones();
-        include_once 'vista/reseñas.php';
-        // Footer
-        include_once 'vista/footer.php';
-    }
-
     public function mostrarProducto() {
         session_start();
         if(isset($_POST['id'])) { // Comprueba que existe un id para mostrarlo

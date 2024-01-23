@@ -31,10 +31,10 @@
           <a class="nav-link botonHeaderText" href="<?=url.'?controlador=producto&accion=carta'?>">Carta</a>
         </li>
         <li class="nav-item nav-item-hover botonHeader">
-          <a class="nav-link botonHeaderText">Calendario</a>
+          <a class="nav-link botonHeaderText" href="<?=url.'?controlador=api&accion=mostrar_opiniones'?>">Calendario</a>
         </li>
         <li class="nav-item nav-item-hover botonHeader">
-        <a class="nav-link botonHeaderText" href="<?=url.'?controlador=api&accion=mostrar_opiniones'?>">Reseñas</a>
+        <a class="nav-link botonHeaderText" href="<?=url.'?controlador=opinion&accion=opiniones'?>">Reseñas</a>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto margen-buscador">
