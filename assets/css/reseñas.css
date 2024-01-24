@@ -2,8 +2,7 @@
 /* CSS Document */
 
 .seccion-reseñas {
-    padding-top: 50px;
-    padding-bottom: 25px;
+    padding-bottom: 15px;
     background-color: var(--bg-color-fondo0);
     display: flex;
     justify-content: space-evenly;
@@ -17,8 +16,8 @@
 }
 
 .seccion-filtrar {
-    background-color: #E61414;
-    height: 50px;
+    background-color: var(--bg-color1);
+    min-height: 50px;
 }
 .flex-between {
     display: flex;
@@ -36,5 +35,30 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+.container-boton {
+    background-color: var(--bg-color5);
+}
+
+.boton_simple {
+    width: 100%;;
+    min-height: 50px;
+    margin-bottom: 50px;
+}
+
+.descripcionInput {
+    min-height: 150px;
+}
+
+.descripcionContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.formularioAtributos {
+    display: flex;
+    justify-content: space-evenly;
+}
