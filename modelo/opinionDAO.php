@@ -25,10 +25,10 @@ class opinionDAO {
     }
     
     // Funcion que añade una nueva opinion a la base de datos
-    public static function nuevaOpinion($idPedido, $titulo, $comentario, $nota, $fecha, $autor) { 
+    public static function nuevaOpinion($idPedido, $titulo, $comentario, $nota, $autor) { 
         $con = dataBase::connect();
-        $consulta = $con->prepare("INSERT INTO OPINION (id, pedido_id, titulo, comentario, nota, fecha, autor) VALUES (NULL, ?, ?, ?, ?, ?, ?)"); // Consulta para añadir una nueva opinion
-        $consulta->bind_param("issids", $idPedido, $titulo, $comentario, $nota, $fecha, $autor);
+        $consulta = $con->prepare("INSERT INTO OPINION (id, pedido_id, titulo, comentario, nota, fecha, autor) VALUES (NULL, ?, ?, ?, ?, CURRENT_DATE, ?)"); // Consulta para añadir una nueva opinion
+        $consulta->bind_param("issis", $idPedido, $titulo, $comentario, $nota, $autor);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
     }

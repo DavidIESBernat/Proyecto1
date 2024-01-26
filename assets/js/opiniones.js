@@ -1,4 +1,4 @@
-let opiniones; // Variable que contiene las diferentes reseñas que se guarden en ella.
+let opiniones; // letiable que contiene las diferentes reseñas que se guarden en ella.
  
 // Fetch a la API para obtener las opiniones de la base de datos.
 fetch("http://pitstop.com/?controlador=api&accion=mostrar_opiniones")
@@ -15,7 +15,7 @@ function filtrar() {
     const selectNota = document.getElementById("filtroNota");
     const selectOrden = document.getElementById("filtroOrden");
 
-    // Guarda los valores de los select en sus respectivas variables
+    // Guarda los valores de los select en sus respectivas letiables
     let valorNota = selectNota.value;
     let valorOrden = selectOrden.value;
 
@@ -39,7 +39,8 @@ function filtrar() {
 }
 
 // Funcion que muestra en el HTML las reseñas que se le han enviado por parametro
-function mostrarReseñas(opiniones) {
+function mostrarReseñas() {
+
     // Obtener el contenedor de reseñas del documento
     const contenedorReseñas = document.querySelector('.seccion-reseñas');
     const contenedorFormulario = document.querySelector('.formularioContainer');
@@ -56,7 +57,7 @@ function mostrarReseñas(opiniones) {
     contenedorReseñas.appendChild(boton);
 
     opiniones.forEach(opinion => {
-        // Crea elemento html tipo div para reseña, lo guarda en la variable reseña.
+        // Crea elemento html tipo div para reseña, lo guarda en la letiable reseña.
         const reseña = document.createElement('div');
         // Añade las clases siguientes al elemento div de reseña.
         reseña.classList.add('col-10', 'col-md-5', 'reseña');
@@ -73,9 +74,9 @@ function mostrarFormulario() {
     const contenedorReseñas = document.querySelector('.seccion-reseñas');
     
     // Creacion del formulario
-    const formulario = document.createElement('div');
+    const formulario = document.createElement('form');
     formulario.classList.add('formularioAtributos','col-12','col-md-10', 'row', 'no-margin-row');
-    formulario.innerHTML = `<h3 class="TituloFormulario col-12">Escribe tu opinion</h3><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="pedido">NºPedido</label><input id="pedido" class="col-9" type="text" name="pedido"></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="nombre">Nombre</label><input id="nombre" class="col-9" type="text" name="nombre" placeholder="Escribe tu nombre..."></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="titulo">Titulo</label><input id="titulo" class="col-9" type="text" name="titulo" placeholder="Titulo de tu opinion..."></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="valoracion">Valoracion </label><select id="nota" class="col-9" name="valoracion" id=""><option value="5">5 estrellas</option><option value="4">4 estrellas</option><option value="3">3 estrellas</option><option value="2">2 estrellas</option><option value="1">1 estrella</option></select></div><div class="col-12 row descripcionContainer"><label class="col-3" for="descripcion">Descripcion</label><textarea id="descripcion" class="col-9 no-margin-row descripcionInput" type="text" name="descripcion" placeholder="Describe tu opinion..."></textarea></div><button class="boton_simple" onclick="enviarOpinion()">Enviar Opinion</button>`;
+    formulario.innerHTML = `<h3 class="TituloFormulario col-12">Escribe tu opinion</h3><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="pedido">NºPedido</label><input id="pedido" class="col-9" type="text" name="pedido" required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="nombre">Nombre</label><input id="nombre" class="col-9" type="text" name="nombre" minlength="2" maxlength="20" placeholder="Escribe tu nombre..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="titulo">Titulo</label><input id="titulo" class="col-9" type="text" name="titulo" minlength="3" maxlength="30" placeholder="Titulo de tu opinion..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="valoracion">Valoracion </label><select id="nota" class="col-9" name="valoracion" id=""><option value="5">5 estrellas</option><option value="4">4 estrellas</option><option value="3">3 estrellas</option><option value="2">2 estrellas</option><option value="1">1 estrella</option></select></div><div class="col-12 row descripcionContainer"><label class="col-3" for="descripcion">Descripcion</label><textarea id="descripcion" class="col-9 no-margin-row descripcionInput" type="text" name="descripcion" minlength="50" maxlength="400" placeholder="Describe tu opinion..." required></textarea></div><button class="boton_simple" id="btnEnviar" onclick="enviarOpinion()">Enviar Opinion</button>`;
     
     // Creacion del Boton para mostrar las reseñas
     const boton = document.createElement('button');
@@ -91,5 +92,37 @@ function mostrarFormulario() {
 
 // Funcion que se ejecuta al hacer clic sobre el boton de enviar el formulario de una nueva opinion
 function enviarOpinion() {
-    console.log('Opinion Enviada');
+
+    // Obtiene los valores de los input en base al id y los guarda en variables
+    let numeroPedido = document.getElementById('pedido').value;
+    let nombre = document.getElementById('nombre').value;
+    let tituloOpinion = document.getElementById('titulo').value; 
+    let valoracion = document.getElementById('nota').value; 
+    let descripcion = document.getElementById('descripcion').value;
+    
+    // Crea un array con todas las variables anteriores
+    let data = {
+        numeroPedido: numeroPedido,
+        nombre: nombre,
+        tituloOpinion: tituloOpinion,
+        valoracion: valoracion,
+        descripcion: descripcion
+    };
+    console.log(data); // Muestra por consola los datos enviados
+    let jsonData = JSON.stringify(data); // Convierte el array data en una cadena de texto de tipo JSON
+
+    // Llama a la API con una accion para agregar una nueva opinion
+    fetch('http://pitstop.com/?controlador=api&accion=nueva_opinion', { 
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: jsonData
+    })
+    .then(opinion => opinion.json())
+    .then(resultado => {
+        console.log(resultado); // Muestra resultado
+    });
+
+    mostrarReseñas(opiniones);
 }

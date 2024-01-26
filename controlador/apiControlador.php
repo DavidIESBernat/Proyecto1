@@ -19,7 +19,7 @@ class apiControlador{
         }   
         //If para añadir una nueva opinion
         if($_GET["accion"] == 'nueva_opinion') {
-            $opiniones = $this->nuevaOpinion();
+            $this->nuevaOpinion();
         }   
     }
 
@@ -30,10 +30,30 @@ class apiControlador{
         echo json_encode($opiniones, JSON_UNESCAPED_UNICODE);
         
     }
-    // Funcion para añadir una nueva opinion
+
+    // Funcion para añadir una nueva opinion a la base de datos
     public function nuevaOpinion() {
-        $opinion = opinionDAO::nuevaOpinion($idPedido, $titulo, $comentario, $nota, $fecha, $autor);
-        echo json_encode($opiniones, JSON_UNESCAPED_UNICODE);
+
+        // Obtiene los datos enviados
+        $data = json_decode(file_get_contents("php://input"));
+
+        // Comprueba que los datos obtenidos son validos
+        if (isset($data->numeroPedido, $data->tituloOpinion, $data->descripcion, $data->valoracion, $data->nombre)) {
+            // Llama a la función nuevaOpinion de opinionDAO para insertar la opinion en la base de datos
+            opinionDAO::nuevaOpinion(
+                $data->numeroPedido,
+                $data->tituloOpinion,
+                $data->descripcion,
+                $data->valoracion,
+                $data->nombre
+            );
+            // Mensaje que se recibe por consola indicando que se ha añadido correctamente
+            echo json_encode(['message' => 'Opinión guardada con éxito'], JSON_UNESCAPED_UNICODE);
+        } else {
+            // Devuelve una respuesta de error en caso de faltar datos
+            http_response_code(400); 
+            echo json_encode(['error' => 'Faltan valores'], JSON_UNESCAPED_UNICODE);
+        }
     }
 }
 ?>
