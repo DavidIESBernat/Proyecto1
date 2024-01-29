@@ -1,13 +1,17 @@
 let opiniones; // letiable que contiene las diferentes reseñas que se guarden en ella.
  
+cargarProductos();
 // Fetch a la API para obtener las opiniones de la base de datos.
-fetch("http://pitstop.com/?controlador=api&accion=mostrar_opiniones")
+function cargarProductos(){
+    fetch("http://pitstop.com/?controlador=api&accion=mostrar_opiniones")
     .then(data => data.json())
     .then(data => {
         opiniones = data;
         console.log(opiniones); // Agrega este log para verificar que opiniones se haya inicializado correctamente
         mostrarReseñas(opiniones);
     });
+}
+
 
 // Funcion para filtrar por nota o orden que enviaran las reseñas encontradas a la funcion mostrarReseñas
 function filtrar() {
@@ -22,7 +26,7 @@ function filtrar() {
     // Si los valores se encuentran por defecto se muestran todas las reseñas
     if (valorNota === '0' && valorOrden === 'original') {
         mostrarReseñas(opiniones); // Llama a la funcion mostrarReseñas con todas las reseñas
-
+        console.log("Entra");
     } else {
         // Ifs para determinar los valores seleccionados
         if(valorNota === '0' && valorOrden === 'positivas') { // En caso de querer ordenar por orden ascendente
@@ -39,7 +43,7 @@ function filtrar() {
 }
 
 // Funcion que muestra en el HTML las reseñas que se le han enviado por parametro
-function mostrarReseñas() {
+function mostrarReseñas(opiniones) {
 
     // Obtener el contenedor de reseñas del documento
     const contenedorReseñas = document.querySelector('.seccion-reseñas');
@@ -99,30 +103,43 @@ function enviarOpinion() {
     let tituloOpinion = document.getElementById('titulo').value; 
     let valoracion = document.getElementById('nota').value; 
     let descripcion = document.getElementById('descripcion').value;
+
+    // Comprueba que el formulario cumple los requisitos de longitud y que no se envia vacio ningun campo
+    if(numeroPedido != "" && nombre != "" && tituloOpinion != "" && descripcion != "" && descripcion.length >= 50 && tituloOpinion.length >= 3 && nombre.length >= 2) {
+        // Crea un array con todas las variables anteriores
+        let data = {
+            numeroPedido: numeroPedido,
+            nombre: nombre,
+            tituloOpinion: tituloOpinion,
+            valoracion: valoracion,
+            descripcion: descripcion
+        };
+        console.log(data); // Muestra por consola los datos enviados
+        let jsonData = JSON.stringify(data); // Convierte el array data en una cadena de texto de tipo JSON
+
+        // Llama a la API con una accion para agregar una nueva opinion
+        fetch('http://pitstop.com/?controlador=api&accion=nueva_opinion', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonData
+        })
+        .then(opinion => opinion.json())
+        .then(resultado => {
+            console.log(resultado); // Muestra resultado
+            opiniones.append({
+                numeroPedido: data.numeroPedido,
+                autor: data.nombre,
+                titulo: data.tituloOpinion,
+                valoracion: data.valoracion,
+                comentario: data.descripcion
+            });
+            mostrarReseñas(opiniones);
+        }).catch(e => console.log(e));
+        
+    } else {
+        console.log("El formulario no cumple los requisitos");
+    }
     
-    // Crea un array con todas las variables anteriores
-    let data = {
-        numeroPedido: numeroPedido,
-        nombre: nombre,
-        tituloOpinion: tituloOpinion,
-        valoracion: valoracion,
-        descripcion: descripcion
-    };
-    console.log(data); // Muestra por consola los datos enviados
-    let jsonData = JSON.stringify(data); // Convierte el array data en una cadena de texto de tipo JSON
-
-    // Llama a la API con una accion para agregar una nueva opinion
-    fetch('http://pitstop.com/?controlador=api&accion=nueva_opinion', { 
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: jsonData
-    })
-    .then(opinion => opinion.json())
-    .then(resultado => {
-        console.log(resultado); // Muestra resultado
-    });
-
-    mostrarReseñas(opiniones);
 }

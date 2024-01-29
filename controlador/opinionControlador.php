@@ -21,7 +21,7 @@ class opinionControlador {
         $cantidadCarrito = pedidoDAO::cantidadTotalProductos();
         include_once 'vista/header.php';
         // Main
-        include_once 'vista/reseñas.php';
+        include_once 'vista/reseñas.html';
         // Footer
         include_once 'vista/footer.php';
     }

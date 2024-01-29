@@ -20,6 +20,7 @@ class apiControlador{
         //If para añadir una nueva opinion
         if($_GET["accion"] == 'nueva_opinion') {
             $this->nuevaOpinion();
+            
         }   
     }
 
@@ -36,7 +37,7 @@ class apiControlador{
 
         // Obtiene los datos enviados
         $data = json_decode(file_get_contents("php://input"));
-
+        
         // Comprueba que los datos obtenidos son validos
         if (isset($data->numeroPedido, $data->tituloOpinion, $data->descripcion, $data->valoracion, $data->nombre)) {
             // Llama a la función nuevaOpinion de opinionDAO para insertar la opinion en la base de datos
