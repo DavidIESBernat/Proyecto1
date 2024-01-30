@@ -78,9 +78,9 @@ function mostrarFormulario() {
     const contenedorReseñas = document.querySelector('.seccion-reseñas');
     
     // Creacion del formulario
-    const formulario = document.createElement('form');
+    const formulario = document.createElement('div');
     formulario.classList.add('formularioAtributos','col-12','col-md-10', 'row', 'no-margin-row');
-    formulario.innerHTML = `<h3 class="TituloFormulario col-12">Escribe tu opinion</h3><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="pedido">NºPedido</label><input id="pedido" class="col-9" type="text" name="pedido" required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="nombre">Nombre</label><input id="nombre" class="col-9" type="text" name="nombre" minlength="2" maxlength="20" placeholder="Escribe tu nombre..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="titulo">Titulo</label><input id="titulo" class="col-9" type="text" name="titulo" minlength="3" maxlength="30" placeholder="Titulo de tu opinion..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="valoracion">Valoracion </label><select id="nota" class="col-9" name="valoracion" id=""><option value="5">5 estrellas</option><option value="4">4 estrellas</option><option value="3">3 estrellas</option><option value="2">2 estrellas</option><option value="1">1 estrella</option></select></div><div class="col-12 row descripcionContainer"><label class="col-3" for="descripcion">Descripcion</label><textarea id="descripcion" class="col-9 no-margin-row descripcionInput" type="text" name="descripcion" minlength="50" maxlength="400" placeholder="Describe tu opinion..." required></textarea></div><button class="boton_simple" id="btnEnviar" onclick="enviarOpinion()">Enviar Opinion</button>`;
+    formulario.innerHTML = `<div class="flex-row col-12"><h3 class="TituloFormulario ">Escribe tu opinion</h3><div><p class="requisito">* Campo obligatorio </p><p class="requisito">** Minimo 50 caracteres </p></div></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="pedido">NºPedido*</label><input id="pedido" class="col-9" type="text" name="pedido" placeholder="ID de tu pedido..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="nombre">Nombre*</label><input id="nombre" class="col-9" type="text" name="nombre" maxlength="20" placeholder="Escribe tu nombre..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="titulo">Titulo*</label><input id="titulo" class="col-9" type="text" name="titulo" maxlength="30" placeholder="Titulo de tu opinion..." required></div><div class="col-12 col-md-10 col-lg-6 row"><label class="col-3" for="valoracion">Valoracion* </label><select id="nota" class="col-9" name="valoracion" id=""><option value="5">5 estrellas</option><option value="4">4 estrellas</option><option value="3">3 estrellas</option><option value="2">2 estrellas</option><option value="1">1 estrella</option></select></div><div class="col-12 row descripcionContainer"><label class="col-3" for="descripcion">Descripcion**</label><textarea id="descripcion" class="col-9 no-margin-row descripcionInput" type="text" name="descripcion" minlength="50" maxlength="400" placeholder="Describe tu opinion... " required></textarea></div><button class="boton_simple" id="btnEnviar" onclick="enviarOpinion()">Enviar Opinion</button>`;
     
     // Creacion del Boton para mostrar las reseñas
     const boton = document.createElement('button');
@@ -104,8 +104,8 @@ function enviarOpinion() {
     let valoracion = document.getElementById('nota').value; 
     let descripcion = document.getElementById('descripcion').value;
 
-    // Comprueba que el formulario cumple los requisitos de longitud y que no se envia vacio ningun campo
-    if(numeroPedido != "" && nombre != "" && tituloOpinion != "" && descripcion != "" && descripcion.length >= 50 && tituloOpinion.length >= 3 && nombre.length >= 2) {
+    // Comprueba que el formulario cumple los requisitos de longitud y que no se envia ningun campo vacio
+    if(numeroPedido != "" && nombre != "" && tituloOpinion != "" && descripcion != "" && descripcion.length >= 50) {
         // Crea un array con todas las variables anteriores
         let data = {
             numeroPedido: numeroPedido,
@@ -116,6 +116,17 @@ function enviarOpinion() {
         };
         console.log(data); // Muestra por consola los datos enviados
         let jsonData = JSON.stringify(data); // Convierte el array data en una cadena de texto de tipo JSON
+
+        // Se crea la variable fechaActual de tipo fecha para obtener la fecha actual.
+        const fechaActual = new Date();
+
+        // Variables para obtener el año , el mes y el dia
+        const año = fechaActual.getFullYear(); // Obtiene el año
+        const mes = String(fechaActual.getMonth() + 1).padStart(2, '0'); // Obtiene el mes y se agrega 1 ya que los meses van de 0 a 11
+        const dia = String(fechaActual.getDate()).padStart(2, '0'); // Obtiene el dia
+
+        // Se formatea la fecha en el formato YYYY-MM-DD
+        const fechaFormateada = `${año}-${mes}-${dia}`;
 
         // Llama a la API con una accion para agregar una nueva opinion
         fetch('http://pitstop.com/?controlador=api&accion=nueva_opinion', { 
@@ -128,18 +139,19 @@ function enviarOpinion() {
         .then(opinion => opinion.json())
         .then(resultado => {
             console.log(resultado); // Muestra resultado
-            opiniones.append({
-                numeroPedido: data.numeroPedido,
+            opiniones.push({ // Añade la nueva opinion al array opiniones
+                pedido_id: data.numeroPedido,
                 autor: data.nombre,
                 titulo: data.tituloOpinion,
-                valoracion: data.valoracion,
-                comentario: data.descripcion
+                nota: data.valoracion,
+                comentario: data.descripcion,
+                fecha: fechaFormateada
             });
-            mostrarReseñas(opiniones);
+            mostrarReseñas(opiniones); // Muestra de nuevo el array opiniones con la nueva opinion
         }).catch(e => console.log(e));
         
     } else {
-        console.log("El formulario no cumple los requisitos");
+        console.log("El formulario no cumple los requisitos"); // En caso de que el formulario no cumpla los requisitos
     }
     
 }
