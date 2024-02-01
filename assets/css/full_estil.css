@@ -37,6 +37,11 @@ a {
   text-decoration: none;
 }
 
+
+.texto {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
 .boton_simple { /* Boton cuadrado con fondo negro y letra blanca*/
   background: none;
   display: flex;

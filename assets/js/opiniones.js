@@ -26,17 +26,20 @@ function filtrar() {
     // Si los valores se encuentran por defecto se muestran todas las reseñas
     if (valorNota === '0' && valorOrden === 'original') {
         mostrarReseñas(opiniones); // Llama a la funcion mostrarReseñas con todas las reseñas
-        console.log("Entra");
+        
     } else {
         // Ifs para determinar los valores seleccionados
-        if(valorNota === '0' && valorOrden === 'positivas') { // En caso de querer ordenar por orden ascendente
+        if(valorNota === '0' && valorOrden === 'negativas') { // En caso de querer ordenar por orden ascendente
             const opinionesFiltradas = opiniones.sort((a,b) => a.nota - b.nota);
+            notie.alert({ type: 'info', text: 'Filtrado por orden ascendente', position: 'bottom', time: 2 });  // Alerta NotieJS
             mostrarReseñas(opinionesFiltradas); // Llama a la funcion mostrarReseñas con las reseñas ordenadas por nota
-        } else if(valorNota === '0' && valorOrden === 'negativas'){ // En caso de querer ordenar por orden descendente
+        } else if(valorNota === '0' && valorOrden === 'positivas'){ // En caso de querer ordenar por orden descendente
             const opinionesFiltradas = opiniones.sort((a,b) => b.nota - a.nota);
+            notie.alert({ type: 'info', text: 'Filtrado por orden descendente', position: 'bottom', time: 2 });  // Alerta NotieJS
             mostrarReseñas(opinionesFiltradas); // Llama a la funcion mostrarReseñas con las reseñas ordenadas por nota
         } else { // En caso de querer filtrar por nota
             const opinionesFiltradas = opiniones.filter(opinion => opinion.nota == valorNota);
+            notie.alert({ type: 'info', text: "Filtrado por nota", position: 'bottom', time: 2 }); // Alerta NotieJS
             mostrarReseñas(opinionesFiltradas); // Llama a la funcion mostrarReseñas con las reseñas filtradas por nota
         }
     }
@@ -148,9 +151,11 @@ function enviarOpinion() {
                 fecha: fechaFormateada
             });
             mostrarReseñas(opiniones); // Muestra de nuevo el array opiniones con la nueva opinion
+            notie.alert({ type: 1, text: 'Opinion enviada correctamente', position: 'bottom', time: 3 });  // Alerta NotieJS
         }).catch(e => console.log(e));
         
     } else {
+        notie.alert({ type: 3, text: 'Error, rellena todos los campos', position: 'bottom', time: 2 })
         console.log("El formulario no cumple los requisitos"); // En caso de que el formulario no cumpla los requisitos
     }
     

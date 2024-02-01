@@ -60,7 +60,7 @@
                         <?php $pos++; } ?>
                     </div>
                     <div class="col-12 col-md-10 col-lg-4 resumen-carrito">
-                        <div>
+                        <div class="fondoSeccion">
                             <div class="flex-row">
                                 <p class="title-resumen-carrito">TU SELECCIÓN</p>
                                 <?php if(isset($_COOKIE['UltimoPedido'])) { ?>
@@ -92,12 +92,52 @@
                                 <?php } ?>
                             </table>
                         </div>
-                        <div>
-                            <div class="div-precio-total">
-                                <div class="texto-precio-total">Total Selección:</div>
-                                <div class="precio-total"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
+                        <div class="fondoSeccion">
+                            <div class="div-precio-total marginY row no-margin-row">
+                                <div class="col-6 texto-precio-total">Total Selección:</div>
+                                <div class="col-6 precio-total flex-end"><?= number_format($precioTotal, 2,',','.') ?> €<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
-                            <div>
+                        </div>
+                        <div class="fondoSeccion seccion-independiente">
+                            <div class="flex-row">
+                                <p class="title-resumen-carrito">PUNTOS FIDELIDAD</p>
+                            </div>
+                            <div class="product-line"></div>
+                            <div class="div-precio-total row no-margin-row">
+                                <p class="col-8 texto-puntos">Dispones de:</p>
+                                <p class="col-4 texto-puntos flex-end"><?php echo $_SESSION['usuario']['puntos'] ?> puntos</p>
+                                <p class="col-8 texto-puntos">Con esta compra recibes:</p>
+                                <p class="col-4 texto-puntos flex-end"><?= $precioTotal / 0.1?> puntos</p>
+                                <input type="hidden" id="puntosObtenidos" name="puntos" value="<?=$precioTotal / 0.1?>">
+                                <div class="flex-row">
+                                    <p class="texto-puntos">Utilizar </p>
+                                    <input class="inputPropina" type="number" id="puntos" min="0" step="100" size="5" value="0" />
+                                    <p class="texto-puntos">puntos en esta compra</p>
+                                </div>
+                                
+                            </div>
+                            <div class="containerLetraPequeña">
+                                <p class="letraPequeña">Obtienes 10 puntos por cada euro gastado que se acumularan en tu cuenta. Puedes utilizar tus puntos en tus compras, cada 100 puntos gastados obtienes 1€ de descuento</p>
+                            </div>
+                        </div>
+                        <div class="fondoSeccion seccion-independiente">
+                            <div class="flex-row">
+                                <p class="title-resumen-carrito">FINALIZAR COMPRA</p>
+                            </div>
+                            <div class="product-line"></div>
+                            <div class="div-precio-total propina">
+                                <div class="flex-row">
+                                    <p class="texto-puntos"> Propina:</p>
+                                    <input class="inputPropina" type="number" id="propina" min="0" max="100" step="5" size="2" value="3" onclick="actualizarPropina(<?=$precioTotal?>)" />
+                                    <p class="texto-puntos">%  </p>
+                                </div>
+                                <div id="propinaTotal">Propina</div>
+                                <button class="boton_simple" onclick="omitirPropina()">Omitir propina</button>
+                            </div>
+                            <div class="div-precio-total marginY row no-margin-row">
+                                <div class="col-6 texto-precio-total">Importe total:</div>
+                                <div class="col-6 precio-total flex-end"><?= number_format($precioTotal, 2,',','.')?> €<span class="iva-precio-total">IVA incluido</span></div>
+                            </div>
                             <form class="container-btnInclinado" action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
                                 <button class="btnInclinado">
                                     <div class="btnInclinado-textContainer">
@@ -108,11 +148,6 @@
                                     </div>
                                 </button>
                             </form>
-                        </div>
-                        <div>
-                            <label>Propina:</label>
-                            <input type="number" id="propina" min="0" max="100" step="5" value="3" />
-                            <button onclick="omitirPropina()">Omitir propina</button>
                         </div>
                     </div>
                 </div>
