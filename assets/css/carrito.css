@@ -123,9 +123,8 @@
     margin-top: 10px;
   }
   .tabla-carrito { /*Etiqueta utilizado sobre table*/
-    width: 85%;
-    margin-left: 30px;
-    margin-right: 30px;
+    min-width: 85%;
+    margin: auto;
   }
   
   .tabla-carrito td{ /*Aplica sobre los td de la clase tabla-carrito*/

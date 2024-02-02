@@ -20,6 +20,19 @@
             <p class="text-section">¡Disfruta de una amplia gama de productos con los que se te hara la boca agua!</p>
         </div>
     </div>
+    <!--Container de Filtrar-->
+    <div class="row no-margin-row seccion-filtrar">
+            <p class="col-12 filtrar-text">Filtrar por categoria:
+                <div class="flex-row col-12 row">
+                    <?php foreach ($categorias as $categoria) {?> 
+                        <div class="col-6 col-md-2 flex-center">
+                            <input type="checkbox" id="<?=$categoria->getNombre()?>" name="<?=$categoria->getNombre()?>" value="<?=$categoria->getNombre()?>">
+                            <label class="label-checkbox" for="<?=$categoria->getNombre()?>"><?=$categoria->getNombre()?></label> 
+                        </div>  
+                    <?php } ?>
+                </div>
+            </p>
+        </div>
     <!--Container Categorias-->
     <div class="row no-margin-row container-categories d-flex justify-content-center">
         <div class="col-12 col-md-10 category-header">

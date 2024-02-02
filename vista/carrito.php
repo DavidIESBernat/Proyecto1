@@ -10,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="assets/css/carrito.css" rel="stylesheet" type="text/css" media="screen">
-
 </head>
 <body class="bg-black">
     <div class="row no-margin-row secciones-carrito">
         <?php if($_SESSION['selecciones']){ ?>
-            <div class="col-12 col-md-12 col-lg-10 carrito">
+            <div class="col-12 col-md-12 col-lg-10 carrito" data-precio-total="<?= $precioTotal ?>">
                 <div class="fondo-carrito">
                     <div class="titulo-carrito">
                         <h1 class="">Carrito</h1>
@@ -111,10 +110,9 @@
                                 <input type="hidden" id="puntosObtenidos" name="puntos" value="<?=$precioTotal / 0.1?>">
                                 <div class="flex-row">
                                     <p class="texto-puntos">Utilizar </p>
-                                    <input class="inputPropina" type="number" id="puntos" min="0" step="100" size="5" value="0" />
+                                    <input class="inputPropina" type="number" id="puntos" min="0" step="100" size="2" value="0" oninput="" />
                                     <p class="texto-puntos">puntos en esta compra</p>
                                 </div>
-                                
                             </div>
                             <div class="containerLetraPequeña">
                                 <p class="letraPequeña">Obtienes 10 puntos por cada euro gastado que se acumularan en tu cuenta. Puedes utilizar tus puntos en tus compras, cada 100 puntos gastados obtienes 1€ de descuento</p>
@@ -128,15 +126,15 @@
                             <div class="div-precio-total propina">
                                 <div class="flex-row">
                                     <p class="texto-puntos"> Propina:</p>
-                                    <input class="inputPropina" type="number" id="propina" min="0" max="100" step="5" size="2" value="3" onclick="actualizarPropina(<?=$precioTotal?>)" />
+                                    <input class="inputPropina" type="number" id="propina" min="0" max="100" size="2" value="3" oninput="actualizarPropina(<?=$precioTotal?>)" />
                                     <p class="texto-puntos">%  </p>
                                 </div>
                                 <div id="propinaTotal">Propina</div>
-                                <button class="boton_simple" onclick="omitirPropina()">Omitir propina</button>
+                                <button class="boton_simple" onclick="omitirPropina(<?=$precioTotal?>)">Omitir propina</button>
                             </div>
                             <div class="div-precio-total marginY row no-margin-row">
                                 <div class="col-6 texto-precio-total">Importe total:</div>
-                                <div class="col-6 precio-total flex-end"><?= number_format($precioTotal, 2,',','.')?> €<span class="iva-precio-total">IVA incluido</span></div>
+                                <div class="col-6 precio-total flex-end" id="importeTotal"> 0,00€<span class="iva-precio-total">IVA incluido</span></div>
                             </div>
                             <form class="container-btnInclinado" action="<?=url?>?controlador=pedido&accion=confirmarPedido" method="POST">
                                 <button class="btnInclinado">
@@ -164,6 +162,6 @@
     </div>
     <div class="section-footer-bottom"></div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/propina.js"></script>
+    <script src="assets/js/propinaYpuntos.js"></script>
 </body>
 </html>

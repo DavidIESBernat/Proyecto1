@@ -95,6 +95,25 @@
     transition: transform 0.5s ease-in-out;
   }
 
+  .seccion-filtrar {
+    background-color: var(--bg-color1);
+    min-height: 50px;
+}
+.filtrar-text {
+  color: var(--bg-color0);
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.label-checkbox{
+  color: var(--bg-color0);
+  margin-left: 3px;
+}
   /*--------------------------------------*/
 
    /*---Boton para añadir producto al carrito---*/
