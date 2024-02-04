@@ -56,5 +56,27 @@ class apiControlador{
             echo json_encode(['error' => 'Faltan valores'], JSON_UNESCAPED_UNICODE);
         }
     }
+
+    public function guardarPropina() {
+        // Obtiene los datos enviados
+        $data = json_decode(file_get_contents("php://input"));
+    
+        // Comprueba que los datos obtenidos son válidos
+        if (isset($data->porcentajePropina)) {
+            // Lógica para guardar la propina en la base de datos o realizar otras operaciones necesarias
+            // Puedes llamar a funciones de un modelo (por ejemplo, propinaDAO::guardarPropina()) según tu estructura
+            // Aquí se asume que propinaDAO es un modelo que maneja la lógica de la base de datos para la propina
+            propinaDAO::guardarPropina(
+                $data->porcentajePropina,
+                // Aquí puedes agregar más datos relacionados con la propina si es necesario
+            );
+            // Mensaje que se recibe por consola indicando que se ha guardado correctamente
+            echo json_encode(['message' => 'Propina guardada con éxito'], JSON_UNESCAPED_UNICODE);
+        } else {
+            // Devuelve una respuesta de error en caso de faltar datos
+            http_response_code(400); 
+            echo json_encode(['error' => 'Faltan valores'], JSON_UNESCAPED_UNICODE);
+        }
+    }
 }
 ?>

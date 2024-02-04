@@ -46,7 +46,7 @@ class pedidoDAO {
         header("Location:".url.'?controlador=producto&accion=carta#0'.$id); // Vuelve a la posicion de la carta donde nos encontrabamos
     }
 
-    // Devuelve el precio total de todos los pedidos
+    // Devuelve el precio total de todos los productos del pedido
     public static function precioTotalPedido() { 
         // Variables declaradas como 0     
         $precioTotal = 0;
@@ -62,17 +62,36 @@ class pedidoDAO {
         return $precioTotalConjunto; // Devuelve precio total de todos los productos de la sesion
     }
 
-    public static function confirmarPedido() {
+    // Devuelve el importe total de todos los productos + la propina añadida a este pedido
+    public static function importeTotal($porcentajePropina) { 
+        // Variables declaradas como 0     
+        $precioTotal = 0; 
+        $precioTotalConjunto = 0;
+
+        // Bucle para recorrer el array de la session y guardar en $pedido sus array indexadas
+        foreach ($_SESSION['selecciones'] as $pedido) {
+            $precio = $pedido->getProducto()->getPrecio(); // Guarda el precio de el producto actual
+            $cantidad = $pedido->getCantidad(); // Guarda la cantidad del mismo producto
+            $precioTotal = $precio * $cantidad; // Multiplica el precio por la cantidad de productos añadidos
+            $precioTotalConjunto = $precioTotalConjunto + $precioTotal; // Autosuma los precios anteriores con el valor total
+            $propinaCalculada = ($precioTotal * $porcentajePropina) / 100; // calcula el porcentaje de propina sobre el precio total de todos los productos
+
+
+            $importeTotal = $precioTotalConjunto + $propinaCalculada; // Importe final sumando el precio total de los productos + la propina
+        }
+        return $importeTotal; // Devuelve el importe total
+    }
+
+    public static function confirmarPedido($porcentajePropina, $puntosGastados,$precioTotal,$importeTotal) {
         $idUsuario = $_SESSION['usuario']['idUsuario']; // Guarda el id de usuario de la sesion actual
         $fecha = date('Y-m-d'); // Obtiene y guarda la fecha en formato año-mes-dia
-        $precioTotal = pedidoDAO::precioTotalPedido(); // Obtiene el precio total del pedido
+        //$importeTotal = pedidoDAO::importeTotal($porcentajePropina);
 
         // Conexion con la base de datos
         $con = dataBase::connect();
-        // Crea la query para insertar una nueva entrada en la tabla pedido
-        $query = "INSERT INTO PEDIDO (idUsuario, precioTotal, fecha) VALUES (?, ?, ?)";
+        $query = "INSERT INTO PEDIDO (idUsuario, precioTotal, fecha, porcentajePropina, puntos, importeTotal) VALUES (?, ?, ?, ?, ?, ?)"; // Crea la query para insertar una nueva entrada en la tabla pedido
         $consulta = $con->prepare($query); // Prepara la conexion de esa query
-        $consulta->bind_param("ids", $idUsuario, $precioTotal, $fecha);
+        $consulta->bind_param("idsiid", $idUsuario, $precioTotal, $fecha, $porcentajePropina, $puntosGastados, $importeTotal);
         $consulta->execute(); // Ejecuta la Query
 
         $idPedido = $consulta->insert_id;  // Obtener el ID del nuevo pedido creado
@@ -106,6 +125,7 @@ class pedidoDAO {
         header("Location:".url.'?controlador=usuario&accion=ultimasCompras'); 
 
     }
+
     // Funcion para obtener todos los pedidos de un usuario con sus respectivos productos
     public static function cargarPedido() {
         $pedidosArray = [];

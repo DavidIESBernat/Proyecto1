@@ -10,6 +10,7 @@ class Usuario {
     private $numeroTlf;
     private $direccion;
     private $poblacion;
+    private $puntos;
 
     public function __construct(){}
 
@@ -189,6 +190,26 @@ class Usuario {
     public function setPoblacion($poblacion)
     {
         $this->poblacion = $poblacion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of puntos
+     */ 
+    public function getPuntos()
+    {
+        return $this->puntos;
+    }
+
+    /**
+     * Set the value of puntos
+     *
+     * @return  self
+     */ 
+    public function setPuntos($puntos)
+    {
+        $this->puntos = $puntos;
 
         return $this;
     }

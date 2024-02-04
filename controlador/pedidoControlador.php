@@ -11,7 +11,6 @@ class pedidoControlador {
         header("Location:".url."?controlador=producto");
     }
 
-    /* Funcion para eliminar un producto de la sesion que se muestra en el carrito*/
     //Funcion para acceder al carrito, modificar cantidad de productos y eliminarlos.
     public function carrito() {
         session_start(); 
@@ -36,6 +35,10 @@ class pedidoControlador {
             $_SESSION['selecciones'] = array_values($_SESSION['selecciones']); // Reindexar el array
         } 
         
+        if(isset($_SESSION['usuario'])) {
+            $idUsuario = $_SESSION['usuario']['idUsuario'];
+            $usuario = usuarioDAO::ObtenerUsuarioPorId($idUsuario); // Obtiene el usuario por id
+        }
         $precioTotal = pedidoDAO::precioTotalPedido(); // Obtener el precio total de todos los productos
         // Header
         $cantidadCarrito = pedidoDAO::cantidadTotalProductos(); // Obtiene la cantidad de productos añadidos al carrito
@@ -58,7 +61,19 @@ class pedidoControlador {
         session_start();
         // Te almacena el pedido en la base de datos PedidoDAO que guarda el pedido en la BBDD
         if(isset($_SESSION['usuario'])) {
-            pedidoDAO::confirmarPedido();
+            $idUsuario = $_SESSION['usuario']['idUsuario']; // Obtiene el id de usuario actual
+            $data = json_decode(file_get_contents("php://input"));
+            // Comprueba que los datos son validos
+            if (isset($data->porcentajePropina, $data->precioTotal, $data->puntosObtenidos, $data->puntosGastados, $data->precioTotalFinal)) {
+
+                pedidoDAO::confirmarPedido($data->porcentajePropina, $data->puntosGastados, $data->precioTotal, $data->precioTotalFinal); // Confirmar el pedido actual
+                usuarioDAO::modificarPuntos($data->puntosObtenidos, $data->puntosGastados, $idUsuario); // Sumar los puntos obtenidos al usuario actual
+
+                echo json_encode(['message' => 'Pedido realizado', 'redirect' => $url.'?controlador=pedido&accion=carrito'], JSON_UNESCAPED_UNICODE); // Envia mensaje satisfactorio
+            } else {
+                http_response_code(400); // Devuelve un error si faltan datos
+                echo json_encode(['error' => 'Faltan valores'], JSON_UNESCAPED_UNICODE);
+            }
         } else {
             header("Location:".url.'?controlador=usuario&accion=login');
         }

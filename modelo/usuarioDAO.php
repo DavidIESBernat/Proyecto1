@@ -131,5 +131,27 @@ class usuarioDAO {
         $con->close(); // Cierra la conexion
         
     }
+
+    // Funcion que modifica los puntos de el usuario que se indica
+    public static function modificarPuntos($puntosObtenidos,$puntosGastados,$idUsuario) {
+        $con = dataBase::connect(); // Conexion con la base de datos
+
+            // Obtiene los puntos actuales del usuario
+            $consulta = $con->prepare("SELECT puntos FROM USUARIO WHERE idUsuario = ?");
+            $consulta->bind_param("i", $idUsuario);
+            $consulta->execute(); // Ejecuta la consulta
+            $resultado = $consulta->get_result();
+            $puntosActuales = $resultado->fetch_assoc()['puntos'];
+
+            // Suma de los puntos actuales + los puntos recibidos y los puntos gastados
+            $puntos = $puntosObtenidos - $puntosGastados;
+            $puntosTotales =  $puntosActuales + $puntos;
+
+            // Consulta para modificar el campo puntos del usuario
+            $consulta = $con->prepare("UPDATE USUARIO SET puntos = ? WHERE idUsuario = ?"); 
+            $consulta->bind_param("di", $puntosTotales, $idUsuario);
+            $consulta->execute(); // Ejecuta la consulta
+            $con->close(); // Cierra la conexion
+    }
 }
 ?>
