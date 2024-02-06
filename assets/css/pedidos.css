@@ -10,6 +10,16 @@
     font-weight: 700;
 }
 
+.buttonPedido {
+    color: var(--bg-color5);
+}
+
+.buttonPedido:hover {
+    color: var(--bg-color0);
+}
+.buttonPedido:hover .pedidoInfo {
+    background-color: var(--bg-color1);
+}
 .textProducto{
     font-size: 12pt;
     font-weight: 600;
@@ -53,6 +63,18 @@
     background-color: var(--bg-color0); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transform: translateY(-3px); 
+
+}
+
+.pedidoInfoInferior {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: auto;
+    height: 50px;
+    background-color: var(--bg-color0); 
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); 
+    transform: translateY(3px); 
 
 }
 

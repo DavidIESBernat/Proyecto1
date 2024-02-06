@@ -22,15 +22,17 @@
                 </div>
                 <?php foreach($pedidos as $pedido) { ?>
                     <div class="row no-margin-row pedido">
-                        <div class="col-12 col-md-8 col-lg-12 pedidoInfo">
-                            <div class="text-align-center fecha textPedido">Fecha: <?= date('d-m-Y', strtotime($pedido->fecha)) ?></div>
-                            <div class="text-align-center textPedido">Pedido n.º<?=$pedido->idPedido?></div>
-                            <div class="text-align-center precioTotal textPedido">Total: <?=number_format($pedido->precioTotal, 2,',','.')?>€</div>
-                        </div>
+                        <a class="col-12 buttonPedido" href="<?=url.'?controlador=pedido&accion=mostrarPedido&num='.$pedido->idPedido?>">
+                            <div class="pedidoInfo">
+                                <div class="text-align-center fecha textPedido">Fecha: <?= date('d-m-Y', strtotime($pedido->fecha)) ?></div>
+                                <div class="text-align-center textPedido">Pedido n.º<?=$pedido->idPedido?></div>
+                                <div class="text-align-center precioTotal textPedido">Total: <?=number_format($pedido->precioTotal, 2,',','.')?>€</div>  
+                            </div>
+                        </a>
                         <div class="row no-margin-row">
                             <?php foreach($productosPedido as $productoPedido) {
                                 if($productoPedido->idPedido == $pedido->idPedido) { ?>
-                                    <div class="col-12 col-md-8 col-lg-6 producto">
+                                    <div class="col-12 col-lg-6 producto">
                                     <?php foreach($productos as $producto) {
                                         if($producto->getId() == $productoPedido->idProducto) { ?>
                                             <div class="imagen" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>

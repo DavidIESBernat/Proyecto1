@@ -100,6 +100,31 @@ class pedidoControlador {
             header("Location:".url.'?controlador=usuario&accion=login');
         }
     }
+
+    public function mostrarPedido() {
+        session_start();
+        
+        if(isset($_SESSION['usuario'])) { // Comprueba que se ha iniciado sesion
+            $idPedido = $_GET['num'];
+            $pedido = pedidoDAO::mostrarPedido($idPedido);
+            // Comprueba que el pedido existe
+            if($pedido != null) {
+                $productosPedido = pedidoDAO::productosPedido($idPedido); // Productos del pedido
+                $productos = productoDAO::obtenerProductos(); // Todos los productos de la carta
+                // Header
+                $cantidadCarrito = pedidoDAO::cantidadTotalProductos(); // Cantidad de productos en el carrito
+                include_once 'vista/header.php';
+                // Main
+                include_once 'vista/pedido.php';
+                // Footer
+                include_once 'vista/footer.php';
+            } else {
+                header("Location:".url.'?controlador=pedido&accion=cargarPedido');
+            }
+        } else {
+            header("Location:".url.'?controlador=usuario&accion=login');
+        }
+    }
     // Funcion para recuperar el ultimo pedido de la cookie
     public static function ultimoPedido() { 
         session_start();

@@ -178,6 +178,56 @@ class pedidoDAO {
         $con->close();
     }
 
+     // Funcion que obtiene un pedido
+     public static function mostrarPedido($idPedido) {
+        $idUsuario = $_SESSION['usuario']['idUsuario']; // Guarda el id de usuario de la sesión actual
+    
+        // Conexion con la base de datos
+        $con = dataBase::connect();
+    
+        // Crea la query para insertar una nueva entrada en la tabla pedido
+        $query = "SELECT * FROM PEDIDO WHERE idUsuario = ? AND idPedido = ?";
+        $consulta = $con->prepare($query); // Prepara la conexión de esa query
+        $consulta->bind_param("ii", $idUsuario, $idPedido);
+        $consulta->execute();
+    
+        // Obtiene los resultados
+        $resultadoPedido = $consulta->get_result();
+        $pedido = $resultadoPedido->fetch_object();
+        return $pedido;
+        // Cerrar la conexión con la base de datos (colocado después del return para que siempre se cierre)
+        $con->close();
+     }
+
+     // Funcion que obtiene todos los productos de un pedido
+    public static function productosPedido($idPedido) {
+        $productos = [];
+
+        // Conexion con la base de datos
+        $con = dataBase::connect();
+
+        // Crea una nueva consulta para obtener los productos asociados a este pedido
+        $query = "SELECT * FROM PEDIDOPRODUCTO WHERE idPedido = ?";
+        $consultaProductos = $con->prepare($query);
+        $consultaProductos->bind_param("i", $idPedido);
+        $consultaProductos->execute();
+
+        // Obtener los resultados de productos como objetos
+        $resultadoProductos = $consultaProductos->get_result();
+
+        // Bucle para recorrer los productos asociados al pedido
+        while ($producto = $resultadoProductos->fetch_object()) {
+            // Almacena los valores de productos en un objeto con su idPedido
+            $productos[] = $producto;
+        }
+
+        // Devuele el array de productos
+        return $productos;
+    
+        // Cerrar la conexión con la base de datos (colocado después del return para que siempre se cierre)
+        $con->close();
+    }
+
     // Calcula la cantidad total de productos en el array y devuelve su posicion
     public static function cantidadTotalProductos() {
         if(isset($_SESSION['selecciones']) && count($_SESSION['selecciones']) >= 1) {
