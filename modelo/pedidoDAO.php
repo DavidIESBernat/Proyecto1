@@ -89,7 +89,7 @@ class pedidoDAO {
 
         // Conexion con la base de datos
         $con = dataBase::connect();
-        $query = "INSERT INTO PEDIDO (idUsuario, precioTotal, fecha, porcentajePropina, puntos, importeTotal) VALUES (?, ?, ?, ?, ?, ?)"; // Crea la query para insertar una nueva entrada en la tabla pedido
+        $query = "INSERT INTO pedido (idUsuario, precioTotal, fecha, porcentajePropina, puntos, importeTotal) VALUES (?, ?, ?, ?, ?, ?)"; // Crea la query para insertar una nueva entrada en la tabla pedido
         $consulta = $con->prepare($query); // Prepara la conexion de esa query
         $consulta->bind_param("idsiid", $idUsuario, $precioTotal, $fecha, $porcentajePropina, $puntosGastados, $importeTotal);
         $consulta->execute(); // Ejecuta la Query
@@ -99,7 +99,7 @@ class pedidoDAO {
 
 
         // Crea la query para insertar una nueva entrada en la tabla pedido
-        $query = "INSERT INTO PEDIDOPRODUCTO (idPedido, idProducto, cantidad, precio) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO pedidoproducto (idPedido, idProducto, cantidad, precio) VALUES (?, ?, ?, ?)";
         $consultaProducto = $con->prepare($query); // Prepara la conexion de esa query
         // Obtiene los productos actuales añadidos al carrito recorriendo la session
         foreach ($_SESSION['selecciones'] as $pedido) {
@@ -136,7 +136,7 @@ class pedidoDAO {
         $con = dataBase::connect();
     
         // Crea la query para insertar una nueva entrada en la tabla pedido
-        $query = "SELECT * FROM PEDIDO WHERE idUsuario = ?";
+        $query = "SELECT * FROM pedido WHERE idUsuario = ?";
         $consulta = $con->prepare($query); // Prepara la conexión de esa query
         $consulta->bind_param("i", $idUsuario);
         $consulta->execute();
@@ -150,7 +150,7 @@ class pedidoDAO {
             $pedidosArray[] = $pedido;
     
             // Crea una nueva consulta para obtener los productos asociados a este pedido
-            $query = "SELECT * FROM PEDIDOPRODUCTO WHERE idPedido = ?";
+            $query = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
             $consultaProductos = $con->prepare($query);
             $consultaProductos->bind_param("i", $pedido->idPedido);
             $consultaProductos->execute();
@@ -186,7 +186,7 @@ class pedidoDAO {
         $con = dataBase::connect();
     
         // Crea la query para insertar una nueva entrada en la tabla pedido
-        $query = "SELECT * FROM PEDIDO WHERE idUsuario = ? AND idPedido = ?";
+        $query = "SELECT * FROM pedido WHERE idUsuario = ? AND idPedido = ?";
         $consulta = $con->prepare($query); // Prepara la conexión de esa query
         $consulta->bind_param("ii", $idUsuario, $idPedido);
         $consulta->execute();
@@ -207,7 +207,7 @@ class pedidoDAO {
         $con = dataBase::connect();
 
         // Crea una nueva consulta para obtener los productos asociados a este pedido
-        $query = "SELECT * FROM PEDIDOPRODUCTO WHERE idPedido = ?";
+        $query = "SELECT * FROM pedidoproducto WHERE idPedido = ?";
         $consultaProductos = $con->prepare($query);
         $consultaProductos->bind_param("i", $idPedido);
         $consultaProductos->execute();

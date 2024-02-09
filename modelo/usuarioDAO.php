@@ -28,7 +28,7 @@ class usuarioDAO {
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("SELECT * FROM USUARIO WHERE idUsuario = ?");
+        $consulta = $con->prepare("SELECT * FROM usuario WHERE idUsuario = ?");
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
@@ -59,7 +59,7 @@ class usuarioDAO {
 
         // Consulta base de datos
         $con = dataBase::connect(); // Conexion con la base de datos
-        $consulta = $con->prepare("SELECT * FROM USUARIO WHERE username = ?");
+        $consulta = $con->prepare("SELECT * FROM usuario WHERE username = ?");
         $consulta->bind_param("s", $username);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
@@ -89,7 +89,7 @@ class usuarioDAO {
     // Funcion para modificar un usuario desde la vista del perfil
     public static function modificarUsuario($username,$nombre,$apellido,$email,$telefono,$direccion,$poblacion) {
         $con = dataBase::connect();
-        $consulta = $con->prepare("UPDATE USUARIO SET nombre = ?, apellido = ?, email = ?, numeroTlf = ?, direccion = ?, poblacion = ? WHERE username = ?"); // Consulta para actualizar segun id
+        $consulta = $con->prepare("UPDATE usuario SET nombre = ?, apellido = ?, email = ?, numeroTlf = ?, direccion = ?, poblacion = ? WHERE username = ?"); // Consulta para actualizar segun id
         $consulta->bind_param("sssisss", $nombre, $apellido, $email, $telefono, $direccion, $poblacion, $username);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -104,7 +104,7 @@ class usuarioDAO {
 
         // Consulta base de datos
         $con = dataBase::connect(); // Conexion con la base de datos
-        $consulta = $con->prepare("SELECT * FROM USUARIO WHERE username = ?");
+        $consulta = $con->prepare("SELECT * FROM usuario WHERE username = ?");
         $consulta->bind_param("s", $username);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
@@ -119,7 +119,7 @@ class usuarioDAO {
         } else {
             // Registramos usuario en la base de datos
             $con = dataBase::connect();
-            $consulta = $con->prepare("INSERT INTO USUARIO(idUsuario,username,contraseña,nombre,apellido,email,numeroTlf,direccion,poblacion) VALUES (NULL, ?, ?, NULL, NULL, ?, NULL, NULL, NULL)"); // Consulta para actualizar segun id
+            $consulta = $con->prepare("INSERT INTO usuario(idUsuario,username,contraseña,nombre,apellido,email,numeroTlf,direccion,poblacion) VALUES (NULL, ?, ?, NULL, NULL, ?, NULL, NULL, NULL)"); // Consulta para actualizar segun id
             $consulta->bind_param("sss", $username, $password, $email);
             $consulta->execute(); // Ejecuta la consulta
             $con->close(); // Cierra la conexion
@@ -137,7 +137,7 @@ class usuarioDAO {
         $con = dataBase::connect(); // Conexion con la base de datos
 
             // Obtiene los puntos actuales del usuario
-            $consulta = $con->prepare("SELECT puntos FROM USUARIO WHERE idUsuario = ?");
+            $consulta = $con->prepare("SELECT puntos FROM usuario WHERE idUsuario = ?");
             $consulta->bind_param("i", $idUsuario);
             $consulta->execute(); // Ejecuta la consulta
             $resultado = $consulta->get_result();
@@ -148,7 +148,7 @@ class usuarioDAO {
             $puntosTotales =  $puntosActuales + $puntos;
 
             // Consulta para modificar el campo puntos del usuario
-            $consulta = $con->prepare("UPDATE USUARIO SET puntos = ? WHERE idUsuario = ?"); 
+            $consulta = $con->prepare("UPDATE usuario SET puntos = ? WHERE idUsuario = ?"); 
             $consulta->bind_param("di", $puntosTotales, $idUsuario);
             $consulta->execute(); // Ejecuta la consulta
             $con->close(); // Cierra la conexion

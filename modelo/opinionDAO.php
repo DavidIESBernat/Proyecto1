@@ -33,3 +33,4 @@ class opinionDAO {
         $con->close(); // Cierra la conexion
     }
 }
+?>

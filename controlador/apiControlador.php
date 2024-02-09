@@ -5,7 +5,7 @@ include_once 'modelo/usuarioDAO.php';
 include_once 'modelo/categoriaDAO.php';
 include_once 'modelo/Producto.php';
 include_once 'modelo/Pedido.php';
-include_once 'modelo/OpinionDAO.php';
+include_once 'modelo/opinionDAO.php';
 include_once 'modelo/Opinion.php';
 
 class apiControlador{    

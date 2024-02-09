@@ -27,7 +27,7 @@ class categoriaDAO {
     public static function obtenerCategoriaPorID($id) {
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("SELECT * FROM CATEGORIA WHERE id = ?");
+        $consulta = $con->prepare("SELECT * FROM categoria WHERE id = ?");
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
@@ -41,7 +41,7 @@ class categoriaDAO {
     /* Funcion para añadir una nueva categoria a la base de datos */
     public static function nuevaCategoria($nombre,$descripcion,$imagen) { // Añade una nueva categoria
         $con = dataBase::connect();
-        $consulta = $con->prepare("INSERT INTO CATEGORIA (id, nombre, descripcion, imagen) VALUES (NULL, ?, ?, ?)"); // Consulta para añadir una nueva categoria
+        $consulta = $con->prepare("INSERT INTO categoria (id, nombre, descripcion, imagen) VALUES (NULL, ?, ?, ?)"); // Consulta para añadir una nueva categoria
         $consulta->bind_param("sss", $nombre, $descripcion, $imagen);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -51,7 +51,7 @@ class categoriaDAO {
     public static function eliminarCategoriaPorID($id) {
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("DELETE FROM CATEGORIA WHERE id= ?"); // Consulta para eliminar un producto segun su id
+        $consulta = $con->prepare("DELETE FROM categoria WHERE id= ?"); // Consulta para eliminar un producto segun su id
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -61,7 +61,7 @@ class categoriaDAO {
     /* Funcion para editar una categoria de la base de datos segun su id*/
     public static function editarCategoriaPorID($id,$nombre,$descripcion,$imagen) {
         $con = dataBase::connect();
-        $consulta = $con->prepare("UPDATE CATEGORIA SET nombre = ?, descripcion = ?, imagen = ? WHERE id = ?"); // Consulta para actualizar segun id
+        $consulta = $con->prepare("UPDATE categoria SET nombre = ?, descripcion = ?, imagen = ? WHERE id = ?"); // Consulta para actualizar segun id
         $consulta->bind_param("sssi", $nombre, $descripcion, $imagen, $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion

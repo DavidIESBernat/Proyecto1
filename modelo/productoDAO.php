@@ -48,7 +48,7 @@ class productoDAO {
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos
     
-        $consulta = $con->prepare("SELECT * FROM PRODUCTO WHERE id = ?");
+        $consulta = $con->prepare("SELECT * FROM producto WHERE id = ?");
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $resultado = $consulta->get_result();
@@ -90,7 +90,7 @@ class productoDAO {
         // Con = conexion
         $con = dataBase::connect(); // Conexion con la base de datos
 
-        $consulta = $con->prepare("DELETE FROM PRODUCTO WHERE id= ?"); // Consulta para eliminar un producto segun su id
+        $consulta = $con->prepare("DELETE FROM producto WHERE id= ?"); // Consulta para eliminar un producto segun su id
         $consulta->bind_param("i", $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -100,7 +100,7 @@ class productoDAO {
     /* Funcion para editar un producto de la base de datos segun su id*/
     public static function editarProductoPorID($id,$nombre,$descripcion,$precio,$categoria,$imagen,$ml) { // Editar un producto
         $con = dataBase::connect();
-        $consulta = $con->prepare("UPDATE PRODUCTO SET nombre = ?, descripcion = ?, precio = ?, categoria = ?, imagen = ?, ml = ? WHERE id = ?"); // Consulta para actualizar segun id
+        $consulta = $con->prepare("UPDATE producto SET nombre = ?, descripcion = ?, precio = ?, categoria = ?, imagen = ?, ml = ? WHERE id = ?"); // Consulta para actualizar segun id
         $consulta->bind_param("ssdssii", $nombre, $descripcion, $precio, $categoria, $imagen, $ml, $id);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion
@@ -109,7 +109,7 @@ class productoDAO {
     /*Añadir nuevo producto a la base de datos*/
     public static function nuevoProducto($nombre,$descripcion,$precio,$categoria,$imagen,$ml) { // Añade un nuevo producto
         $con = dataBase::connect();
-        $consulta = $con->prepare("INSERT INTO PRODUCTO (id, nombre, descripcion, precio, categoria, imagen, ml) VALUES (NULL, ?, ?, ?, ?, ?, ?)"); // Consulta para añadir un nuevo producto
+        $consulta = $con->prepare("INSERT INTO producto (id, nombre, descripcion, precio, categoria, imagen, ml) VALUES (NULL, ?, ?, ?, ?, ?, ?)"); // Consulta para añadir un nuevo producto
         $consulta->bind_param("ssdisi", $nombre, $descripcion, $precio, $categoria, $imagen, $ml);
         $consulta->execute(); // Ejecuta la consulta
         $con->close(); // Cierra la conexion

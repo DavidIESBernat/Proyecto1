@@ -2,7 +2,6 @@
 
  let idPedido = document.getElementById('idPedido').value;
  console.log(idPedido);
-
  var url= `http://pitstop.com/?controlador=pedido&accion=mostrarPedido&num=${idPedido}`;
 
         // Crear un objeto QRCode con la URL como contenido
