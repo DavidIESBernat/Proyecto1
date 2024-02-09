@@ -45,18 +45,21 @@
                         </div>
                     <?php } ?>
                 </div>
-                <div class="col-12 col-md-8 col-lg-12 pedidoInfoInferior">
+                <div class="col-12 pedidoInfoInferior">
                     <div class="text-align-center fecha textPedido">Puntos aplicados: <?=$pedido->puntos?></div>
                     <div class="text-align-center textPedido">Propina: <?=$pedido->porcentajePropina?>%</div>
                     <div class="text-align-center precioTotal textPedido">Importe Total: <?=number_format($pedido->importeTotal, 2,',','.')?>€</div>
                 </div>
             </div>
+            <div class="sectionQR col-12 pedidoInfoInferior">
+                <h4>Escanea el codigo QR para compartir el pedido actual</h4>
+                <div id="codigoQR"></div>
+            </div>
         </div>
-        <div id="qrcode">
-            <div>QR CODE</div>
-        </div>
+        
     </div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="assets/js/QR_API.js"></script>
 </body>
 </html>

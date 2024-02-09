@@ -110,6 +110,11 @@
   padding-bottom: 10px;
 }
 
+.filtrarCategoria {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 .label-checkbox{
   color: var(--bg-color0);
   margin-left: 3px;
@@ -176,3 +181,11 @@
     object-fit: cover;
   }
   /*------------*/
+
+    .boton_simple {
+      margin-top: 10px;
+    }
+    /*.boton_simple:hover {
+      background-color: var(--bg-color0);
+      color: var(--bg-color5);
+    }*/

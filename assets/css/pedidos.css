@@ -134,3 +134,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  .sectionQR {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 50px;
+    height: 250px;
+    margin: auto;
+    background-color: var(--bg-color0); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transform: translateY(-3px); 
+    padding-left: 25px;
+    padding-right: 25px;
+  }
