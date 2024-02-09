@@ -20,14 +20,14 @@
             <input type="hidden" name="idPedido" id="idPedido" value="<?=$idPedido?>">
         </div>
             <div class="row no-margin-row pedido">
-                <div class="col-12 col-md-8 col-lg-12 pedidoInfo">
+                <div class="col-12 pedidoInfo">
                     <div class="text-align-center fecha textPedido">Fecha: <?= date('d-m-Y', strtotime($pedido->fecha)) ?></div>
                     <div class="text-align-center textPedido">Pedido n.º<?=$idPedido?></div>
                     <div class="text-align-center precioTotal textPedido">Total productos: <?=number_format($pedido->precioTotal, 2,',','.')?>€</div>
                 </div>
                 <div class="row no-margin-row">
                     <?php foreach($productosPedido as $productoPedido) {?>
-                        <div class="col-12 col-md-8 col-lg-6 producto">
+                        <div class="col-12 col-lg-6 producto">
                         <?php foreach($productos as $producto) {
                             if($producto->getId() == $productoPedido->idProducto) { ?>
                                 <div class="imagen" style="background-image:url(assets/images/<?= $producto->getImagen() ?>)"></div>
