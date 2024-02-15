@@ -2,9 +2,17 @@
 let puntosDisponibles = document.getElementById('puntosActuales').value;
 
 // Porcentaje de propina
-let porcentajePropina = 3; // Por defecto 3
-porcentajePropina = document.getElementById("propina").value = localStorage.getItem('propina'); // Actualiza al ultimo valor que esta guardado en la localStorage de propina
+let porcentajePropina = 3 // Por defecto 3
 
+if (localStorage.getItem('propina') !== null) {
+    // Si existe, asigna el valor almacenado en la localStorage a la variable
+    porcentajePropina = document.getElementById("propina").value = localStorage.getItem('propina');
+  } else {
+    // Si no existe, asigna el valor por defecto de 3
+    porcentajePropina = 3;
+    document.getElementById("propina").value = 3;
+  }
+  
 // Variable global donde se guardan los puntos gastados
 let puntosGastados; 
 
