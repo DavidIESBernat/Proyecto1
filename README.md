@@ -93,7 +93,7 @@ En la sección de reseñas esta implementado NotieJS, una librería que muestra 
 
 ### Actualizar el carrito al realizar un pedido
 - **Problema:** Al readaptar el sistema con el que se envía la información del pedido a javascript no se muestra el carrito vació aunque si el pedido se ha realizado correctamente y recargamos con F5 este estará vació. 
-- **Solución:** No se ha encontrado ninguna solución por el momento.
+- **Solución:** Modificar el contenido de secciones-carrito haciendo uso de innerHTML para modificar el contenido al del carrito vacio.
 
 ### Mostrar una nueva reseña al ser añadida
 - **Problema:** Cuando se publicaba una nueva reseña esta no se mostraba en la lista de reseñas a no ser que se recargase la pagina. 

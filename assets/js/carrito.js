@@ -21,36 +21,50 @@ let precioTotalFinal;
 
 
 // En caso de pulsar sobre el boton Realizar pedido
-document.getElementById('realizarPedidoBtn').addEventListener('click', function(event) {
+document.getElementById('realizarPedidoBtn').addEventListener('click', function (event) {
     event.preventDefault();
+
     // Obtén la propina y otros datos necesarios
     let porcentajePropina = document.getElementById('propina').value;
     let puntosObtenidos = document.getElementById('puntosObtenidos').value;
     let precioTotal = document.getElementById('precioTotal').value;
+
     fetch('http://pitstop.com/?controlador=pedido&accion=confirmarPedido', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                porcentajePropina: porcentajePropina,
-                precioTotal: precioTotal,
-                puntosObtenidos: puntosObtenidos,
-                puntosGastados: puntosGastados,
-                precioTotalFinal: precioTotalFinal,
-            }),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            porcentajePropina: porcentajePropina,
+            precioTotal: precioTotal,
+            puntosObtenidos: puntosObtenidos,
+            puntosGastados: puntosGastados,
+            precioTotalFinal: precioTotalFinal
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Respuesta del servidor:', data);
-            if (data.redirect) {
-                // Redirige a la URL proporcionada en la respuesta
-                window.location.href = data.redirect;
+    })
+    .then(response => {
+        // Verifica si hay una redirección
+        if (response.redirected) {
+            console.log('Pedido realizado correctamente.');
+            console.log('Respuesta del servidor:', response);
+            const seccionesCarrito = document.querySelector('.secciones-carrito');
+            if (seccionesCarrito) {
+                // Modifica el contenido del elemento secciones-carrito
+                seccionesCarrito.innerHTML = `
+                    <div class="col-12 carrito-vacio">
+                        <h1>El carrito está vacío</h1>
+                        <a class="btnVaciar" href="http://pitstop.com?controlador=pedido&accion=ultimoPedido">Cargar Último Pedido</a>
+                    </div>
+                `;
             }
-        })
-        .catch(error => {
-            console.error('Error al enviar datos al servidor:', error);
-        });
+        } else {
+            console.log('Respuesta completa del servidor:', response);
+            return response.json();
+        }
+    })
+    .catch(error => {
+        console.error('Error al enviar datos al servidor:', error);
+    });
 });
 
 // Obtén el valor inicial de precioTotal al cargar la página
