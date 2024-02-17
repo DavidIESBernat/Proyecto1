@@ -1,8 +1,8 @@
 let opiniones; // letiable que contiene las diferentes reseñas que se guarden en ella.
  
-cargarProductos();
+obtenerReseñas();
 // Fetch a la API para obtener las opiniones de la base de datos.
-function cargarProductos(){
+function obtenerReseñas(){
     fetch("http://pitstop.com/?controlador=api&accion=mostrar_opiniones")
     .then(data => data.json())
     .then(data => {
