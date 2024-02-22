@@ -119,13 +119,13 @@ class usuarioDAO {
         } else {
             // Registramos usuario en la base de datos
             $con = dataBase::connect();
-            $consulta = $con->prepare("INSERT INTO usuario(idUsuario,username,contraseña,nombre,apellido,email,numeroTlf,direccion,poblacion) VALUES (NULL, ?, ?, NULL, NULL, ?, NULL, NULL, NULL)"); // Consulta para actualizar segun id
+            $consulta = $con->prepare("INSERT INTO usuario(idUsuario,username,contraseña,nombre,apellido,email,numeroTlf,direccion,poblacion,puntos) VALUES (NULL, ?, ?, NULL, NULL, ?, NULL, NULL, NULL, 0)"); 
             $consulta->bind_param("sss", $username, $password, $email);
             $consulta->execute(); // Ejecuta la consulta
             $con->close(); // Cierra la conexion
 
             // Redirige a la pagina login
-            header("Location:".url.'?controlador=usuario&accion=login');
+            header("Location:".url.'?controlador=usuario&accion=login&mensaje=registro');
             exit();
         }
         $con->close(); // Cierra la conexion

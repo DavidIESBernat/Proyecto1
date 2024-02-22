@@ -3,8 +3,10 @@
 
   .container-categories { /* Container de categorias*/
     display: flex;
+    justify-content: center;
     background-color:#F3F3F3;
     margin: auto;
+    max-width: 1440px;
   }
 
   .container-products { /* Container de productos*/
@@ -12,6 +14,7 @@
     justify-content: center;
     background-color:#F3F3F3;
     margin: auto;
+    max-width: 1440px;
   }
 
   /* Tamaño de la secciones categoria*/

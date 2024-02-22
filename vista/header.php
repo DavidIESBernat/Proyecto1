@@ -31,7 +31,7 @@
           <a class="nav-link botonHeaderText" href="<?=url.'?controlador=producto&accion=carta'?>">Carta</a>
         </li>
         <li class="nav-item nav-item-hover botonHeader">
-          <a class="nav-link botonHeaderText" href="<?=url.'?controlador=api&accion=mostrar_opiniones'?>">Calendario</a>
+          <a class="nav-link botonHeaderText">Calendario</a>
         </li>
         <li class="nav-item nav-item-hover botonHeader">
         <a class="nav-link botonHeaderText" href="<?=url.'?controlador=opinion&accion=opiniones'?>">Reseñas</a>

@@ -172,6 +172,10 @@ fill: var(--bg-color1) !important;
   color: var(--bg-color2);
 }
 
+.p-no-margin {
+  margin-bottom: 0px;
+}
+
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
   .title-section {

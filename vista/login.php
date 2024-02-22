@@ -15,6 +15,12 @@
 </head>
 <body>
     <div class="containerLogin">
+        <?php if(isset($_GET['mensaje']) == "registro") {
+            ?><div class="align-center messageContainer">
+                <h5>Usuario registrado correctamente</h5>
+                <p class="p-no-margin">Inicia sesion para continuar</p>
+            </div><?php
+        }?>
         <form class="formularioLogin" action="<?=url?>?controlador=usuario&accion=verificarLogin" method="POST">
             <h1 class="titulo_login">Iniciar sesión</h1>
             <div class="campo_texto">

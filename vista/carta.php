@@ -40,7 +40,7 @@
             </div>
             <!--Mostrar todas las Categorias-->
             <?php foreach ($categorias as $categoria) {?>
-                <a href="#<?= $categoria->getId()?>" class="col-4 card category">
+            <a href="#<?= $categoria->getId()?>" class="card category col-4">
                 <div class="product-image" aria-label="assets/images/<?= $categoria->getImagen()?>" style="background-image:url(assets/images/<?= $categoria->getImagen()?>)"></div>
                 <div class="card-body">
                     <div class="card-body-top">
@@ -52,7 +52,7 @@
                         <svg width="15" id="arrow_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg>
                     </div>
                 </div>
-                </a>
+            </a>
             <?php } ?>
         </div>
     <!--CONTAINER PRODUCTOS-->

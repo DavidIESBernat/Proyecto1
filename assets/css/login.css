@@ -103,3 +103,13 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.messageContainer {
+    max-width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--bg-color1);
+    color: var(--bg-color0);
+    flex-direction: column;
+    margin: auto;
+}

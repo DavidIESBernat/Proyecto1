@@ -15,6 +15,7 @@
 <body>
 <div class="row no-margin-row mainContainer">
     <div class="col-10 pedidoContainer">
+        <a href="<?=url.'?controlador=pedido&accion=cargarPedido'?>">Volver atras</a>
         <div class="tituloContainer">
             <h1 class="titulo">Pedido Nº<?=$idPedido?></h1>
             <input type="hidden" name="idPedido" id="idPedido" value="<?=$idPedido?>">
