@@ -52,8 +52,8 @@ document.getElementById('realizarPedidoBtn').addEventListener('click', function 
                 // Modifica el contenido del elemento secciones-carrito
                 seccionesCarrito.innerHTML = `
                     <div class="col-12 carrito-vacio">
-                        <h1>El carrito está vacío</h1>
-                        <a class="btnVaciar" href="http://pitstop.com?controlador=pedido&accion=ultimoPedido">Cargar Último Pedido</a>
+                        <h1>Pedido realizado correctamente</h1>
+                        <a class="btnVaciar" href="http://pitstop.com?controlador=pedido&accion=cargarPedido">Ver mis pedidos</a>
                     </div>
                 `;
             }

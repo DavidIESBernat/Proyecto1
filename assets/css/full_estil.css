@@ -176,6 +176,15 @@ fill: var(--bg-color1) !important;
   margin-bottom: 0px;
 }
 
+.btnHref {
+color: var(--bg-color1);
+font-weight: 600;
+}
+
+.btnHref:hover {
+  color: var(--bg-color5);
+}
+
 /*Maximo 1000px*/
 @media only screen and (max-width: 1000px) {
   .title-section {

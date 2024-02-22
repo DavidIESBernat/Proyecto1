@@ -19,6 +19,7 @@
             <div class="col-10 pedidoContainer">
                 <div class="tituloContainer">
                     <h1 class="titulo">Mis pedidos</h1>
+                    <a class="btnHref" href="<?=url.'?controlador=usuario&accion=perfil'?>">Volver atras</a>
                 </div>
                 <?php foreach($pedidos as $pedido) { ?>
                     <div class="row no-margin-row pedido">

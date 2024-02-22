@@ -16,6 +16,7 @@
     <div class="mainContainer row no-margin-row">
         <div class="tituloContainer col-12">
             <h1 class="tituloProducto"><?=$producto->getNombre()?></h1>
+            <a class="btnHref" href="<?=url.'?controlador=producto&accion=carta'?>">Volver atras</a>
         </div>
         <div class="productoContainer col-12 row no-margin-row">
             <img class="imagenProducto col-12 col-md-4" src="assets/images/<?=$producto->getImagen()?>" alt="<?=$producto->getImagen()?>">
